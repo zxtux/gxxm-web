@@ -1,6 +1,7 @@
 const data = {
     ssid: '',
     dataDictionary: [],
+    token: ''
 };
 
 export default {

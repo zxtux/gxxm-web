@@ -5,24 +5,16 @@
 </template>
 
 <script>
-
-
 export default {
     name: 'home',
     data() {
-        return {
-            
-        };
-    },
-    mounted() {
-        this.loading('地图初始化中...');
+        return {};
     },
 
     methods: {
         markersset() {
-            this.loadingInstance.close();
-        },
-        
+            // this.loadingInstance.close();
+        }
     }
 };
 </script>

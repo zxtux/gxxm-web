@@ -42,6 +42,16 @@ export default class http {
         });
         this.instance.interceptors.request.use(
             config => {
+                if (config.checkToken) {
+                    // checkToken()
+                    //     .then(() => {
+                    //         config.headers['Authorization'] = 'Token';
+                    //         config.headers['Token'] = getToken();
+                    //     })
+                    //     .catch(() => {
+                    //         checkout();
+                    //     });
+                }
                 const whiteList = ['SCM.TMS7.WebApi/Oauth/GetSsidFormCurrentContext'];
 
                 config.baseURL =
