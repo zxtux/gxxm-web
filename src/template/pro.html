@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head lang="zh-cn">
+        <meta charset="utf-8" />
+        <meta name="renderer" content="webkit" />
+        <meta name="renderer" content="webkit|ie-comp|ie-stand" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        />
+        <title>正式环境</title>
+        <script src="./js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript">
+            var Quantum = {};
+
+            var arr = window.location.host.split('.');
+            var str = arr[arr.length - 2] + '.' + arr[arr.length - 1];
+
+            document.domain = str;
+
+            Quantum.ResetIframeHeightAndWidth = function () {
+                var isCross = true;
+                try {
+                    var test = parent.window.location.host;
+                } catch (e) {
+                    isCross = false;
+                }
+                if (isCross && window.top != window.self) {
+                    var iframe = parent.document.getElementsByTagName('iframe');
+                    var i = iframe.length;
+                    var url = location.href;
+                    var ciframe = null;
+                    while (i--) {
+                        if (iframe[i].id == '') continue;
+                        if (iframe[i].contentWindow.location.href === url) {
+                            ciframe = iframe[i];
+                            break;
+                        }
+                    }
+                    if (ciframe != null) {
+                        var height = $(ciframe).parent().height() - 10;
+                        var width = $(ciframe).parent().width();
+                        $('body').width(width);
+                        $('body').height(height);
+                        $(ciframe).width(width);
+                        $(ciframe).height(height);
+                    }
+                }
+            };
+            window.onload = function () {
+                Quantum.ResetIframeHeightAndWidth();
+            };
+        </script>
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+</html>
