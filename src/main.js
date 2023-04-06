@@ -3,7 +3,6 @@ import router from '@/router/index';
 import App from '@/App';
 import Moment from 'moment';
 import ElementUI from 'element-ui';
-import BaiduMap from 'vue-baidu-map';
 import Http from '@/utils/request';
 import _ from 'lodash';
 import Qt from '@/components/qt';
@@ -17,14 +16,11 @@ import 'vxe-table/lib/index.css';
 import '@/assets/style/app.scss';
 
 Vue.http = Vue.prototype.$http = new Http();
-Vue.bus = Vue.prototype.$bus = new Vue();
 Vue.moment = Vue.prototype.$moment = Moment;
 Vue._ = Vue.prototype._ = _;
 Vue.tool = Vue.prototype.$tool = tool;
 
-Vue.use(ElementUI).use(VXETable).use(Qt).use(BaiduMap, {
-    ak: 'S6qq5mYQ0COHDAKkjrCX9VsQe09BYW60'
-});
+Vue.use(ElementUI).use(VXETable).use(Qt);
 
 window.vm = new Vue({
     router,

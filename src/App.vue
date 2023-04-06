@@ -1,5 +1,5 @@
 <template>
-    <router-view :key="$route.path" v-if="ssid"/>
+    <router-view :key="$route.path"/>
 </template>
 
 <script>
