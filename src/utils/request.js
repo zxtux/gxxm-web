@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Axios from 'axios';
 import Store from '@/stores/index';
 import { Loading } from 'element-ui';
+import { getToken, checkout, checkToken } from '@/utils/auth';
 
 const vm = new Vue();
 
@@ -43,27 +44,19 @@ export default class http {
         this.instance.interceptors.request.use(
             config => {
                 if (config.checkToken) {
-                    // checkToken()
-                    //     .then(() => {
-                    //         config.headers['Authorization'] = 'Token';
-                    //         config.headers['Token'] = getToken();
-                    //     })
-                    //     .catch(() => {
-                    //         checkout();
-                    //     });
+                    checkToken()
+                        .then(() => {
+                            config.headers['Authorization'] = 'Token';
+                            config.headers['Token'] = getToken();
+                        })
+                        .catch(() => {
+                            checkout();
+                        });
                 }
-                const whiteList = ['SCM.TMS7.WebApi/Oauth/GetSsidFormCurrentContext'];
-
                 config.baseURL =
                     process.env.NODE_ENV === 'production' ? window.location.origin : '';
 
-                if (
-                    whiteList.some(item => {
-                        return config.url.includes(item);
-                    }) === false
-                ) {
-                    config.data = { ...config.data, ...{ tk: Store.state.common.ssid } };
-                }
+                config.data = { ...config.data, ...{ tk: Store.state.common.ssid } };
 
                 return Promise.resolve(config);
             },

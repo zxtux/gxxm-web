@@ -1,25 +1,22 @@
 <template>
-    <router-view :key="$route.path"/>
+    <router-view :key="$route.path" />
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
     name: 'app',
-
     created() {
-        if (process.env.NODE_ENV === 'production') {
-            this.getSsid();
+        if (this.token) {
+            this.$router.push('home');
         } else {
-            if (!this.ssid) {
-                this.$router.push('login');
-            }
+            // this.$router.push('login');
         }
     },
 
     computed: {
-        ...mapState('common', ['ssid'])
+        ...mapState('common', ['token'])
     },
 
     mounted() {
@@ -29,17 +26,6 @@ export default {
     },
 
     methods: {
-        ...mapActions('common', ['setData']),
-
-        async getSsid() {
-            const res = await this.$http.fetchData({
-                url: 'SCM.TMS7.WebApi/Oauth/GetSsidFormCurrentContext',
-                type: 2
-            });
-
-            this.setData({ key: 'ssid', value: res.token, modules: 'common' });
-        },
-
         getVersion() {
             let log = [
                 {

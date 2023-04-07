@@ -1,6 +1,5 @@
 const data = {
     ssid: '',
-    dataDictionary: [],
     token: ''
 };
 
@@ -15,6 +14,11 @@ export default {
         init(state) {
             for (let i in data) {
                 state[i] = data[i];
+            }
+        },
+        clear(state) {
+            for (let i in state) {
+                delete state[i];
             }
         }
     },

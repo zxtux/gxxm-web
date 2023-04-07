@@ -1,95 +1,74 @@
 <template>
     <div>
-        222
+        <el-menu
+            :default-active="'BigScreenManagement'"
+            mode="horizontal"
+            @select="handleSelect"
+            background-color="#545c64"
+            text-color="#fff"
+            active-text-color="#ffd04b"
+            class="el-menu"
+        >
+            <div v-for="(item, index) in navs" :key="index">
+                <el-menu-item :index="item.id">{{ item.name }}</el-menu-item>
+            </div>
+        </el-menu>
+        <!-- <el-carousel indicator-position="outside">
+            <el-carousel-item v-for="item in 4" :key="item">
+                <h3>{{ item }}</h3>
+            </el-carousel-item>
+        </el-carousel> -->
+        <component :is="currentComp" :key="activeId"></component>
     </div>
 </template>
 
 <script>
+import index from './components/index.vue';
+import index1 from './components/index1.vue';
 export default {
     name: 'home',
     data() {
-        return {};
+        return {
+            navs: [
+                {
+                    id: 'BigScreenManagement',
+                    name: '大屏管理'
+                },
+                {
+                    id: 'LargeScreenGrouping',
+                    name: '大屏分组'
+                },
+                {
+                    id: 'MyBigScreen',
+                    name: '我的大屏'
+                },
+                {
+                    id: 'MapManage',
+                    name: '地图管理'
+                },
+                {
+                    id: 'LargescreenMaterial',
+                    name: '素材库'
+                }
+            ],
+            activeId: '',
+            currentComp: index
+        };
     },
 
     methods: {
-        markersset() {
-            // this.loadingInstance.close();
+        handleSelect(keyPath) {
+            this.activeId = keyPath;
+            if (this.activeId === 'LargeScreenGrouping') {
+                this.currentComp = index1;
+            }
         }
     }
 };
 </script>
 
 <style lang="scss" scoped>
-.view__content {
+.el-menu {
     display: flex;
-    .view__left {
-        ::v-deep {
-            .el-card__body {
-                padding: 0 20px;
-            }
-        }
-        padding: 10px 20px 100px 20px;
-        background-color: #fff;
-        width: 30vw;
-        min-width: 600px;
-        height: 100vh;
-        overflow: hidden;
-        &-menu {
-            margin: 0 0 20px 0;
-            padding-bottom: 10px;
-            display: flex;
-            border-bottom: 1px solid #ebeef5;
-            font-size: 0;
-            li {
-                flex: 1;
-                font-size: 16px;
-                span {
-                    color: #f00;
-                    font-weight: 600;
-                }
-                &:nth-of-type(2) {
-                    text-align: center;
-                }
-                &:last-of-type {
-                    text-align: right;
-                    i {
-                        color: #ff9400;
-                        font-size: 26px;
-                        cursor: pointer;
-                    }
-                }
-            }
-        }
-        .address__item-card {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 14px;
-        }
-    }
-    .view__right {
-        width: 70vw;
-        height: 100vh;
-        position: relative;
-        &-map {
-            width: 100%;
-            height: 100%;
-        }
-    }
-}
-.view__footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    height: 60px;
-    border-top: 1px solid #ebeef5;
-}
-.view__footer-placeholder {
-    width: 100%;
-    height: 60px;
 }
 </style>

@@ -1,15 +1,11 @@
-const Home = () => import('@/views/home');
-const Login = () => import('@/views/login');
-
 export default [
     {
         path: '/',
-        name: 'home',
-        component: Home
+        redirect: '/home'
     },
     {
-        path: '/login',
-        name: 'login',
-        component: Login
-    },
+        path: '/home',
+        name: 'home',
+        component: () => import('@/views/home/index.vue')
+    }
 ];

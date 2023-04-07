@@ -10,7 +10,7 @@ const store = new Vuex.Store({
 
     plugins: [
         persistedState({
-            key: 'manual-segmentation',
+            key: 'gxxm-web',
             reducer(state) {
                 return {
                     common: state.common

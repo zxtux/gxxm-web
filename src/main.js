@@ -5,7 +5,6 @@ import Moment from 'moment';
 import ElementUI from 'element-ui';
 import Http from '@/utils/request';
 import _ from 'lodash';
-import Qt from '@/components/qt';
 import 'xe-utils';
 import { VXETable } from 'vxe-table';
 import { tableFormats as TableFormats } from '@/utils/tableFormats';
@@ -20,7 +19,7 @@ Vue.moment = Vue.prototype.$moment = Moment;
 Vue._ = Vue.prototype._ = _;
 Vue.tool = Vue.prototype.$tool = tool;
 
-Vue.use(ElementUI).use(VXETable).use(Qt);
+Vue.use(ElementUI).use(VXETable);
 
 window.vm = new Vue({
     router,
@@ -33,4 +32,3 @@ Vue.config.performance = process.env.NODE_ENV !== 'production';
 Vue.config.devtools = true;
 
 VXETable.formats.mixin(TableFormats);
-
