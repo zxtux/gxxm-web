@@ -1,12 +1,12 @@
 <template>
     <div>
-        222
+        materials
     </div>
 </template>
 
 <script>
 export default {
-    name: 'home',
+    name: 'materials',
     data() {
         return {};
     },

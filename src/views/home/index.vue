@@ -1,12 +1,17 @@
 <template>
     <div>
+        <div class="topLogo">
+            <img src="@/assets/images/logo.png" />
+            <div class="title">流域暴雨洪水感知调控虚拟仿真实验</div>
+        </div>
+
         <el-menu
             :default-active="'BigScreenManagement'"
             mode="horizontal"
             @select="handleSelect"
-            background-color="#545c64"
+            background-color="#6E91EC"
             text-color="#fff"
-            active-text-color="#ffd04b"
+            active-text-color="#fff"
             class="el-menu"
         >
             <div v-for="(item, index) in navs" :key="index">
@@ -24,31 +29,44 @@
 
 <script>
 import index from './components/index.vue';
-import index1 from './components/index1.vue';
+import declare from './components/declare.vue';
+import cases from './components/cases.vue';
+import materials from './components/materials.vue';
+import experimental from './components/experimental.vue';
+import laboratory from './components/laboratory.vue';
+import about from './components/about.vue';
 export default {
     name: 'home',
     data() {
         return {
             navs: [
                 {
-                    id: 'BigScreenManagement',
-                    name: '大屏管理'
+                    id: 'index',
+                    name: '首页'
                 },
                 {
-                    id: 'LargeScreenGrouping',
-                    name: '大屏分组'
+                    id: 'declare',
+                    name: '申报书'
                 },
                 {
-                    id: 'MyBigScreen',
-                    name: '我的大屏'
+                    id: 'cases',
+                    name: '实验描述'
                 },
                 {
-                    id: 'MapManage',
-                    name: '地图管理'
+                    id: 'materials',
+                    name: '实验内容'
                 },
                 {
-                    id: 'LargescreenMaterial',
-                    name: '素材库'
+                    id: 'experimental',
+                    name: '实验特色'
+                },
+                {
+                    id: 'laboratory',
+                    name: '实验报告'
+                },
+                {
+                    id: 'about',
+                    name: '教学教学团队'
                 }
             ],
             activeId: '',
@@ -59,8 +77,31 @@ export default {
     methods: {
         handleSelect(keyPath) {
             this.activeId = keyPath;
-            if (this.activeId === 'LargeScreenGrouping') {
-                this.currentComp = index1;
+            switch (keyPath) {
+                case 'index':
+                    this.currentComp = index;
+                    break;
+                case 'declare':
+                    this.currentComp = declare;
+                    break;
+                case 'cases':
+                    this.currentComp = cases;
+                    break;
+                case 'materials':
+                    this.currentComp = materials;
+                    break;
+                case 'experimental':
+                    this.currentComp = experimental;
+                    break;
+                case 'laboratory':
+                    this.currentComp = laboratory;
+                    break;
+                case 'about':
+                    this.currentComp = about;
+                    break;
+
+                default:
+                    break;
             }
         }
     }
@@ -68,7 +109,38 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.topLogo {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding-left: 30px;
+    height: 100px;
+    .title {
+        margin-left: 32px;
+        font-family: Adobe Arabic;
+        font-size: 36px;
+        color: #6e91ec;
+        line-height: 100px;
+        font-weight: bold;
+    }
+}
 .el-menu {
     display: flex;
+    padding-left: 100px;
+    .el-menu-item {
+        margin-left: 5%;
+        width: 160px;
+        height: 62px;
+        text-align: center;
+        color: #f8f8f8;
+        line-height: 62px;
+        font-size: 18px;
+        cursor: pointer;
+        position: relative;
+    }
+    .el-menu-item.is-active {
+        color: #6e91ec !important;
+        background-color: #fff !important;
+    }
 }
 </style>
