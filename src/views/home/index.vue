@@ -2,7 +2,7 @@
     <div class="content">
         <div class="topLogo">
             <img src="@/assets/images/logo.png" />
-            <div class="title">流域暴雨洪水感知调控虚拟仿真实验</div>
+            <div class="title">针灸虚拟仿真实验</div>
         </div>
 
         <el-menu
@@ -16,6 +16,12 @@
         >
             <div v-for="(item, index) in navs" :key="index">
                 <el-menu-item :index="item.id">{{ item.name }}</el-menu-item>
+            </div>
+            <div class="ix_user">你好，专家</div>
+
+            <div class="ix_show" style="display: none;">
+                <img src="@/assets/images/pop.png" />
+                <p>退出登录</p>
             </div>
         </el-menu>
         <!-- <el-carousel indicator-position="outside">
@@ -146,6 +152,9 @@ export default {
         .el-menu-item.is-active {
             color: #6e91ec !important;
             background-color: #fff !important;
+        }
+        .ix_user {
+            padding-left: 40px;
         }
     }
     .container {

@@ -6,7 +6,7 @@
             </div>
             <div class="ln_content">
                 <div class="login_form">
-                    <div class="title">流域暴雨洪水感知调控虚拟仿真实验</div>
+                    <div class="title">针灸虚拟仿真实验</div>
                     <div class="title2">用户注册</div>
                     <div class="login_input">
                         <img src="@/assets/images/email.png" />
