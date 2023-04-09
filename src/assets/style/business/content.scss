@@ -1,0 +1,739 @@
+/*********************  you code  *********************/
+/* 公共样式 */
+.ct_bodyConent {
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 50px 0;
+}
+.ct_bodyCen {
+    width: 1200px;
+    margin: auto;
+    background-color: #fff;
+    padding: 32px 0 32px 0;
+}
+/* 项目介绍  start*/
+.ct_ip_play {
+    width: 70%;
+    height: 432px;
+    margin: 52px auto;
+    position: relative;
+}
+.ct_ip_text {
+    width: 70%;
+    margin: 80px auto;
+    font-size: 20px;
+    overflow: hidden;
+}
+.ct_ip_text p {
+    margin: 0;
+    margin-bottom: 40px;
+    color: #666;
+    text-indent: 0;
+    line-height: 32px;
+    font-size: 18px;
+    text-indent: 2em;
+    letter-spacing: 0.2em;
+}
+.ct_Btn {
+    width: 90px;
+    height: 90px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+.ct_Btn img {
+    width: 40px;
+    height: 40px;
+    margin-top: 27px;
+    margin-left: 12px;
+}
+.ct_ip_imgtext .ct_smalltext {
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+.ct_ip_imgtext img {
+    width: 840px;
+    height: 400px;
+    margin: 0 auto;
+}
+/* 项目介绍  end*/
+
+/* 实验目的 start */
+.ct_eo_tip p {
+    /* color: #666; */
+    color: #8e6537;
+    font-size: 20px;
+    line-height: 30px;
+    text-indent: 2em;
+    margin: 20px 210px;
+}
+.ct_eo_tip2 {
+    color: #8e6537;
+}
+.ct_eo_intro p,
+.sl_NCLeft p {
+    color: #666;
+    font-size: 18px;
+    font-family: '仿宋';
+    line-height: 34px;
+    text-indent: 2em;
+    padding: 12px 0;
+}
+/* 实验目的 end */
+
+/* 实验原理 start */
+.ct_ep_bigTitle {
+    position: relative;
+    font-size: 24px;
+    color: #4976e8;
+    font-weight: 600;
+    padding: 18px 0;
+    font-family: '仿宋';
+}
+.ct_ep_bigTitle::before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    margin-top: -0.6em;
+    left: -28px;
+    width: 4px;
+    height: 1.2em;
+    background-color: #4976e8;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.ct_ep_text p {
+    color: #666;
+    font-size: 18px;
+    line-height: 35px;
+}
+.ct_addIndent {
+    text-indent: 2em;
+    padding: 20px 109px;
+}
+.ct_addIndent img {
+    height: 75px;
+    display: block;
+    margin: 10px auto;
+}
+.ct_ep_textTitle {
+    position: relative;
+    font-size: 20px;
+    color: #4976e8;
+    font-weight: 600;
+    font-family: 仿宋;
+    padding: 12px 0px;
+}
+.ct_ep_littleText2 {
+    font-weight: 600;
+}
+.ct_ep_hiddenBox {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+}
+
+.ct_ep_HBTipTex {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #4976e8;
+    font-size: 14px;
+    line-height: 62px;
+    text-align: center;
+    width: 100%;
+    height: 62px;
+    background-color: #eee;
+    background: -webkit-linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
+.ct_ep_littleText {
+    position: relative;
+    font-size: 20px;
+    color: #343434;
+    font-weight: 600;
+    padding: 12px 0;
+    font-family: '仿宋';
+}
+
+.ct_ep_tipText {
+    padding: 8px 160px;
+}
+.ct_ep_tipText1 {
+    padding: 15px 180px;
+}
+.ct_ep_imgText img {
+    display: block;
+    margin: 50px auto;
+}
+.ct_ep_imgText p {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
+.ct_ep_teble img {
+    display: block;
+    margin: 40px auto;
+}
+/* 实验原理 end */
+
+/* 实验方法 start*/
+.ct_em_img {
+    width: 600px;
+    margin: 0 auto;
+}
+.ct_em_img img {
+    width: 100%;
+}
+.ct_em_img p {
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+}
+.ct_em_text {
+    width: 1000px;
+    margin: 50px auto;
+    padding-bottom: 50px;
+}
+.ct_em_textTitle {
+    position: relative;
+    font-size: 18px;
+    color: #4976e8;
+    font-weight: 600;
+    font-family: 仿宋;
+    padding: 12px 0px;
+}
+.ct_em_smallTitle {
+    color: rgb(102, 102, 102);
+    font-size: 14px;
+    font-family: 仿宋;
+    line-height: 24px;
+    text-indent: 2em;
+    padding: 12px 0px;
+}
+.ct_em_text p {
+    font-size: 18px;
+    color: #666;
+    line-height: 35px;
+    text-indent: 2em;
+    margin-top: 20px;
+}
+/* 实验方法 end */
+
+/* 实验报告 start */
+.ct_lr_box {
+    width: 774px;
+    background-color: #b4b4b4;
+    height: 1059px;
+    margin: auto;
+    position: relative;
+}
+.ct_lr_cont {
+    width: 703px;
+    height: 1000px;
+    background-color: #fff;
+    position: absolute;
+    margin: 29px 35px;
+}
+.ct_lr_title {
+    line-height: 350px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 24px;
+}
+.ct_lr_table {
+    width: 550px;
+    margin: auto;
+    border: 1px dashed #999;
+}
+.tr {
+    display: flex;
+}
+.td {
+    width: 44%;
+    border-right: 1px dashed #999;
+    border-bottom: 1px dashed #999;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    color: #999;
+}
+.td1 {
+    width: 56%;
+    line-height: 50px;
+    font-size: 18px;
+    border-bottom: 2px solid #000;
+    text-align: center;
+    color: #666;
+}
+.ct_lr_footer {
+    margin-top: 80px;
+    text-align: center;
+    line-height: 50px;
+    color: #666;
+}
+.ct_lr_btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.ct_lr_btn a {
+    display: block;
+    width: 179px;
+    height: 49px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 22px;
+    line-height: 49px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #4976e8;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* 实验报告 end */
+
+/* 申报材料 start */
+
+/* 申报材料  end */
+
+/* 团队介绍 start */
+.ct_team_box {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 0 auto;
+}
+.ct_team_textIntro {
+    width: 92%;
+    margin: 32px auto;
+}
+.ct_au_introTitle {
+    position: relative;
+    width: 92%;
+    margin: 0 auto;
+    font-size: 20px;
+    color: rgb(102, 102, 102);
+    font-weight: 600;
+    font-family: 仿宋;
+    padding: 12px 0px;
+}
+.ct_au_introTitle::after,
+.ix_team_title::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    margin-top: -0.6em;
+    left: -38px;
+    width: 4px;
+    height: 1.2em;
+    background-color: #4976e8;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.ct_au_tip {
+    display: flex;
+    width: 92%;
+    margin: 32px auto;
+}
+.ct_au_left {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.ct_au_left img {
+    width: 100%;
+}
+.ct_au_right {
+    margin-left: 30px;
+    margin-top: 15px;
+}
+.ct_au_right b {
+    font-size: 22px;
+    color: #8e6537;
+    font-weight: 400;
+}
+.ct_au_right p {
+    font-size: 17px;
+    color: #999;
+    margin-top: 12px;
+    text-indent: 0;
+}
+
+.ct_au_RInfo {
+    display: flex;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+}
+
+.ct_au_RIItem {
+    margin-top: 15px;
+    width: 33.33%;
+    font-family: '仿宋';
+    color: #343434;
+    font-size: 16px;
+}
+
+.ct_au_RIItem span {
+    color: #999;
+}
+
+/* 团队介绍 end */
+
+/* 案例展示 start */
+.ct_cp_body {
+    width: 80%;
+    margin: 0 auto;
+}
+.ct_cp_title {
+    text-align: center;
+    /* padding: 20px 180px; */
+    font-size: 24px;
+    font-weight: bolder;
+    margin-bottom: 32px;
+}
+.ct_cp_txt {
+    color: #666;
+    text-indent: 2em;
+    font-size: 18px;
+    line-height: 35px;
+    padding: 25px 0px;
+}
+.ct_cp_img {
+    width: 50%;
+    margin: 0 auto;
+}
+.ct_cp_img img {
+    width: 100%;
+}
+.ct_cp_img p {
+    color: #999;
+    padding: 10px 0;
+    text-align: center;
+}
+.ct_cp_imgTip {
+    display: flex;
+    flex-wrap: wrap;
+}
+.ct_cp_imgTips {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ct_cp_text {
+    padding: 22px 0 12px 0;
+    color: #343434;
+    font-size: 18px;
+    line-height: 32px;
+    position: relative;
+    text-indent: 2em;
+    box-sizing: border-box;
+}
+
+.ct_cp_imgFlex {
+    display: flex;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    width: 100%;
+}
+
+.ct_cp_imgText {
+    position: relative;
+    margin: 16px;
+    width: 510px;
+}
+
+.ct_cp_imgText img {
+    display: block;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.ct_cp_imgFlex2 {
+    width: 100%;
+}
+
+.ct_cp_imgFlex2 img {
+    vertical-align: top;
+    display: inline-block;
+    width: 308px;
+    margin: 0 6px;
+    height: 230px;
+}
+
+.ct_cp_text2 {
+    padding: 6px 12px 12px 12px;
+    position: relative;
+    display: block;
+    width: 100%;
+    color: #999;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.ct_cp_imgText span {
+    padding: 6px 12px 12px 12px;
+    position: relative;
+    display: block;
+    width: 100%;
+    color: #999;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* 案例展示 end */
+
+/* ct_fk_commentBox */
+.ct_fk_commentBox {
+    position: relative;
+    margin: 12px auto 52px auto;
+    width: 930px;
+    background-color: #fff;
+}
+
+.ct_fk_writeComment {
+    position: relative;
+    padding: 30px 30px 83px 30px;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+}
+
+.ct_fk_WCTextarea {
+    display: flex;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 62px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    border: 1px solid #dddddd;
+    background-color: #f4f4f4;
+}
+
+.ct_fk_WCTextarea textarea {
+    padding: 10px 16px;
+    width: 100%;
+    height: 90px;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+.ct_fk_WCTextarea textarea:focus {
+    background-color: #fff;
+}
+
+.ct_fk_WCTNotLogin {
+    display: flex;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    color: #444;
+    font-size: 14px;
+}
+
+.ct_fk_TNLBtn {
+    cursor: pointer;
+    display: block;
+    margin-right: 10px;
+    width: 80px;
+    height: 36px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #6e91ec;
+}
+
+.ct_fk_sendComment {
+    cursor: pointer;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 100px;
+    height: 36px;
+    color: #999;
+    font-size: 15px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #eee;
+}
+.ct_fk_sendCommentOut {
+    color: #fff;
+    background-color: #6e91ec;
+}
+
+.ct_fk_CBItemBox {
+    position: relative;
+    padding: 0 30px 30px 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.ct_fk_BIBAllNumber {
+    padding-top: 30px;
+    color: #282828;
+    font-size: 14px;
+}
+.ct_fk_BIBAllNumber span {
+    color: #666;
+}
+
+.ct_fk_CBItem {
+    position: relative;
+    padding: 30px 0;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+}
+.ct_fk_CBItem:last-of-type {
+    border: none;
+}
+
+.ct_fk_CBIName {
+    color: #282828;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.ct_fk_CBIText {
+    margin-top: 10px;
+    color: #666;
+    font-size: 14px;
+    line-height: 24px;
+}
+.ct_fk_CBIText b {
+    padding: 0 4px;
+    color: #343434;
+}
+
+.ct_fk_CBIBom {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.ct_fk_BIBTime {
+    color: #bbb;
+    font-size: 12px;
+}
+
+.ct_fk_BIBComment {
+    cursor: pointer;
+    position: absolute;
+    top: -2px;
+    right: 0;
+    width: 20px;
+    height: 18px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    // background-image: url(../images/comment.png);
+}
+.ct_fk_BIBComment:hover {
+    // background-image: url(../images/commenthover.png);
+}
+
+.ct_fk_CBIMore {
+    position: relative;
+    padding: 0 30px;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+.ct_fk_CBIMore::before {
+    position: absolute;
+    content: '';
+    top: -20px;
+    left: 28px;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #f4f4f4 transparent;
+}
+
+.ct_fk_BIMItem {
+    padding: 20px 0;
+}
+
+.ct_fk_BIMShow {
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    height: 62px;
+    color: #666;
+    font-size: 14px;
+    line-height: 62px;
+    text-align: center;
+    border-top: 1px solid #e5e5ee;
+}
+.ct_fk_BIMShowNotBorder {
+    border: none;
+}
+
+.ct_fk_BIBWrite {
+    position: relative;
+    padding-top: 22px;
+    padding-bottom: 52px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.ct_fk_BIBWrite textarea {
+    padding: 10px 16px;
+    width: 100%;
+    height: 60px;
+    font-size: 14px;
+    border-radius: 3px;
+    background-color: #f4f4f4;
+    border: 1px solid #dddddd;
+}
+.ct_fk_BIBWrite textarea:focus {
+    background-color: #fff;
+}
+
+.ct_fk_BIBWrite .ct_fk_sendComment {
+    bottom: 0;
+}
+
+.ct_fk_CBMoreComment {
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    height: 75px;
+    color: #6e91ec;
+    font-size: 14px;
+    line-height: 75px;
+    text-align: center;
+    border-top: 1px solid #eee;
+}

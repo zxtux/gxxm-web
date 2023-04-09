@@ -7,7 +7,7 @@
             <div class="ln_content">
                 <div class="login_form">
                     <div class="title">流域暴雨洪水感知调控虚拟仿真实验</div>
-                    <div class="title2">用户登录</div>
+                    <div class="title2">用户注册</div>
                     <div class="login_input">
                         <img src="@/assets/images/email.png" />
                         <input type="email" v-model="user" placeholder="请输入账号" />
@@ -19,6 +19,14 @@
                     <div class="login_input">
                         <img src="@/assets/images/user.png" />
                         <input placeholder="请输入姓名" v-model="name" type="text" />
+                    </div>
+                    <div class="login_input">
+                        <img src="@/assets/images/user.png" />
+                        <input placeholder="请选择学院" v-model="name" type="text" />
+                    </div>
+                    <div class="login_input">
+                        <img src="@/assets/images/user.png" />
+                        <input placeholder="请输入班级" v-model="name" type="text" />
                     </div>
                     <button class="register" @click="register()">注 册</button>
                     <p>
@@ -111,5 +119,8 @@ export default {
         width: 240px;
         margin-right: 10px;
     }
+}
+.title2 {
+    margin-bottom: 5px !important;
 }
 </style>

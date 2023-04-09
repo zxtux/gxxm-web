@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class="content">
         <div class="topLogo">
             <img src="@/assets/images/logo.png" />
             <div class="title">流域暴雨洪水感知调控虚拟仿真实验</div>
         </div>
 
         <el-menu
-            :default-active="'BigScreenManagement'"
+            :default-active="'index'"
             mode="horizontal"
             @select="handleSelect"
             background-color="#6E91EC"
@@ -23,7 +23,9 @@
                 <h3>{{ item }}</h3>
             </el-carousel-item>
         </el-carousel> -->
-        <component :is="currentComp" :key="activeId"></component>
+        <!-- <div class="container"> -->
+        <component :is="currentComp" :key="activeId" class="container" />
+        <!-- </div> -->
     </div>
 </template>
 
@@ -109,38 +111,53 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.topLogo {
-    display: flex;
-    align-items: center;
-    background: #fff;
-    padding-left: 30px;
-    height: 100px;
-    .title {
-        margin-left: 32px;
-        font-family: Adobe Arabic;
-        font-size: 36px;
-        color: #6e91ec;
-        line-height: 100px;
-        font-weight: bold;
+.content {
+    height: 100%;
+
+    .topLogo {
+        display: flex;
+        align-items: center;
+        background: #fff;
+        padding-left: 30px;
+        height: 100px;
+        .title {
+            margin-left: 32px;
+            font-family: Adobe Arabic;
+            font-size: 36px;
+            color: #6e91ec;
+            line-height: 100px;
+            font-weight: bold;
+        }
     }
-}
-.el-menu {
-    display: flex;
-    padding-left: 100px;
-    .el-menu-item {
-        margin-left: 5%;
-        width: 160px;
-        height: 62px;
-        text-align: center;
-        color: #f8f8f8;
-        line-height: 62px;
-        font-size: 18px;
-        cursor: pointer;
-        position: relative;
+    .el-menu {
+        display: flex;
+        padding-left: 100px;
+        .el-menu-item {
+            margin-left: 5%;
+            width: 160px;
+            height: 62px;
+            text-align: center;
+            color: #f8f8f8;
+            line-height: 62px;
+            font-size: 18px;
+            cursor: pointer;
+            position: relative;
+        }
+        .el-menu-item.is-active {
+            color: #6e91ec !important;
+            background-color: #fff !important;
+        }
     }
-    .el-menu-item.is-active {
-        color: #6e91ec !important;
-        background-color: #fff !important;
+    .container {
+        background-color: #f4f4f4;
+        width: 100%;
+        height: calc(100vh - 140px) !important;
+        overflow: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }
 </style>

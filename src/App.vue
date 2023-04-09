@@ -11,7 +11,7 @@ export default {
         if (this.token) {
             this.$router.push('home');
         } else {
-            // this.$router.push('login');
+            this.$router.push('login');
         }
     },
 

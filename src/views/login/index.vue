@@ -10,11 +10,11 @@
                     <div class="title2">用户登录</div>
                     <div class="login_input">
                         <img src="@/assets/images/email.png" />
-                        <input type="email" v-model="user" placeholder="请输入账号" />
+                        <input type="email" v-model="username" placeholder="请输入账号" />
                     </div>
                     <div class="login_input">
                         <img src="@/assets/images/pass.png" />
-                        <input type="password" v-model="pass" placeholder="请输入密码" />
+                        <input type="password" v-model="password" placeholder="请输入密码" />
                     </div>
                     <button @click="login()">登 录</button>
                     <p>
@@ -58,8 +58,8 @@ export default {
     name: 'Login',
     data() {
         return {
-            user: '',
-            pass: '',
+            username: '',
+            password: '',
             ticket: '',
             showTip: false,
             ilabLoginHref: 'http://www.ilab-x.com/login', // ?ref=%2Fdetails%2Fv5%3Fid%3D7033%26isView%3Dtrue
@@ -83,7 +83,7 @@ export default {
         ...mapActions('common', ['setData']),
 
         async login() {
-            if (this.user == '' || this.pass == '') {
+            if (this.username == '' || this.password == '') {
                 this.$notify.error({
                     title: '错误',
                     message: '账号与密码不能为空'
@@ -91,15 +91,14 @@ export default {
                 return;
             }
             const res = await this.$http.fetchData({
-                url: 'SCM.TMS7.WebApi/Oauth/GetSsidFormCurrentContext',
+                url: '/vr/authController/login',
                 params: {
-                    pass: this.pass,
-                    user: this.user
-                },
-                type: 2
+                    password: this.password,
+                    username: this.username
+                }
             });
             this.setData({ key: 'token', value: res.token, modules: 'common' });
-            this.$router.push('index');
+            this.$router.push('/home');
         },
         jump() {
             this.vp_login('1070824', '1070824');

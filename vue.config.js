@@ -42,8 +42,8 @@ module.exports = {
             errors: true
         },
         proxy: {
-            '/SCM': {
-                target: 'http://testxa.360scm.com',
+            '/vr': {
+                target: 'http://vr2023.natapp1.cc',
                 changeOrigin: true,
                 logLevel: 'debug'
             }
