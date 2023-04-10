@@ -3,22 +3,17 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { getToken } from '@/utils/auth';
 
 export default {
     name: 'app',
     created() {
-        if (this.token) {
+        if (getToken()) {
             this.$router.push('home');
         } else {
             this.$router.push('login');
         }
     },
-
-    computed: {
-        ...mapState('common', ['token'])
-    },
-
     mounted() {
         if (process.env.NODE_ENV === 'production') {
             this.getVersion();
