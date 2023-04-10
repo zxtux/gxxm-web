@@ -79,6 +79,17 @@
             </div>
             <div class="ix_IBomImg"><img src="@/assets/images/bomimg.png" alt="" /></div>
         </div>
+
+        <div class="ix_Content">
+            <div class="ix_newTitle">教学成果</div>
+            <vue-seamless-scroll :data="listData" :class-option="classOption" class="warp">
+                <ul class="ul-item">
+                    <li class="li-item" v-for="(item, index) in listData" :key="index">
+                        {{ item }}
+                    </li>
+                </ul>
+            </vue-seamless-scroll>
+        </div>
         <Footer />
     </div>
 </template>
@@ -86,10 +97,12 @@
 <script>
 import * as echarts from 'echarts';
 import Footer from './footer';
+import vueSeamlessScroll from 'vue-seamless-scroll';
 export default {
     name: 'index',
     components: {
-        Footer
+        Footer,
+        vueSeamlessScroll
     },
     data() {
         return {
@@ -173,7 +186,12 @@ export default {
                     }
                 ]
             },
-            videoType: 'guide'
+            videoType: 'guide',
+            listData: [6, 5, 4, 3, 2, 1],
+            classOption: {
+                limitMoveNum: 2,
+                direction: 3
+            }
         };
     },
 
@@ -203,6 +221,30 @@ export default {
         .myChart {
             width: 40%;
             height: 300px;
+        }
+    }
+    .warp {
+        width: 100%;
+        height: 240px;
+        margin: 0 auto 40px;
+        overflow: hidden;
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            &.ul-item {
+                display: flex;
+                .li-item {
+                    width: 240px;
+                    height: 240px;
+                    margin-right: 60px;
+                    line-height: 240px;
+                    background-color: #999;
+                    color: #fff;
+                    text-align: center;
+                    font-size: 30px;
+                }
+            }
         }
     }
 }

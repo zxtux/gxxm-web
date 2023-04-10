@@ -30,12 +30,17 @@
                 </div>
             </div>
         </div>
+        <Footer />
     </div>
 </template>
 
 <script>
+import Footer from './footer';
 export default {
     name: 'cases',
+    components: {
+        Footer
+    },
     data() {
         return {};
     },

@@ -31,14 +31,6 @@
         </el-carousel> -->
 
         <component :is="currentComp" :key="activeId" class="container" />
-
-        <vue-seamless-scroll :data="listData" :class-option="classOption" class="warp">
-            <ul class="ul-item">
-                <li class="li-item" v-for="(item, index) in listData" :key="index">
-                    {{ item }}
-                </li>
-            </ul>
-        </vue-seamless-scroll>
     </div>
 </template>
 
@@ -50,12 +42,9 @@ import materials from './components/materials.vue';
 import experimental from './components/experimental.vue';
 import laboratory from './components/laboratory.vue';
 import about from './components/about.vue';
-import vueSeamlessScroll from 'vue-seamless-scroll';
+
 export default {
     name: 'home',
-    components: {
-        vueSeamlessScroll
-    },
     data() {
         return {
             navs: [
@@ -90,12 +79,7 @@ export default {
             ],
             activeId: '',
             currentComp: index,
-            userName: '专家',
-            listData: [1, 2, 3, 4, 5, 6, 7, 8],
-            classOption: {
-                limitMoveNum: 2,
-                direction: 3
-            }
+            userName: '专家'
         };
     },
     moment() {
@@ -192,30 +176,6 @@ export default {
         -ms-overflow-style: none;
         &::-webkit-scrollbar {
             display: none;
-        }
-    }
-    .warp {
-        width: 100%;
-        height: 220px;
-        margin: 0 auto;
-        overflow: hidden;
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 auto;
-            &.ul-item {
-                display: flex;
-                .li-item {
-                    width: 220px;
-                    height: 220px;
-                    margin-right: 10px;
-                    line-height: 220px;
-                    background-color: #999;
-                    color: #fff;
-                    text-align: center;
-                    font-size: 30px;
-                }
-            }
         }
     }
 }

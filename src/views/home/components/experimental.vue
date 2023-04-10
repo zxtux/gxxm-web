@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bigbox">
         <div class="sl_newContent">
             <div class="sl_NCLeft">
                 <div class="sl_NCLBox">
@@ -52,12 +52,17 @@
                 </div>
             </div>
         </div>
+        <Footer />
     </div>
 </template>
 
 <script>
+import Footer from './footer';
 export default {
     name: 'experimental',
+    components: {
+        Footer
+    },
     data() {
         return {};
     },

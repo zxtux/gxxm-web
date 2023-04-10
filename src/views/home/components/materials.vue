@@ -160,12 +160,17 @@
                 </div>
             </div>
         </div>
+        <Footer />
     </div>
 </template>
 
 <script>
+import Footer from './footer';
 export default {
     name: 'materials',
+    components: {
+        Footer
+    },
     data() {
         return {};
     },
