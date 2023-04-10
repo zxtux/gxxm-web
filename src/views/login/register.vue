@@ -6,7 +6,7 @@
             </div>
             <div class="ln_content">
                 <div class="login_form">
-                    <div class="title">针灸虚拟仿真实验</div>
+                    <div class="title">测试</div>
                     <div class="title2">用户注册</div>
                     <div class="login_input">
                         <img src="@/assets/images/email.png" />
@@ -49,15 +49,11 @@ export default {
     data() {
         return {
             collegeOptions: [],
-            load: 0,
             username: '',
             password: '',
             nickName: '',
             college: '',
             grade: '',
-            isForm: true,
-            registerSucess: true,
-            ticket: '', // ?ref=%2Fdetails%2Fv5%3Fid%3D7033%26isView%3Dtrue
             backgroundImgUrl: require('@/assets/images/loginback.png')
         };
     },
@@ -82,7 +78,7 @@ export default {
                 });
                 return;
             }
-            const res = await this.$http.fetchData({
+            await this.$http.fetchData({
                 url: '/vr/authController/singUp',
                 params: {
                     password: this.password,
@@ -92,29 +88,38 @@ export default {
                     grade: this.grade
                 }
             });
-            console.log(res);
-            this.$router.push('index');
+
+            this.$notify.success({
+                title: '错误',
+                message: '注册成功'
+            });
+            setTimeout(() => {
+                this.$router.replace('login');
+            }, 2000);
         },
         jump() {
-            this.vp_login('1070824', '1070824');
-        },
-        goRegister() {
-            this.$router.push('register');
+            this.$router.replace('index');
         }
     }
 };
 </script>
 
 <style lang="scss" scoped>
-.title2 {
-    margin-bottom: 5px !important;
-}
-::v-deep .el-input__inner {
-    border: none;
-    width: 500px;
-    height: 36px;
-}
-::v-deep .el-input__inner::placeholder {
-    color: #617077;
+.ln_content {
+    height: 610px;
+    .title2 {
+        margin-bottom: 5px !important;
+    }
+    ::v-deep .el-input__inner {
+        border: none;
+        width: 510px;
+        height: 36px;
+    }
+    ::v-deep .el-input__inner::placeholder {
+        color: #617077;
+    }
+    .login_form .register {
+        margin: 40px auto;
+    }
 }
 </style>

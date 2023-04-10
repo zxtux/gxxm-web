@@ -67,7 +67,7 @@ export default class http {
             response => {
                 const { data } = response;
 
-                if (data && (data['Success'] === false || data['flag'] === false)) {
+                if (data.code !== 200) {
                     http.notify({ text: (data.Msg || data.msg) ?? '未知错误' });
                     return Promise.reject(response);
                 }

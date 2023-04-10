@@ -6,7 +6,7 @@
             </div>
             <div class="ln_content">
                 <div class="login_form">
-                    <div class="title">针灸虚拟仿真实验</div>
+                    <div class="title"></div>
                     <div class="title2">用户登录</div>
                     <div class="login_input">
                         <img src="@/assets/images/email.png" />
@@ -19,7 +19,6 @@
                     <button @click="login()">登 录</button>
                     <p>
                         还没有账号？去
-                        <!-- <a href="register.html">注册</a> -->
                         <router-link to="register">注册</router-link>
                     </p>
                     <div class="login_enter" @click="jump">专家入口 ></div>
@@ -96,10 +95,10 @@ export default {
                 }
             });
             setToken(res.token);
-            this.$router.push('/home');
+            this.$router.replace('home');
         },
         jump() {
-            this.vp_login('1070824', '1070824');
+            this.$router.replace('index');
         },
         goRegister() {
             this.$router.push('register');
