@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { setToken } from '@/utils/auth';
 
 export default {
     name: 'Login',
@@ -80,8 +80,6 @@ export default {
         };
     },
     methods: {
-        ...mapActions('common', ['setData']),
-
         async login() {
             if (this.username == '' || this.password == '') {
                 this.$notify.error({
@@ -97,7 +95,7 @@ export default {
                     username: this.username
                 }
             });
-            this.setData({ key: 'token', value: res.token, modules: 'common' });
+            setToken(res.token);
             this.$router.push('/home');
         },
         jump() {

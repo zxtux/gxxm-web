@@ -77,24 +77,20 @@
                     </div>
                 </div>
             </div>
-            <div class="ix_IBomImg"><img src="static/picture/bomimg.png" alt="" /></div>
+            <div class="ix_IBomImg"><img src="@/assets/images/bomimg.png" alt="" /></div>
         </div>
-        <div class="ix_footer">
-            <div class="ix_footer_cont">
-                <div><p>版权所有©甘肃农业职业技术学院 版权所有 12345678</p></div>
-                <div>
-                    站点建设与维护：北京易用视点科技有限公司 |
-                    地址：北京市石景山区八大处路49号点石商务公园6号楼2层 | 邮编：710048
-                </div>
-            </div>
-        </div>
+        <Footer />
     </div>
 </template>
 
 <script>
 import * as echarts from 'echarts';
+import Footer from './footer';
 export default {
     name: 'index',
+    components: {
+        Footer
+    },
     data() {
         return {
             optionPie: {

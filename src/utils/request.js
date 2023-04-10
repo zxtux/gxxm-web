@@ -46,8 +46,8 @@ export default class http {
                 if (config.checkToken) {
                     checkToken()
                         .then(() => {
-                            config.headers['Authorization'] = 'Token';
-                            config.headers['Token'] = getToken();
+                            config.headers['Authorization'] = getToken();
+                            // config.headers['Token'] = getToken();
                         })
                         .catch(() => {
                             checkout();

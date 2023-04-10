@@ -10,29 +10,32 @@
                     <div class="title2">用户注册</div>
                     <div class="login_input">
                         <img src="@/assets/images/email.png" />
-                        <input type="email" v-model="user" placeholder="请输入账号" />
+                        <input type="email" v-model="username" placeholder="请输入账号" />
                     </div>
                     <div class="login_input">
                         <img src="@/assets/images/pass.png" />
-                        <input type="password" v-model="pass" placeholder="请输入密码" />
+                        <input type="password" v-model="password" placeholder="请输入密码" />
                     </div>
                     <div class="login_input">
                         <img src="@/assets/images/user.png" />
-                        <input placeholder="请输入姓名" v-model="name" type="text" />
+                        <input placeholder="请输入姓名" v-model="nickName" type="text" />
+                    </div>
+                    <div class="login_input college_input">
+                        <img src="@/assets/images/college.png" />
+                        <el-select v-model="college" placeholder="请选择学院">
+                            <el-option
+                                v-for="item in collegeOptions"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value"
+                            ></el-option>
+                        </el-select>
                     </div>
                     <div class="login_input">
-                        <img src="@/assets/images/user.png" />
-                        <input placeholder="请选择学院" v-model="name" type="text" />
-                    </div>
-                    <div class="login_input">
-                        <img src="@/assets/images/user.png" />
-                        <input placeholder="请输入班级" v-model="name" type="text" />
+                        <img src="@/assets/images/grade.png" />
+                        <input placeholder="请输入班级" v-model="grade" type="text" />
                     </div>
                     <button class="register" @click="register()">注 册</button>
-                    <p>
-                        还没有账号？去
-                        <a href="register.html">注册</a>
-                    </p>
                     <div class="login_enter" @click="jump">专家入口 ></div>
                 </div>
             </div>
@@ -41,16 +44,17 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 export default {
-    name: 'Login',
+    name: 'register',
     data() {
         return {
+            collegeOptions: [],
             load: 0,
-            user: '',
-            name: '',
-            pass: '',
+            username: '',
+            password: '',
+            nickName: '',
+            college: '',
+            grade: '',
             isForm: true,
             registerSucess: true,
             ticket: '', // ?ref=%2Fdetails%2Fv5%3Fid%3D7033%26isView%3Dtrue
@@ -58,23 +62,20 @@ export default {
         };
     },
     mounted() {
-        // var ticket = $sy.getUrlData("ticket");
-        // if(ticket == undefined){
-        //     this.showTip = true;
-        // }
-        // this.ticket = ticket;
-        document.onkeydown = function (e) {
-            let ev = document.all ? window.event : e;
-            if (ev.keyCode == 13) {
-                this.login();
-            }
-        };
+        this.getCollege();
     },
     methods: {
-        ...mapActions('common', ['setData']),
-
+        async getCollege() {
+            const res = await this.$http.fetchData({
+                url: '/vr/system/dictDataController/type/sys_university_college',
+                type: 2
+            });
+            this.collegeOptions = res.data.map(v => {
+                return { value: v.dictValue, label: v.dictLabel };
+            });
+        },
         async register() {
-            if (this.user == '' || this.pass == '') {
+            if (this.username == '' || this.password == '') {
                 this.$notify.error({
                     title: '错误',
                     message: '账号与密码不能为空'
@@ -82,14 +83,16 @@ export default {
                 return;
             }
             const res = await this.$http.fetchData({
-                url: 'SCM.TMS7.WebApi/Oauth/GetSsidFormCurrentContext',
+                url: '/vr/authController/singUp',
                 params: {
-                    pass: this.pass,
-                    user: this.user
-                },
-                type: 2
+                    password: this.password,
+                    username: this.username,
+                    nickName: this.nickName,
+                    college: this.college,
+                    grade: this.grade
+                }
             });
-            this.setData({ key: 'token', value: res.token, modules: 'common' });
+            console.log(res);
             this.$router.push('index');
         },
         jump() {
@@ -103,24 +106,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background: #fff;
-    color: #333;
-    z-index: 10;
-    .el-input {
-        width: 240px;
-        margin-right: 10px;
-    }
-}
 .title2 {
     margin-bottom: 5px !important;
+}
+::v-deep .el-input__inner {
+    border: none;
+    width: 500px;
+    height: 36px;
+}
+::v-deep .el-input__inner::placeholder {
+    color: #617077;
 }
 </style>
