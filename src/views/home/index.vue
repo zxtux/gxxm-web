@@ -17,7 +17,7 @@
             <div v-for="(item, index) in navs" :key="index">
                 <el-menu-item :index="item.id">{{ item.name }}</el-menu-item>
             </div>
-            <div class="ix_user">你好，专家</div>
+            <div class="ix_user">你好，{{ userName }}</div>
 
             <div class="ix_show" style="display: none;">
                 <img src="@/assets/images/pop.png" />
@@ -78,10 +78,13 @@ export default {
                 }
             ],
             activeId: '',
-            currentComp: index
+            currentComp: index,
+            userName: '专家'
         };
     },
-
+    moment() {
+        this.getUserInfo();
+    },
     methods: {
         handleSelect(keyPath) {
             this.activeId = keyPath;
@@ -111,6 +114,13 @@ export default {
                 default:
                     break;
             }
+        },
+        async getUserInfo() {
+            const res = await this.$http.fetchData({
+                url: '/vr/authController/getUserInfo',
+                type: 2
+            });
+            this.userName = res.userName;
         }
     }
 };
