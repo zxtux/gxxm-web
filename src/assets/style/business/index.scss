@@ -1,137 +1,150 @@
 /*
  *CSS init
  */
- *{margin:0px;padding:0px;}
- 
- body{width:100%;height:100%;font-family:'Microsoft yahei';}
+* {
+    margin: 0px;
+    padding: 0px;
+}
 
-    
- input,select,textarea{
-     outline: none;
-     padding: 0;
-     font-size: 16px;
-     font-family: 'Microsoft yahei';
-     background:transparent;
- }
-  /*取消button点击的默认样式*/
-  button:focus {
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Microsoft yahei';
+}
+
+input,
+select,
+textarea {
+    outline: none;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'Microsoft yahei';
+    background: transparent;
+}
+/*取消button点击的默认样式*/
+button:focus {
     border: 0 none;
     outline: none;
-  }
- 
- a{text-decoration: none;}
+}
 
- .ix_bodyBackImg{
-    position: fixed;z-index: -1;
+a {
+    text-decoration: none;
+}
+
+.ix_bodyBackImg {
+    position: fixed;
+    z-index: -1;
     top: 0;
     left: 0;
-    width: 100%;height: 100%;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-image: url(../images/bodyback.jpg);
- }
+}
 
-  /*********************  you code  *********************/
-.bigbox{
+/*********************  you code  *********************/
+.bigbox {
     box-sizing: border-box;
     width: 100%;
     height: 100%;
 }
-.ix_top{
+.ix_top {
     position: relative;
 }
 /* 首页头部 */
-.ix_header{
+.ix_header {
     width: 100%;
     height: 100px;
-    background-color: #F8F8F8;
+    background-color: #f8f8f8;
     display: flex;
 }
-.ix_header img{
+.ix_header img {
     padding-left: 25px;
 }
-.ix_header p{
+.ix_header p {
     margin-left: 32px;
     font-family: Adobe Arabic;
     font-size: 36px;
-    color: #6E91EC;
+    color: #6e91ec;
     line-height: 100px;
     font-weight: bold;
 }
-.ix_topNav{
+.ix_topNav {
     width: 100%;
     height: 62px;
-    background-color: #6E91EC;
+    background-color: #6e91ec;
     position: relative;
 }
-.ix_1200{
+.ix_1200 {
     width: 1235px;
     display: flex;
-    background-color: #6E91EC;
+    background-color: #6e91ec;
     margin: 0 auto;
 }
-.ix_topNav ul{
+.ix_topNav ul {
     width: 1100px;
     list-style: none;
-    padding:0;
-    margin:0 auto;
+    padding: 0;
+    margin: 0 auto;
     display: flex;
     justify-content: space-around;
     position: relative;
 }
-.ix_topNav ul li{
+.ix_topNav ul li {
     flex: 1;
     display: block;
     position: relative;
 }
-.ix_topNav_item{
+.ix_topNav_item {
     margin-left: 5%;
     width: 90%;
     height: 62px;
     text-align: center;
-    color: #F8F8F8;
-    line-height: 62px;
+    color: #f8f8f8;
+    line-height: 50px;
     font-size: 18px;
     cursor: pointer;
     position: relative;
 }
-.xuanzhong{
-    color: #6E91EC;
+.xuanzhong {
+    color: #6e91ec;
     background-color: #fff;
 }
-.ix_user{
+.ix_user {
     width: 125px;
     line-height: 62px;
-    color: #FAE8C0;
+    color: #fae8c0;
     font-size: 16px;
     cursor: pointer;
     overflow: hidden;
     white-space: nowrap;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
 }
-.ix_show{
+.ix_show {
     display: block;
-    position: absolute;z-index: 10;
+    position: absolute;
+    z-index: 10;
     margin-top: 72px;
-    margin-left: 1146px;
-    background-color: #FAE8C0;
+    margin-left: 1170px;
+    background-color: #fae8c0;
     width: 90px;
     height: 38px;
     border-radius: 4px;
     cursor: pointer;
 }
-.ix_show img{
+.ix_show img {
     display: block;
     position: absolute;
     margin-top: -22px;
     margin-left: 15px;
 }
-.ix_show p{
-    margin-top: 9px;
+.ix_show p {
+    margin-top: 6px;
     margin-left: 14px;
 }
-.ix_bgImg{
+.ix_bgImg {
     position: relative;
     width: 100%;
     height: 422px;
@@ -140,7 +153,7 @@
     background-position: 50% 80%;
     /* position: relative; */
 }
-.ix_bg_title{
+.ix_bg_title {
     /* width: 586px; */
     height: 80px;
     background-color: #000;
@@ -149,87 +162,97 @@
     top: 246px;
     padding: 2px 85px;
 }
-.ix_bg_title p, .ix_bg_title a{
+.ix_bg_title p,
+.ix_bg_title a {
     font-size: 32px;
     line-height: 80px;
     color: #fff;
     text-align: center;
 }
 
-.ix_topMark{
-    position: absolute;z-index: 2;
+.ix_topMark {
+    position: absolute;
+    z-index: 2;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.ix_TMBox{
+.ix_TMBox {
     position: relative;
     margin: 0 auto;
     padding-top: 52px;
     padding-right: 420px;
-    width: 1200px;height: 100%;
-    box-sizing:border-box;
+    width: 1200px;
+    height: 100%;
+    box-sizing: border-box;
 }
 
-.ix_TMTitle{
+.ix_TMTitle {
     color: #f2f2f2;
     font-size: 26px;
 }
 
-.ix_TMContent{
-    display: flex;display: -moz-box;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;
+.ix_TMContent {
+    display: flex;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     padding: 22px 0;
     color: rgba(255, 255, 255, 0.66);
     font-size: 14px;
 }
 
-.ix_TMCItem{
+.ix_TMCItem {
     padding-right: 42px;
 }
 
-.ix_TMText{
+.ix_TMText {
     color: #eee;
     font-size: 14px;
     line-height: 22px;
 }
 
-.ix_TMBtn{
+.ix_TMBtn {
     margin-top: 25px;
     display: block;
-    width: 154px;height: 42px;
+    width: 154px;
+    height: 42px;
     color: #fff;
     font-size: 14px;
     line-height: 42px;
     text-align: center;
     border-radius: 3px;
     background-color: #4976e8;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.ix_TMRightImg{
+.ix_TMRightImg {
     position: absolute;
-    top: 50%;right: 0;margin-top: -106px;
-    width: 352px;height: 212px;
+    top: 50%;
+    right: 0;
+    margin-top: -106px;
+    width: 352px;
+    height: 212px;
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     border-radius: 3px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-
 /* 首页脚部 */
-.ix_footer{
+.ix_footer {
     widows: 100%;
     height: 317px;
     background-color: #617077;
-    color: #F8F8F8;
+    color: #f8f8f8;
     background-size: cover;
     background-position: 50% 50%;
     background-image: url(../images/footer_bg.png);
 }
-.ix_footer .ix_footer_cont{
+.ix_footer .ix_footer_cont {
     width: 1200px;
     margin: 0 auto;
     text-align: center;
@@ -237,15 +260,15 @@
     padding-top: 120px;
     font-size: 16px;
 }
-.ix_footer_btn{
+.ix_footer_btn {
     float: right;
     margin-right: 25px;
     margin-top: 25px;
 }
-.ix_footer .ix_footer_back{
+.ix_footer .ix_footer_back {
     width: 163px;
     height: 45px;
-    background-color: #FAE8C0;
+    background-color: #fae8c0;
     color: #617077;
     line-height: 40px;
     text-align: center;
@@ -253,63 +276,64 @@
     font-size: 18px;
     cursor: pointer;
 }
-.ix_footer_back img{
+.ix_footer_back img {
     margin-right: 10px;
 }
 /* ..........首页内容样式............ */
 /* 首页公共样式 */
-.ix_cont{
+.ix_cont {
     width: 100%;
     position: relative;
     background-color: #fff;
 }
-.ix_notBackColor{
+.ix_notBackColor {
     background: transparent;
 }
-.ix_Content{
+.ix_Content {
     width: 1200px;
     margin: auto;
 }
-.ix_Title{
+.ix_Title {
     width: 1200px;
     text-align: center;
     padding: 50px 0;
     margin: 0 auto;
 }
-.ix_Title1{
+.ix_Title1 {
     widows: 600px;
     text-align: center;
     padding: 50px 0;
 }
-.ix_ttCont{
+.ix_ttCont {
     width: 295px;
     height: 83px;
     display: inline-block;
     position: relative;
 }
-.ix_leftLine,.ix_rightLine{
+.ix_leftLine,
+.ix_rightLine {
     width: 118px;
     height: 2px;
     background-color: #617077;
 }
-.ix_leftLine{
+.ix_leftLine {
     position: absolute;
     left: 0;
     top: 0;
 }
-.ix_rightLine{
+.ix_rightLine {
     position: absolute;
     right: 0;
     bottom: 0;
 }
-.ix_topic{
+.ix_topic {
     font-size: 30px;
-    color:#617077;
+    color: #617077;
     z-index: 1;
     padding: 14px 0;
 }
-.ix_diamonds{
-    width:40px;
+.ix_diamonds {
+    width: 40px;
     height: 40px;
     background: rgba(228, 184, 91, 0.3);
     position: absolute;
@@ -317,15 +341,15 @@
     left: 59px;
 }
 
-
-.ix_Title2 .ix_topic{
+.ix_Title2 .ix_topic {
     color: rgba(255, 255, 255, 0.9);
 }
-.ix_Title2 .ix_leftLine,.ix_Title2 .ix_rightLine{
+.ix_Title2 .ix_leftLine,
+.ix_Title2 .ix_rightLine {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-.ix_contentBigBox{
+.ix_contentBigBox {
     position: relative;
     padding-top: 1px;
     width: 100%;
@@ -335,158 +359,194 @@
     background-image: url(../images/introduceback.png);
 }
 
-.ix_contentBox{
+.ix_contentBox {
     position: relative;
     width: 100%;
-    box-sizing:border-box;
+    box-sizing: border-box;
     background-size: cover;
     background-position: 50% 50%;
     background-image: url(../images/ibg.jpg);
 }
 
-.ix_newTitle{
+.ix_newTitle {
     position: relative;
     padding: 72px 0;
     width: 100%;
-    color: #6E91EC;
+    color: #6e91ec;
     font-size: 30px;
     font-weight: bold;
     text-align: center;
 }
-.ix_newTitle::before{
-    position: absolute;content: '';
-    top: 50%;left: 50%;margin-left: -148px;margin-top: -1px;
-    width: 62px;height: 2px;
+.ix_newTitle::before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    margin-left: -148px;
+    margin-top: -1px;
+    width: 62px;
+    height: 2px;
     border-right: 2px;
-    background-color: #6E91EC;
-    background:-webkit-linear-gradient(to left, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
-    background:-moz-linear-gradient(to left, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
-    background:-o-linear-gradient(to left, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
-    background:linear-gradient(to left, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
+    background-color: #6e91ec;
+    background: -webkit-linear-gradient(to left, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
+    background: -moz-linear-gradient(to left, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
+    background: -o-linear-gradient(to left, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
+    background: linear-gradient(to left, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
 }
-.ix_newTitle::after{
-    position: absolute;content: '';
-    top: 50%;left: 50%;margin-left: 86px;margin-top: -1px;
-    width: 62px;height: 2px;
+.ix_newTitle::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    margin-left: 86px;
+    margin-top: -1px;
+    width: 62px;
+    height: 2px;
     border-right: 2px;
-    background-color: #6E91EC;
-    background:-webkit-linear-gradient(to right, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
-    background:-moz-linear-gradient(to right, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
-    background:-o-linear-gradient(to right, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
-    background:linear-gradient(to right, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
+    background-color: #6e91ec;
+    background: -webkit-linear-gradient(to right, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
+    background: -moz-linear-gradient(to right, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
+    background: -o-linear-gradient(to right, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
+    background: linear-gradient(to right, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
 }
 
-.ix_CBList{
-    display: flex;display: -moz-box;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;
+.ix_CBList {
+    display: flex;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     flex-wrap: wrap;
     margin: 0 auto;
     width: 1200px;
 }
 
-.ix_CBLItem{
+.ix_CBLItem {
     padding-top: 90px;
     cursor: pointer;
     position: relative;
     width: 33.33%;
     height: 292px;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
-.ix_CBLItem:nth-of-type(odd){
+.ix_CBLItem:nth-of-type(odd) {
     background-color: rgba(0, 0, 0, 0.16);
 }
 
-.ix_CBLItem img{
+.ix_CBLItem img {
     display: block;
     margin: 0 auto 12px auto;
     width: 66px;
-    -webkit-transition-duration:0.32s;-moz-transition-duration:0.32s;-o-transition-duration:0.32s;transition-duration:0.32s;
+    -webkit-transition-duration: 0.32s;
+    -moz-transition-duration: 0.32s;
+    -o-transition-duration: 0.32s;
+    transition-duration: 0.32s;
 }
 
-.ix_BLIName{
+.ix_BLIName {
     color: #343434;
     font-size: 26px;
     font-weight: bold;
     text-align: center;
-    -webkit-transition-duration:0.32s;-moz-transition-duration:0.32s;-o-transition-duration:0.32s;transition-duration:0.32s;
+    -webkit-transition-duration: 0.32s;
+    -moz-transition-duration: 0.32s;
+    -o-transition-duration: 0.32s;
+    transition-duration: 0.32s;
 }
 
-.ix_BLILine{
+.ix_BLILine {
     margin: 6px auto 0 auto;
     width: 36px;
     height: 4px;
     border-radius: 2px;
     background-color: #343434;
-    -webkit-transition-duration:0.32s;-moz-transition-duration:0.32s;-o-transition-duration:0.32s;transition-duration:0.32s;
+    -webkit-transition-duration: 0.32s;
+    -moz-transition-duration: 0.32s;
+    -o-transition-duration: 0.32s;
+    transition-duration: 0.32s;
 }
 
-.ix_CBLItem:hover img, .ix_CBLItem:hover .ix_BLIName{
-    -webkit-transform:translateY(-32px);-moz-transform:translateY(-32px);-o-transform:translateY(-32px);transform:translateY(-32px);
+.ix_CBLItem:hover img,
+.ix_CBLItem:hover .ix_BLIName {
+    -webkit-transform: translateY(-32px);
+    -moz-transform: translateY(-32px);
+    -o-transform: translateY(-32px);
+    transform: translateY(-32px);
 }
-.ix_CBLItem:hover .ix_BLILine{
+.ix_CBLItem:hover .ix_BLILine {
     width: 62px;
-    background-color: #6E91EC;
-    -webkit-transform:translateY(-32px);-moz-transform:translateY(-32px);-o-transform:translateY(-32px);transform:translateY(-32px);
+    background-color: #6e91ec;
+    -webkit-transform: translateY(-32px);
+    -moz-transform: translateY(-32px);
+    -o-transform: translateY(-32px);
+    transform: translateY(-32px);
 }
 
-.ix_dataStatistics{
+.ix_dataStatistics {
     padding-bottom: 32px;
     position: relative;
     width: 100%;
 }
 
-.ix_IBomImg{
+.ix_IBomImg {
     position: absolute;
     width: 100%;
-    bottom: 0;right: 0;
+    bottom: 0;
+    right: 0;
 }
-.ix_IBomImg img{
+.ix_IBomImg img {
     display: block;
     width: 100%;
 }
 
 /* 项目介绍 */
-.ix_introduce{
+.ix_introduce {
     padding: 0 0 152px 0;
     position: relative;
     width: 100%;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
-.ix_ITopImg{
+.ix_ITopImg {
     position: absolute;
-    top: 0;left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
 }
-.ix_ITopImg img{
+.ix_ITopImg img {
     display: block;
     width: 100%;
 }
 
-.ix_IBox{
-    display: flex;display: -moz-box;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;
+.ix_IBox {
+    display: flex;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     position: relative;
     margin: 32px auto 0 auto;
     width: 1200px;
 }
 
-.ix_IBLeft{
+.ix_IBLeft {
     min-width: 688px;
     max-width: 688px;
     color: #666;
 }
 
-.ix_IBLTitle{
+.ix_IBLTitle {
     color: #343434;
     font-size: 26px;
 }
 
-.ix_IBLText{
+.ix_IBLText {
     margin-top: 22px;
     font-size: 18px;
     line-height: 30px;
 }
 
-.ix_IBRight{
+.ix_IBRight {
     margin-left: 60px;
     margin-top: 64px;
     flex: 1;
@@ -496,63 +556,77 @@
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-image: url(../images/video1back.png);
-    box-shadow:rgba(0, 0, 0, 0.6) 2px 2px 8px;
+    box-shadow: rgba(0, 0, 0, 0.6) 2px 2px 8px;
 }
 
-.ix_IBRList{
-    display: flex;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;
+.ix_IBRList {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     position: relative;
     margin: 12px auto;
     width: 232px;
     overflow: hidden;
     border-radius: 3px;
-    box-sizing:border-box;
+    box-sizing: border-box;
     border: 1px solid rgba(73, 118, 232, 0.8);
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
-.ix_IBRList::after{
-    position: absolute;content: '';z-index: 1;
-    top: 0;left: 50%;
-    width: 1px;height: 100%;
+.ix_IBRList::after {
+    position: absolute;
+    content: '';
+    z-index: 1;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
     background-color: rgba(73, 118, 232, 0.8);
 }
 
-.ix_BRLItem{
+.ix_BRLItem {
     cursor: pointer;
     flex: 1;
     color: rgba(73, 118, 232, 0.8);
     line-height: 32px;
     text-align: center;
 }
-.ix_BRLItemOut{
+.ix_BRLItemOut {
     color: #fff;
     background-color: rgba(73, 118, 232, 0.8);
 }
 
-.ix_IBLBtn{
+.ix_IBLBtn {
     margin-top: 22px;
     display: block;
-    width: 162px;height: 46px;
+    width: 162px;
+    height: 46px;
     color: #fff;
     line-height: 46px;
     text-align: center;
     border-radius: 3px;
     background-color: #4976e8;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
-    -webkit-transition-duration:0.32s;-moz-transition-duration:0.32s;-o-transition-duration:0.32s;transition-duration:0.32s;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    -webkit-transition-duration: 0.32s;
+    -moz-transition-duration: 0.32s;
+    -o-transition-duration: 0.32s;
+    transition-duration: 0.32s;
 }
-.ix_IBLBtn img{
+.ix_IBLBtn img {
     vertical-align: top;
     margin-top: 16px;
     margin-left: 5px;
     width: 16px;
     height: 16px;
 }
-.ix_IBLBtn:hover{
-    -webkit-transform:translateX(16px);-moz-transform:translateX(16px);-o-transform:translateX(16px);transform:translateX(16px);
+.ix_IBLBtn:hover {
+    -webkit-transform: translateX(16px);
+    -moz-transform: translateX(16px);
+    -o-transform: translateX(16px);
+    transform: translateX(16px);
 }
 
- .ix_cont_title{
+.ix_cont_title {
     text-align: center;
     font-size: 34px;
     color: #a0a9ad;
@@ -560,42 +634,46 @@
     margin-top: 25px;
 }
 
-.ix_view{
+.ix_view {
     width: 1200px;
     height: 580px;
     border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, .1);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
 }
-.ix_view2{
-    display: flex;display: -moz-box;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;
+.ix_view2 {
+    display: flex;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     width: 1200px;
     height: 462px;
     border-radius: 6px;
-    margin-bottom:100px;
+    margin-bottom: 100px;
     overflow: hidden;
     background: transparent;
 }
-.ix_view:after{
+.ix_view:after {
     display: block;
-    content: "";
+    content: '';
     clear: both;
 }
-.ix_video{
+.ix_video {
     width: 65%;
     height: 100%;
     background-color: #d4d4d4;
     float: left;
     position: relative;
 }
-.ix_explain{
+.ix_explain {
     width: 35%;
     height: 100%;
     float: left;
     box-sizing: border-box;
     padding: 45px 35px;
 }
-.ix_Btn{
+.ix_Btn {
     width: 90px;
     height: 90px;
     background-color: #ffffff;
@@ -606,13 +684,13 @@
     right: 30px;
     cursor: pointer;
 }
-.ix_Btn img{
+.ix_Btn img {
     width: 40px;
     height: 40px;
     margin-top: 26px;
     margin-left: 9px;
 }
-.ix_character{
+.ix_character {
     height: 385px;
     font-size: 18px;
     color: #666;
@@ -622,7 +700,7 @@
     -webkit-line-clamp: 11;
     overflow: hidden;
 }
-.ix_Butn{
+.ix_Butn {
     background-color: #8e6537;
     padding: 10px 30px;
     display: inline-block;
@@ -632,24 +710,28 @@
     margin-top: 48px;
     cursor: pointer;
 }
-.ix_Butn a{
+.ix_Butn a {
     color: #ffffff;
 }
 /* 实验目的 */
-.ix_state{
-    display: flex;display: -moz-box;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;
+.ix_state {
+    display: flex;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     margin-top: 32px;
     justify-content: space-around;
 }
-.ix_state .ix_stList{
+.ix_state .ix_stList {
     width: 28%;
     display: inline-block;
     background-color: #ffffff;
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, .1);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
     position: relative;
     border-radius: 6px;
 }
-.ix_txt{
+.ix_txt {
     padding: 0px 20px;
     font-size: 18px;
     line-height: 30px;
@@ -662,12 +744,12 @@
     margin-bottom: 30px;
     cursor: pointer;
 }
-.ix_pho_it{
+.ix_pho_it {
     margin-top: 50px;
     margin-bottom: 110px;
     text-align: center;
 }
-.ix_photo_it{
+.ix_photo_it {
     width: 160px;
     height: 160px;
     border-radius: 50%;
@@ -675,47 +757,46 @@
     text-align: center;
     background-color: rgb(144, 154, 159);
 }
-.ix_photo_it img{
+.ix_photo_it img {
     width: 96px;
     height: 96px;
     margin-top: 25px;
 }
 
-
 /* 实验原理 */
-.ix_Content1{
+.ix_Content1 {
     padding: 52px 0 102px 0;
     width: 1200px;
     height: 478px;
     margin: 0 auto;
 }
-.ix_paddBom100{
+.ix_paddBom100 {
     padding-bottom: 100px;
 }
-.ix_layer{
+.ix_layer {
     width: 100%;
     height: 100%;
     background: #a0a9ad;
 }
-.ix_layer .ix_dia{
+.ix_layer .ix_dia {
     right: 40px;
     width: 20px;
     height: 20px;
 }
-.ix_viewA:after{
+.ix_viewA:after {
     display: block;
-    content: "";
+    content: '';
     clear: both;
 }
-.ix_daList{
+.ix_daList {
     width: 90%;
     height: 100%;
     float: left;
     border-radius: 3px;
     background-color: #f4f5f5;
-    box-shadow:rgba(0, 0, 0, 0.2) 0px 0px 5px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px;
 }
-.ix_tRight{
+.ix_tRight {
     width: 10%;
     height: 100%;
     line-height: 478px;
@@ -724,30 +805,29 @@
     text-align: center;
     position: relative;
 }
-.ix_tRight img{
-   margin: auto;
+.ix_tRight img {
+    margin: auto;
 }
-.ix_listView{
+.ix_listView {
     width: 100%;
 }
-.ix_listView 
-.ix_sonList{
+.ix_listView .ix_sonList {
     width: 100%;
     padding: 20px 0;
 }
-.ix_listView .ix_sonList:nth-child(odd){
+.ix_listView .ix_sonList:nth-child(odd) {
     background-color: #ffffff;
 }
-.ix_listView .ix_sonList:nth-child(even){
+.ix_listView .ix_sonList:nth-child(even) {
     background-color: #f4f5f5;
 }
 /* 清浮动 */
-.ix_sonList:after{
+.ix_sonList:after {
     display: block;
-    content: "";
+    content: '';
     clear: both;
 }
-.ix_catalog{
+.ix_catalog {
     width: 20%;
     display: inline-block;
     float: left;
@@ -755,12 +835,12 @@
     vertical-align: middle;
     padding: 16px 0;
 }
-.ix_catalog p{
+.ix_catalog p {
     font-size: 66px;
     color: #617077;
     padding-left: 66px;
 }
-.ix_catalog div{
+.ix_catalog div {
     display: inline-block;
     width: 1px;
     height: 50px;
@@ -769,7 +849,7 @@
     right: 66px;
     top: 38px;
 }
-.ix_listConten{
+.ix_listConten {
     width: 80%;
     display: inline-block;
     float: left;
@@ -777,11 +857,11 @@
     padding-right: 20px;
     box-sizing: border-box;
 }
-.ix_listTitle{
+.ix_listTitle {
     font-size: 24px;
     padding: 10px 0;
 }
-.ix_contentState{
+.ix_contentState {
     line-height: 30px;
     color: #999999;
     height: 67px;
@@ -791,10 +871,8 @@
     overflow: hidden;
 }
 
-
-
 /* 实验方法 */
-.ix_cont_box{
+.ix_cont_box {
     width: 1500px;
     height: 655px;
     margin: 0 auto;
@@ -802,7 +880,7 @@
     margin-bottom: 50px;
     position: relative;
 }
-.ix_cont_boxsmall{
+.ix_cont_boxsmall {
     width: 1400px;
     height: 500px;
     margin: 0 auto;
@@ -812,137 +890,145 @@
     top: 10px;
     left: 50px;
 }
-.ix_cont_boxsmall img{
+.ix_cont_boxsmall img {
     width: 100%;
     height: 100%;
 }
-.ix_cont_btn{
+.ix_cont_btn {
     text-align: center;
     padding-top: 580px;
 }
-.ix_cont_btn button{
-    background-color: #8E6537;
+.ix_cont_btn button {
+    background-color: #8e6537;
     border-radius: 5px;
     width: 179px;
     height: 49px;
     font-size: 18px;
     line-height: 30px;
     color: #fff;
-    border: 1px solid #8E6537;
+    border: 1px solid #8e6537;
 }
 /* 实验案例展示 start*/
-.ix_al_tip{
+.ix_al_tip {
     cursor: pointer;
     width: 512px;
     position: relative;
     border-radius: 6px;
     overflow: hidden;
     background-color: #fff;
-    box-shadow:rgba(0, 0, 0, 0.3) 0px 0px 6px;
-    -webkit-transition-timing-function: cubic-bezier(0.320, 0.915, 0.130, 0.995); 
-       -moz-transition-timing-function: cubic-bezier(0.320, 0.915, 0.130, 0.995); 
-         -o-transition-timing-function: cubic-bezier(0.320, 0.915, 0.130, 0.995); 
-            transition-timing-function: cubic-bezier(0.320, 0.915, 0.130, 0.995);
-    -webkit-transition-duration:0.62s;-moz-transition-duration:0.62s;-o-transition-duration:0.62s;transition-duration:0.62s;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 6px;
+    -webkit-transition-timing-function: cubic-bezier(0.32, 0.915, 0.13, 0.995);
+    -moz-transition-timing-function: cubic-bezier(0.32, 0.915, 0.13, 0.995);
+    -o-transition-timing-function: cubic-bezier(0.32, 0.915, 0.13, 0.995);
+    transition-timing-function: cubic-bezier(0.32, 0.915, 0.13, 0.995);
+    -webkit-transition-duration: 0.62s;
+    -moz-transition-duration: 0.62s;
+    -o-transition-duration: 0.62s;
+    transition-duration: 0.62s;
 }
-.ix_al_tip:hover{
-    -webkit-transform:translateY(-22px);
-    -moz-transform:translateY(-22px);
-    -o-transform:translateY(-22px);
-    transform:translateY(-22px);
-    box-shadow:rgba(0, 0, 0, 0.8) 0px 0px 16px;
+.ix_al_tip:hover {
+    -webkit-transform: translateY(-22px);
+    -moz-transform: translateY(-22px);
+    -o-transform: translateY(-22px);
+    transform: translateY(-22px);
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 0px 16px;
 }
-.ix_al_tips{
-    width: 100%;height: 320px;
-    box-sizing:border-box;
+.ix_al_tips {
+    width: 100%;
+    height: 320px;
+    box-sizing: border-box;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
-.ix_al_tips img{
+.ix_al_tips img {
     width: 100%;
     height: 400px;
 }
-.ix_al_tip p{
+.ix_al_tip p {
     padding: 22px 12px;
     font-size: 18px;
     color: #666;
 }
-.ix_al_btn{
+.ix_al_btn {
     position: absolute;
-    width: 64px;height: 64px;
-    top: 50%;left: 50%;
+    width: 64px;
+    height: 64px;
+    top: 50%;
+    left: 50%;
     border-radius: 50%;
-    margin-top: -32px;margin-left: -32px;
-    box-shadow:rgba(0, 0, 0, 0.5) 0px 0px 10px;
+    margin-top: -32px;
+    margin-left: -32px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
 }
-
 
 /* 实验案例展示 end */
 
 /* 团队介绍 */
-.ix_teamsBox{
+.ix_teamsBox {
     position: relative;
     width: 1200px;
     margin: 0 auto;
 }
 
-.ix_TBTop{
+.ix_TBTop {
     margin: 32px auto;
     width: 128px;
     color: #343434;
     text-align: center;
 }
 
-.ix_TBTop img{
+.ix_TBTop img {
     display: block;
     width: 128px;
 }
 
-.ix_TBName{
+.ix_TBName {
     margin: 12px 0 5px 0;
     font-size: 22px;
     letter-spacing: 4px;
 }
 
-.ix_TBText{
+.ix_TBText {
     color: #555;
 }
 
-.ix_TBBom{
-    display: flex;display: -moz-box;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;
+.ix_TBBom {
+    display: flex;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     flex-wrap: wrap;
     width: 100%;
 }
 
-.ix_TBBItem{
+.ix_TBBItem {
     margin-bottom: 22px;
     width: 20%;
     color: #343434;
     text-align: center;
 }
 
-.ix_TBBItem img{
+.ix_TBBItem img {
     display: block;
     margin: 0 auto;
     width: 112px;
 }
 
-
-
-.bg_gray{
-    background-color: #E4E6E8;
+.bg_gray {
+    background-color: #e4e6e8;
 }
-.bg_littleGray{
-    background-color: #F1F2F3;
+.bg_littleGray {
+    background-color: #f1f2f3;
     display: flex;
 }
-.ix_team{
+.ix_team {
     padding-top: 32px;
     padding-bottom: 102px;
     overflow: hidden;
 }
-.ix_team_box{
+.ix_team_box {
     width: 1200px;
     display: flex;
     justify-content: space-around;
@@ -950,41 +1036,41 @@
     padding-bottom: 50px;
     margin: 0 auto;
 }
-.ix_team_tip{
+.ix_team_tip {
     width: 180px;
     height: 379px;
     background-color: #fff;
     margin-top: 69px;
 }
-.ix_team_tip img{
+.ix_team_tip img {
     margin: 52px auto;
     display: block;
     width: 100px;
     height: 100px;
 }
-.ix_team_tip2{
+.ix_team_tip2 {
     width: 232px;
     height: 464px;
     background-color: #fff;
 }
-.ix_team_tip2 img{
+.ix_team_tip2 img {
     margin: 52px auto;
     display: block;
     width: 128px;
     height: 128px;
 }
-.ix_team_left{
+.ix_team_left {
     margin-top: 358px;
 }
-.ix_team_right{
+.ix_team_right {
     margin-top: 358px;
 }
-.ix_trapezoid{
+.ix_trapezoid {
     position: absolute;
     left: 0;
     bottom: 0;
-    border-bottom: 100px solid #c9ced1; 
-    border-left: 162px solid transparent; 
+    border-bottom: 100px solid #c9ced1;
+    border-left: 162px solid transparent;
     border-right: 162px solid transparent;
     width: 83%;
 }
@@ -992,27 +1078,27 @@
     z-index: 1;
 }
 
-.ix_team_name{
+.ix_team_name {
     font-size: 26px;
     color: #333;
     text-align: center;
     padding-top: 5px;
 }
-.ix_team_intro{
+.ix_team_intro {
     font-size: 18px;
     color: #999;
     text-align: center;
     margin-top: 10px;
 }
-.ix_team_tip2{
+.ix_team_tip2 {
     z-index: 1;
 }
 
-.ix_team_textIntro{
+.ix_team_textIntro {
     width: 1200px;
     margin: 80px auto;
 }
-.ix_team_title{
+.ix_team_title {
     position: relative;
     font-size: 20px;
     color: rgb(102, 102, 102);
@@ -1020,7 +1106,7 @@
     font-family: 仿宋;
     padding: 12px 0px;
 }
-.ix_team_cont{
+.ix_team_cont {
     color: rgb(102, 102, 102);
     font-size: 16px;
     font-family: 仿宋;
@@ -1029,23 +1115,22 @@
     padding: 12px 0px;
 }
 
-
 /* 意见反馈 */
-.ix_fk_main{
+.ix_fk_main {
     width: 1200px;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
-.ix_fk_box{
+.ix_fk_box {
     padding: 50px 0px;
     background-color: #fff;
 }
-.ix_fk_title{
-    color: #8E6537;
+.ix_fk_title {
+    color: #8e6537;
     font-size: 31px;
     margin-left: 100px;
     padding: 50px 0px;
 }
-.ix_fk_box textarea{
+.ix_fk_box textarea {
     width: 997px;
     height: 344px;
     border: 1px solid rgb(211, 210, 210);
@@ -1053,12 +1138,12 @@
     margin-left: 100px;
     padding: 10px;
 }
-.ix_fk_btn{
+.ix_fk_btn {
     width: 400px;
     margin: 0 auto;
     margin-top: 100px;
 }
-.ix_fk_btn button{
+.ix_fk_btn button {
     width: 150px;
     height: 40px;
     border: 1px solid #8e6537;
@@ -1066,37 +1151,34 @@
     background-color: #fff;
     margin-right: 30px;
     font-size: 16px;
-    color: #8E6537;
+    color: #8e6537;
 }
-.ix_fk_btn .ix_fk_btn1{
+.ix_fk_btn .ix_fk_btn1 {
     background-color: #8e6537;
-    color: #F8F8F8;
+    color: #f8f8f8;
 }
-@media screen and (min-width: 100px) and (max-width: 1366px){
-    .bigbox{
+@media screen and (min-width: 100px) and (max-width: 1366px) {
+    .bigbox {
         width: 1366px;
     }
-    .ix_surname{
+    .ix_surname {
         width: 1366px;
     }
-    .ix_cont{
+    .ix_cont {
         width: 1366px;
     }
-    .ix_trapezoid{
+    .ix_trapezoid {
         width: 75%;
-    } 
+    }
 }
-@media screen and (min-width: 100px) and (max-width: 1024px){
-    .bigbox{
+@media screen and (min-width: 100px) and (max-width: 1024px) {
+    .bigbox {
         width: 1200px;
     }
-    .ix_surname{
+    .ix_surname {
         width: 1200px;
     }
-    .ix_cont{
+    .ix_cont {
         width: 1200px;
     }
-   
 }
-
-

@@ -1,5 +1,10 @@
 <template>
     <div class="content">
+        <el-carousel indicator-position="outside">
+            <el-carousel-item v-for="item in 4" :key="item">
+                <h3>{{ item }}</h3>
+            </el-carousel-item>
+        </el-carousel>
         <div class="ix_introduce">
             <div class="ix_ITopImg"><img src="@/assets/images/topimg.png" alt="" /></div>
             <div class="ix_newTitle">实验介绍</div>
@@ -209,6 +214,9 @@ export default {
         },
         vp_changeVideo(type) {
             this.videoType = type;
+        },
+        changeScrollTop(scrollTop) {
+            this.$refs.outerDom.scrollTop = scrollTop;
         }
     }
 };

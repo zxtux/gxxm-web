@@ -2,9 +2,8 @@ import router from '@/router/index';
 import store from '@/stores';
 
 export const checkout = async () => {
-    // useCommonStore().$reset();
     store.commit('common/clear');
-    // router.replace('/login');
+    router.replace('/login');
 };
 
 export const checkToken = () => {

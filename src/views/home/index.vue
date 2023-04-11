@@ -1,5 +1,5 @@
 <template>
-    <div class="content" ref="outerDom">
+    <div class="content">
         <div class="topLogo">
             <img src="@/assets/images/logo.png" />
             <div class="title">针灸虚拟仿真实验</div>
@@ -17,21 +17,14 @@
             <div v-for="(item, index) in navs" :key="index">
                 <el-menu-item :index="item.id">{{ item.name }}</el-menu-item>
             </div>
-            <div class="ix_user">你好，{{ userName }}</div>
+            <div class="ix_user" @click="show = true">你好，{{ userName }}</div>
 
-            <div class="ix_show" style="display: none;">
+            <div class="ix_show" v-if="show" @click="close">
                 <img src="@/assets/images/pop.png" />
                 <p>退出登录</p>
             </div>
         </el-menu>
-        <!-- <el-carousel indicator-position="outside">
-            <el-carousel-item v-for="item in 4" :key="item">
-                <h3>{{ item }}</h3>
-            </el-carousel-item>
-        </el-carousel> -->
-
         <component :is="currentComp" :key="activeId" class="container" />
-        <backTop @changeScrollTop="changeScrollTop" />
     </div>
 </template>
 
@@ -43,11 +36,10 @@ import materials from './components/materials.vue';
 import experimental from './components/experimental.vue';
 import laboratory from './components/laboratory.vue';
 import about from './components/about.vue';
-import backTop from './components/backTop.vue';
+import { checkout } from '@/utils/auth';
 
 export default {
     name: 'home',
-    components: { backTop },
     data() {
         return {
             navs: [
@@ -82,10 +74,11 @@ export default {
             ],
             activeId: '',
             currentComp: index,
-            userName: '专家'
+            userName: '专家',
+            show: false
         };
     },
-    moment() {
+    mounted() {
         this.getUserInfo();
     },
     methods: {
@@ -123,10 +116,15 @@ export default {
                 url: '/vr/authController/getUserInfo',
                 type: 2
             });
-            this.userName = res.userName;
+            this.userName = res.data.nickName;
         },
-        changeScrollTop(scrollTop) {
-            this.$refs.outerDom.scrollTop = scrollTop;
+        close() {
+            this.$confirm('是否确认退出登录？', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消'
+            }).then(() => {
+                checkout();
+            });
         }
     }
 };
@@ -171,6 +169,7 @@ export default {
         }
         .ix_user {
             padding-left: 40px;
+            width: 260px;
         }
     }
     .container {

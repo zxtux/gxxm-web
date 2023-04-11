@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Axios from 'axios';
-import Store from '@/stores/index';
 import { Loading } from 'element-ui';
 import { getToken, checkout, checkToken } from '@/utils/auth';
 
@@ -43,20 +42,13 @@ export default class http {
         });
         this.instance.interceptors.request.use(
             config => {
-                if (config.checkToken) {
-                    checkToken()
-                        .then(() => {
-                            config.headers['Authorization'] = getToken();
-                            // config.headers['Token'] = getToken();
-                        })
-                        .catch(() => {
-                            checkout();
-                        });
-                }
-                config.baseURL =
-                    process.env.NODE_ENV === 'production' ? window.location.origin : '';
-
-                config.data = { ...config.data, ...{ tk: Store.state.common.ssid } };
+                checkToken()
+                    .then(() => {
+                        config.headers['Authorization'] = getToken();
+                    })
+                    .catch(() => {
+                        checkout();
+                    });
 
                 return Promise.resolve(config);
             },

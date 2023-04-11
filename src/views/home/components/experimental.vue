@@ -1,5 +1,5 @@
 <template>
-    <div class="bigbox">
+    <div class="bigbox" ref="outerDom">
         <div class="sl_newContent">
             <div class="sl_NCLeft">
                 <div class="sl_NCLBox">
@@ -35,39 +35,30 @@
                     <br />
                 </div>
             </div>
-            <div class="sl_NCRightSeat">
-                <div class="sl_CRIList">
-                    <a
-                        href="http://www.hicloudvr.com/watermark/"
-                        target="_blank"
-                        class="sl_CRIItem"
-                    >
-                        <div class="sl_RITIcon sl_RITIcon1"></div>
-                        <div class="sl_RITText">仿真实验</div>
-                    </a>
-                    <div class="sl_CRIItem">
-                        <div class="sl_RITIcon sl_RITIcon5"></div>
-                        <div class="sl_RITText">返回顶部</div>
-                    </div>
-                </div>
-            </div>
         </div>
+        <backTop @changeScrollTop="changeScrollTop" />
         <Footer />
     </div>
 </template>
 
 <script>
 import Footer from './footer';
+import backTop from './backTop.vue';
 export default {
     name: 'experimental',
     components: {
-        Footer
+        Footer,
+        backTop
     },
     data() {
         return {};
     },
 
-    methods: {}
+    methods: {
+        changeScrollTop(scrollTop) {
+            this.$refs.outerDom.scrollTop = scrollTop;
+        }
+    }
 };
 </script>
 

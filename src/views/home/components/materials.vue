@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bigbox" ref="outerDom">
         <div class="sl_newContent">
             <div class="sl_NCLeft">
                 <div class="sl_NCLBox">
@@ -160,22 +160,28 @@
                 </div>
             </div>
         </div>
+        <backTop @changeScrollTop="changeScrollTop" />
         <Footer />
     </div>
 </template>
 
 <script>
 import Footer from './footer';
+import backTop from './backTop.vue';
 export default {
     name: 'materials',
     components: {
-        Footer
+        Footer,
+        backTop
     },
     data() {
         return {};
     },
-
-    methods: {}
+    methods: {
+        changeScrollTop(scrollTop) {
+            this.$refs.outerDom.scrollTop = scrollTop;
+        }
+    }
 };
 </script>
 
