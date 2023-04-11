@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div class="content" ref="outerDom">
         <div class="topLogo">
             <img src="@/assets/images/logo.png" />
             <div class="title">针灸虚拟仿真实验</div>
@@ -31,6 +31,7 @@
         </el-carousel> -->
 
         <component :is="currentComp" :key="activeId" class="container" />
+        <backTop @changeScrollTop="changeScrollTop" />
     </div>
 </template>
 
@@ -42,9 +43,11 @@ import materials from './components/materials.vue';
 import experimental from './components/experimental.vue';
 import laboratory from './components/laboratory.vue';
 import about from './components/about.vue';
+import backTop from './components/backTop.vue';
 
 export default {
     name: 'home',
+    components: { backTop },
     data() {
         return {
             navs: [
@@ -121,6 +124,9 @@ export default {
                 type: 2
             });
             this.userName = res.userName;
+        },
+        changeScrollTop(scrollTop) {
+            this.$refs.outerDom.scrollTop = scrollTop;
         }
     }
 };
