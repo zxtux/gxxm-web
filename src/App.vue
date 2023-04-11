@@ -24,7 +24,7 @@ export default {
         getVersion() {
             let log = [
                 {
-                    msg: `%c项目名称%c手工分段`
+                    msg: `%c项目名称%c`
                 },
                 {
                     msg: `%c版本信息%c${__TAGS__}`,
