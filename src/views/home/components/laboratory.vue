@@ -1,12 +1,15 @@
 <template>
     <div>
-        laboratory
+        <div id="pdfDom">
+            页面内容
+        </div>
         <Footer />
     </div>
 </template>
 
 <script>
 import Footer from './footer';
+import htmlToPdf from '@/utils/htmlToPdf';
 export default {
     name: 'laboratory',
     components: {
@@ -16,7 +19,11 @@ export default {
         return {};
     },
 
-    methods: {}
+    methods: {
+        pdfBtn() {
+            htmlToPdf.getPdf('页面导出PDF文件名');
+        }
+    }
 };
 </script>
 
