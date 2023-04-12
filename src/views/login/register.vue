@@ -64,7 +64,10 @@ export default {
         async getCollege() {
             const res = await this.$http.fetchData({
                 url: '/vr/system/dictDataController/type/sys_university_college',
-                type: 2
+                type: 2,
+                config: {
+                    checkToken: false
+                }
             });
             this.collegeOptions = res.data.map(v => {
                 return { value: v.dictValue, label: v.dictLabel };
@@ -86,6 +89,9 @@ export default {
                     nickName: this.nickName,
                     college: this.college,
                     grade: this.grade
+                },
+                config: {
+                    checkToken: false
                 }
             });
 

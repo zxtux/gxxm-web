@@ -92,6 +92,9 @@ export default {
                 params: {
                     password: this.password,
                     username: this.username
+                },
+                config: {
+                    checkToken: false
                 }
             });
             setToken(res.token);

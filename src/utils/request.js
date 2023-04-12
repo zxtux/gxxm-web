@@ -5,31 +5,35 @@ import { getToken, checkout, checkToken } from '@/utils/auth';
 
 const vm = new Vue();
 
+const paramsSerializer = params => {
+    const parts = [];
+
+    for (let key in params) {
+        let val = params[key];
+
+        if (val === null || Object.prototype.toString.call(val) === '[object Undefined]') {
+            continue;
+        }
+
+        if (Array.isArray(val)) {
+            val = JSON.stringify(val);
+        }
+
+        parts.push(encodeURIComponent(key) + '=' + encodeURIComponent(val));
+    }
+
+    const result = parts.join('&');
+
+    return result;
+};
+
+const baseConfig = {
+    checkToken: true
+};
+
 export default class http {
     constructor() {
         this.loadingInstance = null;
-
-        this.paramsSerializer = params => {
-            const parts = [];
-
-            for (let key in params) {
-                let val = params[key];
-
-                if (val === null || Object.prototype.toString.call(val) === '[object Undefined]') {
-                    continue;
-                }
-
-                if (Array.isArray(val)) {
-                    val = JSON.stringify(val);
-                }
-
-                parts.push(encodeURIComponent(key) + '=' + encodeURIComponent(val));
-            }
-
-            const result = parts.join('&');
-
-            return result;
-        };
 
         this.instance = Axios.create({
             headers: {
@@ -134,11 +138,18 @@ export default class http {
         );
     }
 
-    fetchData = ({ url = '', params = {}, type = 1 }, loading) => {
+    fetchData = ({ url = '', params = {}, type = 1, config = {} }, loading) => {
         http.loadingFn(loading);
 
         return new Promise((resolve, reject) => {
-            this.instance[type === 2 ? 'get' : 'post'](url, type === 2 ? { params } : params)
+            if (!config.headers && type === 1) {
+                params = paramsSerializer(params);
+            }
+            this.instance[type === 2 ? 'get' : 'post'](
+                url,
+                type === 2 ? { params, ...{ ...baseConfig, ...config } } : params,
+                { ...baseConfig, ...config }
+            )
                 .then(res => {
                     resolve(res);
                 })
