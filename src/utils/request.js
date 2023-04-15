@@ -46,13 +46,18 @@ export default class http {
         });
         this.instance.interceptors.request.use(
             config => {
-                checkToken()
-                    .then(() => {
-                        config.headers['Authorization'] = getToken();
-                    })
-                    .catch(() => {
-                        checkout();
-                    });
+                console.log(config);
+                if (config.checkToken) {
+                    checkToken()
+                        .then(() => {
+                            config.headers['Authorization'] = getToken();
+                        })
+                        .catch(() => {
+                            checkout();
+                        });
+                }
+                config.baseURL =
+                    process.env.NODE_ENV === 'production' ? window.location.origin : '';
 
                 return Promise.resolve(config);
             },
@@ -142,7 +147,7 @@ export default class http {
         http.loadingFn(loading);
 
         return new Promise((resolve, reject) => {
-            if (!config.headers && type === 1) {
+            if (type === 2) {
                 params = paramsSerializer(params);
             }
             this.instance[type === 2 ? 'get' : 'post'](
