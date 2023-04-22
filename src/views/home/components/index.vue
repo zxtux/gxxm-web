@@ -1,8 +1,8 @@
 <template>
     <div class="content">
         <el-carousel indicator-position="outside">
-            <el-carousel-item v-for="item in 4" :key="item">
-                <h3>{{ item }}</h3>
+            <el-carousel-item v-for="item in bannerList" :key="item">
+                <img :src="item" />
             </el-carousel-item>
         </el-carousel>
         <div class="ix_introduce">
@@ -90,7 +90,7 @@
             <vue-seamless-scroll :data="listData" :class-option="classOption" class="warp">
                 <ul class="ul-item">
                     <li class="li-item" v-for="(item, index) in listData" :key="index">
-                        {{ item }}
+                        <img :src="item" style="width: 240px; height: 240px;" />
                     </li>
                 </ul>
             </vue-seamless-scroll>
@@ -112,6 +112,10 @@ export default {
     },
     data() {
         return {
+            bannerList: [
+                'https://www.gscat.edu.cn/home/template/images/banner05.jpg?v=20221019',
+                'https://www.gscat.edu.cn/home/upload/2021-06-14/2c989b73799e77f0112017a0a594dae47b2.jpg'
+            ],
             optionPie: {
                 tooltip: {
                     trigger: 'item',
@@ -193,7 +197,14 @@ export default {
                 ]
             },
             videoType: 'guide',
-            listData: [6, 5, 4, 3, 2, 1],
+            listData: [
+                'https://www.gscat.edu.cn/home/upload/2021-05-24/16217865629802c989b73798fc6d169101799a0311a412bf.jpg',
+                'https://www.gscat.edu.cn/home/upload/2023-03-06/1678099206363ff808081849fe3189630186b681d0db001e.jpg',
+                'https://www.gscat.edu.cn/home/upload/2022-09-07/1662523912224ff80808182c5efce82201831625b0200842.jpg',
+                'https://www.gscat.edu.cn/home/upload/2021-05-24/16217871797322c989b73798fc6d121901799a0c7ad412de.jpg',
+                'https://www.gscat.edu.cn/home/upload/2021-06-13/16235893028292c989b73799e77f0136017a0576b22d40d5.jpg',
+                'https://www.gscat.edu.cn/home/upload/2021-05-24/16217874261442c989b73798fc6d182201799a103d6012fe.jpg'
+            ],
             classOption: {
                 limitMoveNum: 2,
                 direction: 3
