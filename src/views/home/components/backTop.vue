@@ -1,7 +1,11 @@
 <template>
     <div class="sl_NCRightSeat">
         <div class="sl_CRIList">
-            <a href="http://www.hicloudvr.com/watermark/" target="_blank" class="sl_CRIItem">
+            <a
+                :href="'/WebMessageSystem/index.html?token=' + token"
+                target="_blank"
+                class="sl_CRIItem"
+            >
                 <div class="sl_RITIcon sl_RITIcon1"></div>
                 <div class="sl_RITText">仿真实验</div>
             </a>
@@ -13,12 +17,14 @@
     </div>
 </template>
 <script>
+import { getToken } from '@/utils/auth';
 export default {
     name: 'backTop',
     data() {
         return {
             scrollTop: 0,
-            scrollTrigger: false
+            scrollTrigger: false,
+            token: getToken()
         };
     },
     methods: {
