@@ -70,6 +70,7 @@ export default class http {
 
                 if (data.code !== 200) {
                     http.notify({ text: (data.Msg || data.msg) ?? '未知错误' });
+                    checkout();
                     return Promise.reject(response);
                 }
 
