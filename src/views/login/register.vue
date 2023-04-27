@@ -96,7 +96,7 @@ export default {
             });
 
             this.$notify.success({
-                title: '错误',
+                title: '提示',
                 message: '注册成功'
             });
             setTimeout(() => {

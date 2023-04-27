@@ -1,26 +1,29 @@
 <template>
-    <div class="bigbox">
+    <div class="bigbox" ref="outerDom">
         <div id="pdfDom" class="sl_newContent">
             <div class="sl_NCLeft">
+                <el-button type="primary" @click="pdfBtn" style="margin: 20px;">
+                    预览PDF
+                </el-button>
                 <div class="sl_NCLBox">
-                    <div v-for="(item, index) in list" :key="index">
+                    <div v-for="(item, index) in list" :key="index" class="conby">
                         <div class="content-rep">
-                            <div>
+                            <div class="lineh60">
                                 {{ item.title }}
                             </div>
-                            <div class="top-rep">
+                            <div class="top-rep lineh60">
                                 <div class="flex1">姓名</div>
                                 <div class="flex1 borL">{{ item.username }}</div>
                                 <div class="flex1 borL">班级</div>
                                 <div class="flex1 borL">{{ item.group_name }}</div>
                             </div>
-                            <div class="top-rep borB">
+                            <div class="top-rep borB lineh60">
                                 <div class="flex1">学号</div>
                                 <div class="flex1 borL">{{ item.status }}</div>
                                 <div class="flex1 borL">总成绩</div>
                                 <div class="flex1 borL">{{ item.score }}</div>
                             </div>
-                            <div class="bgrey">
+                            <div class="bgrey lineh40">
                                 {{ item.questionpanel.head }}
                             </div>
                             <div class="questionpanel">
@@ -30,8 +33,62 @@
                                     :key="index1"
                                 >
                                     {{ item1.topic }}
-                                    <span class="fontR">（{{ item1.selectOptions }}）</span>
-                                    <div class="ques-text" v-if="item1.type === 'text'">
+                                    <template v-if="item1.type === 'img'">
+                                        <img
+                                            :src="'data:image/jpeg;base64,' + item1.selectOptions"
+                                            class="questImg"
+                                        />
+                                    </template>
+                                    <template v-else>
+                                        <span class="fontR">（{{ item1.selectOptions }}）</span>
+                                    </template>
+
+                                    <div class="ques-img" v-if="item1.type === 'img'">
+                                        <div class="flex1 options">
+                                            <img
+                                                :src="
+                                                    'data:image/jpeg;base64,' +
+                                                    item1.options.split('+/+')[0]
+                                                "
+                                            />
+                                        </div>
+                                        <div class="flex1 options">
+                                            <img
+                                                :src="
+                                                    'data:image/jpeg;base64,' +
+                                                    item1.options.split('+/+')[1]
+                                                "
+                                            />
+                                        </div>
+                                        <div class="flex1 options">
+                                            <img
+                                                :src="
+                                                    'data:image/jpeg;base64,' +
+                                                    item1.options.split('+/+')[2]
+                                                "
+                                            />
+                                        </div>
+                                        <div class="flex1 options">
+                                            <img
+                                                :src="
+                                                    'data:image/jpeg;base64,' +
+                                                    item1.options.split('+/+')[3]
+                                                "
+                                            />
+                                        </div>
+                                        <div
+                                            class="flex1 options"
+                                            v-if="item1.options.split('+/+')[4]"
+                                        >
+                                            <img
+                                                :src="
+                                                    'data:image/jpeg;base64,' +
+                                                    item1.options.split('+/+')[4]
+                                                "
+                                            />
+                                        </div>
+                                    </div>
+                                    <div v-else class="ques-text">
                                         <div>{{ item1.options.split('/')[0] }}</div>
                                         <div>{{ item1.options.split('/')[1] }}</div>
                                         <div>{{ item1.options.split('/')[2] }}</div>
@@ -42,37 +99,26 @@
                                             {{ item1.options.split('/')[4] }}
                                         </div>
                                     </div>
-                                    <div v-else class="ques-img">
-                                        <div class="flex1 options">
-                                            <div>A.</div>
-                                            <img src="img/iconfont-scan.png" />
-                                        </div>
-                                        <div class="flex1 options">
-                                            <div>B.</div>
-                                            <img src="img/iconfont-scan.png" />
-                                        </div>
-                                        <div class="flex1 options">
-                                            <div>C.</div>
-                                            <img src="img/iconfont-scan.png" />
-                                        </div>
-                                        <div class="flex1 options">
-                                            <div>D.</div>
-                                            <img src="img/iconfont-scan.png" />
-                                        </div>
+                                    <div v-if="item1.type === 'img'">
+                                        注：正确答案是：
+                                        <img
+                                            :src="'data:image/jpeg;base64,' + item1.correctOptions"
+                                            class="questImg"
+                                        />
+                                        {{ item1.remark }}
                                     </div>
-                                    <div>
-                                        注：正确答案是：{{ item1.correctOptions }} 题解：{{
-                                            item1.remark
-                                        }}
+                                    <div v-else>
+                                        注：正确答案是：{{ item1.correctOptions }}
+                                        {{ item1.remark }}
                                     </div>
                                 </div>
                             </div>
-                            <div class="bgrey">
+                            <div class="bgrey lineh40">
                                 {{ item.experimentprocesspanel.head }}
                             </div>
-                            <div class="experimentprocesspanel">
+                            <div class="experimentprocesspanel textby">
                                 <div class="experTitle">
-                                    {{ item.experimentprocesspanel.message[0].topic }}
+                                    <!-- {{ item.experimentprocesspanel.message[0].topic }} -->
                                 </div>
                                 <div
                                     class="experCont"
@@ -84,7 +130,7 @@
                                     <div>CCC</div> -->
                                 </div>
                             </div>
-                            <div class="bgrey">
+                            <div class="bgrey lineh40">
                                 {{ item.experimentsteppanel.head }}
                             </div>
                             <div>
@@ -124,15 +170,19 @@
                                     <el-table-column prop="remarks" label="备注"></el-table-column>
                                 </el-table>
                             </div>
-                            <div class="bgrey">
+                            <div class="bgrey lineh40">
                                 {{ item.resultpanel.head }}
                             </div>
-                            <div v-for="(item3, index3) in item.resultpanel.result" :key="index3">
+                            <div
+                                v-for="(item3, index3) in item.resultpanel.result"
+                                :key="index3"
+                                class="textby"
+                            >
                                 <template v-if="item3.type === 'text'">
                                     <div>{{ item3.content }}</div>
                                 </template>
                                 <template v-else>
-                                    <img :src="item3.content" />
+                                    <img :src="'data:image/jpeg;base64,' + item3.content" />
                                 </template>
                             </div>
                             <el-input
@@ -141,57 +191,59 @@
                                 placeholder="请输入内容"
                                 v-model="item.report_summary"
                             ></el-input>
-                            <el-button type="primary" @click="commitReportSummary">提交</el-button>
+                            <el-button
+                                type="primary"
+                                @click="commitReportSummary(item.report_id)"
+                                style="width: 100%;"
+                            >
+                                提交
+                            </el-button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <backTop @changeScrollTop="changeScrollTop" />
         <Footer />
     </div>
 </template>
 
 <script>
 import Footer from './footer';
+import backTop from './backTop.vue';
 import htmlToPdf from '@/utils/htmlToPdf';
 export default {
     name: 'laboratory',
     components: {
-        Footer
+        Footer,
+        backTop
     },
-    data() {
-        return {
-            list: [],
-            tableData: []
-        };
-    },
-    mounted() {
-        this.getReportInfo();
-    },
+    props: ['list'],
     methods: {
         pdfBtn() {
-            htmlToPdf.getPdf('页面导出PDF文件名');
+            htmlToPdf.getPdf('实验报告');
         },
-        async getReportInfo() {
+        async commitReportSummary(id) {
+            const params = this.list
+                .filter(v => v.report_id === id)
+                .map(v => {
+                    return {
+                        report_id: v.report_id,
+                        report_summary: v.report_summary,
+                        status: v.status
+                    };
+                })[0];
             const res = await this.$http.fetchData({
-                url: '/vr/experimentController/getReportInfo',
-                type: 2
-            });
-            this.list = res.data;
-        },
-        async commitReportSummary() {
-            const params = this.tableData.map(v => {
-                return {
-                    report_id: v.report_id,
-                    report_summary: v.report_summary,
-                    status: v.status
-                };
-            });
-
-            await this.$http.fetchData({
                 url: '/vr/experimentController/commitReportSummary',
                 params: params
             });
+            this.$notify.success({
+                title: '提示',
+                message: res.msg
+            });
+        },
+        changeScrollTop(scrollTop) {
+            this.$refs.outerDom.scrollTop = scrollTop;
         }
     }
 };
@@ -261,5 +313,22 @@ export default {
     display: flex;
     justify-content: space-between;
     padding: 2px 20px;
+}
+.lineh40 {
+    line-height: 40px;
+}
+.lineh60 {
+    line-height: 60px;
+}
+.conby {
+    margin-bottom: 80px;
+}
+.textby {
+    text-align: left;
+    padding: 10px;
+}
+.questImg {
+    width: 40px;
+    height: 40px;
 }
 </style>

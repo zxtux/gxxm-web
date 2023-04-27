@@ -24,7 +24,7 @@
                 <p>退出登录</p>
             </div>
         </el-menu>
-        <component :is="currentComp" :key="activeId" class="container" />
+        <component :is="currentComp" :key="activeId" :list="reportList" class="container" />
     </div>
 </template>
 
@@ -75,11 +75,13 @@ export default {
             activeId: '',
             currentComp: index,
             userName: '专家',
-            show: false
+            show: false,
+            reportList: []
         };
     },
     mounted() {
         this.getUserInfo();
+        this.getReportInfo();
     },
     methods: {
         handleSelect(keyPath) {
@@ -122,9 +124,20 @@ export default {
             this.$confirm('是否确认退出登录？', '提示', {
                 confirmButtonText: '确定',
                 cancelButtonText: '取消'
-            }).then(() => {
-                checkout();
+            })
+                .then(() => {
+                    checkout();
+                })
+                .catch(() => {
+                    this.show = false;
+                });
+        },
+        async getReportInfo() {
+            const res = await this.$http.fetchData({
+                url: '/vr/experimentController/getReportInfo',
+                type: 2
             });
+            this.reportList = res.data;
         }
     }
 };

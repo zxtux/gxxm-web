@@ -46,7 +46,6 @@ export default class http {
         });
         this.instance.interceptors.request.use(
             config => {
-                console.log(config);
                 if (config.checkToken) {
                     checkToken()
                         .then(() => {
