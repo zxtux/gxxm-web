@@ -162,8 +162,7 @@ export default {
     data() {
         return {
             list: [],
-            tableData: [],
-            textarea: ''
+            tableData: []
         };
     },
     mounted() {
@@ -180,7 +179,6 @@ export default {
             });
             this.list = res.data;
         },
-
         async commitReportSummary() {
             const params = this.tableData.map(v => {
                 return {
