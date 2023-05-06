@@ -23,7 +23,8 @@
                                 <div class="flex1 borL">总成绩</div>
                                 <div class="flex1 borL">{{ item.score }}</div>
                             </div>
-                            <template v-if="item.questionpanel.length > 0">
+
+                            <template v-if="item.questionpanel.questions.length > 0">
                                 <div class="bgrey lineh40">
                                     {{ item.questionpanel.head }}
                                 </div>
@@ -119,13 +120,13 @@
                                     </div>
                                 </div>
                             </template>
-                            <template v-if="item.experimentprocesspanel.length > 0">
+                            <template v-if="item.experimentprocesspanel.message.length > 0">
                                 <div class="bgrey lineh40">
                                     {{ item.experimentprocesspanel.head }}
                                 </div>
                                 <div class="experimentprocesspanel textby">
                                     <div class="experTitle">
-                                        <!-- {{ item.experimentprocesspanel.message[0].topic }} -->
+                                        {{ item.experimentprocesspanel.message[0].topic }}
                                     </div>
                                     <div
                                         class="experCont"
@@ -139,7 +140,7 @@
                                     </div>
                                 </div>
                             </template>
-                            <template v-if="item.experimentsteppanel.length > 0">
+                            <template v-if="item.experimentsteppanel.steps.length > 0">
                                 <div class="bgrey lineh40">
                                     {{ item.experimentsteppanel.head }}
                                 </div>
@@ -196,7 +197,7 @@
                                     </el-table>
                                 </div>
                             </template>
-                            <template v-if="item.resultpanel.length > 0">
+                            <template v-if="item.resultpanel.result.length > 0">
                                 <div class="bgrey lineh40">
                                     {{ item.resultpanel.head }}
                                 </div>
@@ -358,5 +359,8 @@ export default {
 .questImg {
     width: 40px;
     height: 40px;
+}
+.el-button {
+    border-radius: 0;
 }
 </style>
