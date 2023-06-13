@@ -2,28 +2,28 @@
     <div class="content">
         <div class="topLogo">
             <img src="@/assets/images/logo.png" />
-            <div class="title">针灸虚拟仿真实验</div>
+            <el-menu
+                :default-active="'index'"
+                mode="horizontal"
+                @select="handleSelect"
+                class="el-menu"
+            >
+                <div v-for="(item, index) in navs" :key="index">
+                    <el-menu-item :index="item.id">{{ item.name }}</el-menu-item>
+                </div>
+
+                <div class="ix_user" @click="show = true">
+                    {{ userName }}
+                    <el-avatar icon="el-icon-user-solid"></el-avatar>
+                </div>
+
+                <div class="ix_show" v-if="show" @click="close">
+                    <img src="@/assets/images/pop.png" />
+
+                    <p>退出登录</p>
+                </div>
+            </el-menu>
         </div>
-
-        <el-menu
-            :default-active="'index'"
-            mode="horizontal"
-            @select="handleSelect"
-            background-color="#6E91EC"
-            text-color="#fff"
-            active-text-color="#fff"
-            class="el-menu"
-        >
-            <div v-for="(item, index) in navs" :key="index">
-                <el-menu-item :index="item.id">{{ item.name }}</el-menu-item>
-            </div>
-            <div class="ix_user" @click="show = true">你好，{{ userName }}</div>
-
-            <div class="ix_show" v-if="show" @click="close">
-                <img src="@/assets/images/pop.png" />
-                <p>退出登录</p>
-            </div>
-        </el-menu>
         <component :is="currentComp" :key="activeId" :list="reportList" class="container" />
     </div>
 </template>
@@ -146,32 +146,23 @@ export default {
 <style lang="scss" scoped>
 .content {
     height: 100%;
-
     .topLogo {
         display: flex;
         align-items: center;
         background: #fff;
         padding-left: 30px;
-        height: 100px;
-        .title {
-            margin-left: 32px;
-            font-family: Adobe Arabic;
-            font-size: 36px;
-            color: #6e91ec;
-            line-height: 100px;
-            font-weight: bold;
-        }
+        height: 90px;
     }
     .el-menu {
         display: flex;
-        padding-left: 100px;
+        padding-left: 50px;
+        border-bottom: none !important;
         .el-menu-item {
             margin-left: 5%;
-            width: 160px;
-            height: 62px;
+            width: 120px;
+            height: 90px;
             text-align: center;
-            color: #f8f8f8;
-            line-height: 62px;
+            line-height: 90px;
             font-size: 18px;
             cursor: pointer;
             position: relative;
@@ -179,10 +170,13 @@ export default {
         .el-menu-item.is-active {
             color: #6e91ec !important;
             background-color: #fff !important;
+            border-bottom: 2px solid #6e91ec;
         }
         .ix_user {
             padding-left: 40px;
             width: 260px;
+            height: 90px;
+            line-height: 90px;
         }
     }
     .container {

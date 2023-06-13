@@ -43,7 +43,7 @@ module.exports = {
         },
         proxy: {
             '/vr': {
-                target: 'http://vr2023.natapp1.cc',
+                target: 'http://47.94.165.170/',
                 changeOrigin: true,
                 logLevel: 'debug'
             }
