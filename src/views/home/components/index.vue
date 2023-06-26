@@ -1,11 +1,67 @@
 <template>
     <div class="content">
-        <el-carousel indicator-position="outside">
+        <el-carousel indicator-position="none" height="400px">
             <el-carousel-item v-for="item in bannerList" :key="item">
-                <img :src="item" />
+                <el-image :src="item" fit="fit" />
             </el-carousel-item>
         </el-carousel>
-        <div class="ix_introduce">
+        <div class="bg-[#fff] h-500px flex justify-center">
+            <div class="bg-[#fff] h-600px w-80% mt--50px z-9 shadow">
+                <div class="flex justify-center items-center mt-30px">
+                    <img src="@/assets/img/point.png" />
+                    <div class="text-size-30px ml-20px font-bold">实验介绍</div>
+                </div>
+                <div class="flex mt-70px">
+                    <div class="bgimg w-700px h-400px ml-20px px-20px py-50px pr-110px">
+                        <div class="text-size-26px">针灸虚拟仿真实验</div>
+                        <div class="leading-30px py-30px">
+                            针灸虚拟仿真实验，围绕传统实验教学的局限性和实际洪水调控的知识及能力需求，以“洪水形成—洪水传播—洪水调控”为主线，通过洪水形成感知实验、洪水预报仿真实验和洪水演进调控实验，将“降-产-汇-演-调”多环节融合贯通，实现水循环和洪水调控全过程虚拟仿真，使学生能够建立以应用为主线的知识体系，从而具备解决实际洪水调控问题的能力。实验上线以来，已服务多家高校及企事业单位，取得了显著效果。
+                        </div>
+                        <div>
+                            <el-button type="primary">
+                                进入实验
+                                <i class="el-icon-arrow-right el-icon--right"></i>
+                            </el-button>
+                        </div>
+                    </div>
+                    <div class="h-260px w-260px ml--60px shadow flex mt-60px ringShadow">
+                        <video
+                            :src="
+                                'http://xunifangzhen.oss-cn-beijing.aliyuncs.com/rainstorm_' +
+                                (videoType == 'guide' ? 'brief' : 'guide') +
+                                '.mp4'
+                            "
+                            width="100%"
+                            height="100%"
+                            controls="controls"
+                            :poster="
+                                './img/video/' +
+                                (videoType == 'guide' ? 'video1Img' : 'video2Img') +
+                                '.jpg'
+                            "
+                        ></video>
+                    </div>
+
+                    <div>
+                        <div
+                            class="flex items-center flex-col ml-100px"
+                            @click="vp_changeVideo('guide')"
+                        >
+                            <img src="@/assets/img/introductionVideo.png" class="w-50px h-100px" />
+                            <div class="text-size-20px mt-20px">简介视频</div>
+                        </div>
+                        <div
+                            class="flex items-center flex-col ml-100px mt-50px"
+                            @click="vp_changeVideo('introduction')"
+                        >
+                            <img src="@/assets/img/introductionVideo.png" class="w-50px h-100px" />
+                            <div class="text-size-20px mt-20px">教学引导视频</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="ix_introduce">
             <div class="ix_ITopImg"><img src="@/assets/images/topimg.png" alt="" /></div>
             <div class="ix_newTitle">实验介绍</div>
             <div class="ix_IBox">
@@ -54,25 +110,17 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- <div class="chart">
-            <div id="myPie" class="myChart"></div>
-            <div id="myLine" class="myChart"></div>
         </div> -->
+
         <div class="ix_dataStatistics">
             <div class="ix_cont ix_notBackColor">
-                <!-- 内容 -->
                 <div
                     class="ix_bodyCon"
                     data-stellar-background-ratio="0.05"
                     style="background-position: 50% 0;"
                 >
-                    <!-- 蒙层 -->
                     <div class="ix_surname">
-                        <!-- 中间大块 -->
                         <div class="ix_Content">
-                            <!-- 标题 -->
                             <div class="ix_newTitle">数据统计</div>
                             <div class="ix_view2">
                                 <div id="myPie" style="width: 43%; height: 100%;"></div>
@@ -104,6 +152,7 @@
 import * as echarts from 'echarts';
 import Footer from './footer';
 import vueSeamlessScroll from 'vue-seamless-scroll';
+import img from '@/assets/img/rotation1.png';
 export default {
     name: 'index',
     components: {
@@ -112,10 +161,7 @@ export default {
     },
     data() {
         return {
-            bannerList: [
-                'https://www.gscat.edu.cn/home/template/images/banner05.jpg?v=20221019',
-                'https://www.gscat.edu.cn/home/upload/2021-06-14/2c989b73799e77f0112017a0a594dae47b2.jpg'
-            ],
+            bannerList: [img],
             optionPie: {
                 tooltip: {
                     trigger: 'item',
@@ -236,6 +282,16 @@ export default {
 <style lang="scss" scoped>
 .content {
     height: 100%;
+    .shadow {
+        box-shadow: 2px 5px 5px 0 rgb(238, 238, 238), -2px 5px 5px 0 rgb(238, 238, 238),
+            0px 5px 5px 0 rgb(238, 238, 238);
+    }
+    .ringShadow {
+        box-shadow: 0px 0px 5px 0px rgb(238, 238, 238);
+    }
+    .bgimg {
+        background-image: url('../../../assets/img/introduceTheBottomDiagram.png');
+    }
     .chart {
         display: flex;
         .myChart {
