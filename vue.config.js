@@ -2,6 +2,7 @@ const Path = require('path');
 const Fs = require('fs');
 const Cp = require('child_process');
 const Webpack = require('webpack');
+const UnoCSS = require('@unocss/webpack').default;
 
 function getGitInfo(tags) {
     let revision = {
@@ -54,7 +55,11 @@ module.exports = {
             sass: {
                 additionalData: `@import "./src/assets/style/basic/mixins.scss"; @import "./src/assets/style/basic/variables.scss";`
             }
-        }
+        },
+        extract: true
+    },
+    configureWebpack: {
+        plugins: [UnoCSS()]
     },
     chainWebpack(config) {
         config.resolve.alias.set('@', resolve('src'));

@@ -7,6 +7,7 @@
         "build": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build"
     },
     "dependencies": {
+        "@unocss/webpack": "^0.53.3",
         "axios": "0.19.2",
         "core-js": "^3.30.0",
         "echarts": "^5.4.2",
@@ -44,6 +45,7 @@
         "prettier": "2.0.5",
         "sass": "1.26.10",
         "sass-loader": "9.0.1",
+        "unocss": "^0.53.3",
         "vue-template-compiler": "2.6.11",
         "webpack": "4.43.0"
     }
