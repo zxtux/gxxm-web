@@ -73,7 +73,7 @@ export default {
                 }
             ],
             activeId: '',
-            currentComp: index,
+            currentComp: declare,
             userName: '专家',
             show: false,
             reportList: []
@@ -182,7 +182,7 @@ export default {
     .container {
         background-color: #f4f4f4;
         width: 100%;
-        height: calc(100vh - 140px) !important;
+        height: calc(100vh - 90px) !important;
         overflow: auto;
         scrollbar-width: none;
         -ms-overflow-style: none;

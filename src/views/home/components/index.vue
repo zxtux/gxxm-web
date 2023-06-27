@@ -71,7 +71,7 @@
                 <img src="@/assets/img/point.png" />
                 <div class="text-size-30px ml-20px font-bold">教学成果</div>
             </div>
-            <vue-seamless-scroll :data="listData" :class-option="classOption" class="warp">二级
+            <vue-seamless-scroll :data="listData" :class-option="classOption" class="warp">
                 <ul class="ul-item">
                     <li class="li-item" v-for="(item, index) in listData" :key="index">
                         <img :src="item" style="width: 240px; height: 240px;" />

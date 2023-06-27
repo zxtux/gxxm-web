@@ -47,3 +47,10 @@
     background: #d6dde4;
     border: 1px solid #d6dde4;
 }
+
+.backgroundPic {
+    background-image: url(../img/twoBg.png);
+    background-size: cover;
+    height: 800px;
+    width: 100%;
+}
