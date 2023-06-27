@@ -13,7 +13,7 @@
                 </div>
                 <div class="flex mt-70px">
                     <div class="bgimg w-700px h-400px ml-20px px-20px py-50px pr-110px">
-                        <div class="text-size-26px">针灸虚拟仿真实验</div>
+                        <div class="text-size-26px color-[#1D6DCF]">针灸虚拟仿真实验</div>
                         <div class="leading-30px py-30px">
                             针灸虚拟仿真实验，围绕传统实验教学的局限性和实际洪水调控的知识及能力需求，以“洪水形成—洪水传播—洪水调控”为主线，通过洪水形成感知实验、洪水预报仿真实验和洪水演进调控实验，将“降-产-汇-演-调”多环节融合贯通，实现水循环和洪水调控全过程虚拟仿真，使学生能够建立以应用为主线的知识体系，从而具备解决实际洪水调控问题的能力。实验上线以来，已服务多家高校及企事业单位，取得了显著效果。
                         </div>
@@ -61,81 +61,17 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="ix_introduce">
-            <div class="ix_ITopImg"><img src="@/assets/images/topimg.png" alt="" /></div>
-            <div class="ix_newTitle">实验介绍</div>
-            <div class="ix_IBox">
-                <div class="ix_IBLeft">
-                    <div class="ix_IBLTitle">针灸虚拟仿真实验</div>
-                    <div class="ix_IBLText" style="letter-spacing: 1px;">
-                        针灸虚拟仿真实验，围绕传统实验教学的局限性和实际洪水调控的知识及能力需求，以“洪水形成—洪水传播—洪水调控”为主线，通过洪水形成感知实验、洪水预报仿真实验和洪水演进调控实验，将“降-产-汇-演-调”多环节融合贯通，实现水循环和洪水调控全过程虚拟仿真，使学生能够建立以应用为主线的知识体系，从而具备解决实际洪水调控问题的能力。实验上线以来，已服务多家高校及企事业单位，取得了显著效果。
-                    </div>
-                    <a class="ix_IBLBtn" onclick="sl_goLabel()">
-                        开始实验
-                        <img src="@/assets/images/arrowright.png" />
-                    </a>
-                </div>
-
-                <div class="ix_IBRight" style="height: 260px;">
-                    <video
-                        :src="
-                            'http://xunifangzhen.oss-cn-beijing.aliyuncs.com/rainstorm_' +
-                            (videoType == 'guide' ? 'brief' : 'guide') +
-                            '.mp4'
-                        "
-                        width="100%"
-                        height="100%"
-                        controls="controls"
-                        :poster="
-                            './img/video/' +
-                            (videoType == 'guide' ? 'video1Img' : 'video2Img') +
-                            '.jpg'
-                        "
-                    ></video>
-                    <div class="ix_IBRList">
-                        <div
-                            class="ix_BRLItem"
-                            :class="{ ix_BRLItemOut: videoType == 'guide' }"
-                            @click="vp_changeVideo('guide')"
-                        >
-                            简介视频
-                        </div>
-                        <div
-                            class="ix_BRLItem"
-                            :class="{ ix_BRLItemOut: videoType == 'introduction' }"
-                            @click="vp_changeVideo('introduction')"
-                        >
-                            教学引导视频
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-        <div class="ix_dataStatistics">
-            <div class="ix_cont ix_notBackColor">
-                <div
-                    class="ix_bodyCon"
-                    data-stellar-background-ratio="0.05"
-                    style="background-position: 50% 0;"
-                >
-                    <div class="ix_surname">
-                        <div class="ix_Content">
-                            <div class="ix_newTitle">数据统计</div>
-                            <div class="ix_view2">
-                                <div id="myPie" style="width: 43%; height: 100%;"></div>
-                                <div id="myLine" style="width: 57%; height: 100%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="ix_IBomImg"><img src="@/assets/images/bomimg.png" alt="" /></div>
+        <div class="color-[#fff] bgimg1 h-200px pt-100px text-size-30px text-center">数据统计</div>
+        <div class="justify-center py-80px flex h-500px">
+            <div id="myPie" style="width: 43%; height: 100%;"></div>
+            <div id="myLine" style="width: 43%; height: 100%;"></div>
         </div>
-
-        <div class="ix_Content">
-            <div class="ix_newTitle">教学成果</div>
-            <vue-seamless-scroll :data="listData" :class-option="classOption" class="warp">
+        <div class="teachingResults h-400px">
+            <div class="flex justify-center items-center pt-30px">
+                <img src="@/assets/img/point.png" />
+                <div class="text-size-30px ml-20px font-bold">教学成果</div>
+            </div>
+            <vue-seamless-scroll :data="listData" :class-option="classOption" class="warp">二级
                 <ul class="ul-item">
                     <li class="li-item" v-for="(item, index) in listData" :key="index">
                         <img :src="item" style="width: 240px; height: 240px;" />
@@ -143,7 +79,6 @@
                 </ul>
             </vue-seamless-scroll>
         </div>
-
         <Footer />
     </div>
 </template>
@@ -245,11 +180,9 @@ export default {
             videoType: 'guide',
             listData: [
                 'https://www.gscat.edu.cn/home/upload/2021-05-24/16217865629802c989b73798fc6d169101799a0311a412bf.jpg',
-                'https://www.gscat.edu.cn/home/upload/2023-03-06/1678099206363ff808081849fe3189630186b681d0db001e.jpg',
                 'https://www.gscat.edu.cn/home/upload/2022-09-07/1662523912224ff80808182c5efce82201831625b0200842.jpg',
                 'https://www.gscat.edu.cn/home/upload/2021-05-24/16217871797322c989b73798fc6d121901799a0c7ad412de.jpg',
-                'https://www.gscat.edu.cn/home/upload/2021-06-13/16235893028292c989b73799e77f0136017a0576b22d40d5.jpg',
-                'https://www.gscat.edu.cn/home/upload/2021-05-24/16217874261442c989b73798fc6d182201799a103d6012fe.jpg'
+                'https://www.gscat.edu.cn/home/upload/2021-06-13/16235893028292c989b73799e77f0136017a0576b22d40d5.jpg'
             ],
             classOption: {
                 limitMoveNum: 2,
@@ -283,15 +216,24 @@ export default {
 .content {
     height: 100%;
     .shadow {
-        box-shadow: 2px 5px 5px 0 rgb(238, 238, 238), -2px 5px 5px 0 rgb(238, 238, 238),
-            0px 5px 5px 0 rgb(238, 238, 238);
+        box-shadow: 0px 0px 5px 0px rgb(238, 238, 238);
     }
     .ringShadow {
         box-shadow: 0px 0px 5px 0px rgb(238, 238, 238);
     }
     .bgimg {
         background-image: url('../../../assets/img/introduceTheBottomDiagram.png');
+        background-size: cover;
     }
+    .bgimg1 {
+        background-image: url('../../../assets/img/statistics.png');
+        background-size: cover;
+    }
+    .teachingResults {
+        background-image: url('../../../assets/img/teachingResults.png');
+        background-size: cover;
+    }
+
     .chart {
         display: flex;
         .myChart {
@@ -304,6 +246,7 @@ export default {
         height: 240px;
         margin: 0 auto 40px;
         overflow: hidden;
+        padding: 30px;
         ul {
             list-style: none;
             padding: 0;
@@ -313,7 +256,7 @@ export default {
                 .li-item {
                     width: 240px;
                     height: 240px;
-                    margin-right: 60px;
+                    margin-right: 30px;
                     line-height: 240px;
                     background-color: #999;
                     color: #fff;
