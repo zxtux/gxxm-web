@@ -1,32 +1,41 @@
 <template>
-    <div class="bigbox" ref="outerDom">
-        <div class="sl_newContent">
-            <div class="sl_NCLeft">
-                <div class="sl_NCLBox">
-                    <div class="ct_ep_bigTitle">实验名称</div>
-                    <p>针灸虚拟仿真实验</p>
-
-                    <div class="ct_ep_bigTitle">实验描述</div>
-                    <p>
-                        西安理工大学水文与水资源工程专业是陕西省首批重点建设的“一流专业”（2017年）、陕西省“双万计划”一流本科专业建设点（2019年）、国家“双万计划”一流本科专业建设点（2021年），先后两次通过全国工程教育专业认证（2012、2018年，有效期均为6年）。专业依托的水文学及水资源学科是国务院首批硕博士学位授权点和全国重点学科，具有1个国家重点实验室、1个国家级实验教学示范中心、4个省部级重点实验室和实验教学示范中心。
-                    </p>
-                    <p>
-                        围绕传统实验教学的局限性和现代水利人才培养的新需求，以“陕西省水资源与水环境虚拟仿真实验教学中心”为依托，
-                        <span style="color: #6e91ec; font-weight: bold;">
-                            以“降→产→汇→演→调”全过程知识贯通和融合应用为出发点
-                        </span>
-                        ，以培养解决洪水调控实际工程问题的综合素质和实践能力为目标，本着“能实不虚、以虚补实、虚实结合”的实践教学理念，融合多年教学和科研成果，创新性的设计并构建了“针灸虚拟仿真实验”。实验课程包含洪水形成感知实验、洪水预报仿真实验和洪水演进调控实验3个实验项目，共计6个学时，16个知识点。
-                    </p>
-
-                    <br />
-                    <div class="ct_em_img">
-                        <img src="@/assets/images/img10.jpg" />
-                        <p>针灸虚拟仿真实验体系架构</p>
+    <div ref="outerDom">
+        <div class="backgroundPic h-1250px">
+            <div class="py-40px flex flex-col py-40px items-center">
+                <img src="@/assets/img/name.png" />
+                <div class="bg-[#fff] h-1000px w-[80%] mt-30px rounded-10px">
+                    <div class="flex">
+                        <img src="@/assets/img/left.png" />
+                        <div class="flex-1"></div>
+                        <img src="@/assets/img/right.png" />
                     </div>
-                    <br />
+                    <div class="flex justify-center items-center mt--30px">
+                        <img src="@/assets/img/a.png" class="h-10px" />
+                        <div class="text-size-30px mx-60px font-bold color-[#1D6DCF]">实验描述</div>
+                        <img src="@/assets/img/aa.png" class="h-10px" />
+                    </div>
+                    <div class="px-60px">
+                        <el-divider />
+                    </div>
+                    <div class="px-60px leading-34px">
+                        <p>
+                            西安理工大学水文与水资源工程专业是陕西省首批重点建设的“一流专业”（2017年）、陕西省“双万计划”一流本科专业建设点（2019年）、国家“双万计划”一流本科专业建设点（2021年），先后两次通过全国工程教育专业认证（2012、2018年，有效期均为6年）。专业依托的水文学及水资源学科是国务院首批硕博士学位授权点和全国重点学科，具有1个国家重点实验室、1个国家级实验教学示范中心、4个省部级重点实验室和实验教学示范中心。
+                        </p>
+                        <p>
+                            围绕传统实验教学的局限性和现代水利人才培养的新需求，以“陕西省水资源与水环境虚拟仿真实验教学中心”为依托，
+                            <span style="color: #6e91ec; font-weight: bold;">
+                                以“降→产→汇→演→调”全过程知识贯通和融合应用为出发点
+                            </span>
+                            ，以培养解决洪水调控实际工程问题的综合素质和实践能力为目标，本着“能实不虚、以虚补实、虚实结合”的实践教学理念，融合多年教学和科研成果，创新性的设计并构建了“针灸虚拟仿真实验”。实验课程包含洪水形成感知实验、洪水预报仿真实验和洪水演进调控实验3个实验项目，共计6个学时，16个知识点。
+                        </p>
 
-                    <!-- <div class="ct_ep_bigTitle">实验原理</div>
-                    <p>本虚拟仿真实验项目包括三个实验内容，包括降雨、蒸发及下渗实验、流域产汇流实验及河道洪水演进实验。实验通过理论教学、实景交互、自主分析、线上考核，让学生通过虚拟仿真教学系统掌握水文循环基本理论和计算方法，提高学生的空间思维和分析能力，直观的对降雨、下渗等水文过程进行感知调控，通过虚拟仿真场景观察分析现实中无法观测到的微观和宏观水文过程。</p> -->
+                        <br />
+                        <div class="ct_em_img">
+                            <img src="@/assets/images/img10.jpg" />
+                            <p>针灸虚拟仿真实验体系架构</p>
+                        </div>
+                        <br />
+                    </div>
                 </div>
             </div>
         </div>

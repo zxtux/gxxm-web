@@ -73,7 +73,7 @@ export default {
                 }
             ],
             activeId: '',
-            currentComp: declare,
+            currentComp: laboratory,
             userName: '专家',
             show: false,
             reportList: []
