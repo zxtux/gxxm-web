@@ -1,232 +1,277 @@
 <template>
-    <div class="bigbox" ref="outerDom">
-        <div id="pdfDom" class="sl_newContent">
-            <div class="sl_NCLeft">
-                <el-button type="primary" @click="pdfBtn" style="margin: 20px;">
-                    预览PDF
-                </el-button>
-                <div class="sl_NCLBox">
-                    <div v-for="(item, index) in list" :key="index" class="conby">
-                        <div class="content-rep">
-                            <div class="lineh60">
-                                {{ item.title }}
+    <div ref="outerDom" class="h-auto">
+        <div class="backgroundPic">
+            <div class="py-40px flex flex-col py-40px items-center">
+                <img src="@/assets/img/name.png" />
+                <div class="bg-[#fff] h-3600px w-[80%] mt-30px rounded-10px">
+                    <div class="flex">
+                        <img src="@/assets/img/left.png" />
+                        <div class="flex-1"></div>
+                        <img src="@/assets/img/right.png" />
+                    </div>
+                    <div class="flex items-center mt--30px justify-end pr-100px">
+                        <div class="flex items-center pr-[8%]">
+                            <img src="@/assets/img/a.png" class="h-10px" />
+                            <div class="text-size-30px mx-60px font-bold color-[#1D6DCF]">
+                                实验报告
                             </div>
-                            <div class="top-rep lineh60">
-                                <div class="flex1">姓名</div>
-                                <div class="flex1 borL">{{ item.username }}</div>
-                                <div class="flex1 borL">班级</div>
-                                <div class="flex1 borL">{{ item.group_name }}</div>
-                            </div>
-                            <div class="top-rep borB lineh60">
-                                <div class="flex1">学号</div>
-                                <div class="flex1 borL">{{ item.status }}</div>
-                                <div class="flex1 borL">总成绩</div>
-                                <div class="flex1 borL">{{ item.score }}</div>
-                            </div>
+                            <img src="@/assets/img/aa.png" class="h-10px" />
+                        </div>
+                        <div>
+                            <el-button type="primary" @click="pdfBtn" class="w-100px ml-auto">
+                                导出PDF
+                            </el-button>
+                            <el-button type="warning" class="w-100px ml-auto">提交</el-button>
+                        </div>
+                    </div>
 
-                            <template v-if="item.questionpanel.questions.length > 0">
-                                <div class="bgrey lineh40">
-                                    {{ item.questionpanel.head }}
-                                </div>
-                                <div class="questionpanel">
-                                    <div
-                                        class="quesCon"
-                                        v-for="(item1, index1) in item.questionpanel.questions"
-                                        :key="index1"
-                                    >
-                                        {{ item1.topic }}
-                                        <template v-if="item1.type === 'img'">
-                                            <img
-                                                :src="
-                                                    'data:image/jpeg;base64,' + item1.selectOptions
-                                                "
-                                                class="questImg"
-                                            />
-                                        </template>
-                                        <template v-else>
-                                            <span class="fontR">（{{ item1.selectOptions }}）</span>
-                                        </template>
+                    <div class="px-60px">
+                        <el-divider />
+                    </div>
+                    <div id="pdfDom" class="sl_newContent flex justify-center">
+                        <div class="sl_NCLeft">
+                            <div class="sl_NCLBox">
+                                <div v-for="(item, index) in list" :key="index" class="conby">
+                                    <div class="content-rep">
+                                        <div class="lineh60">
+                                            {{ item.title }}
+                                        </div>
+                                        <div class="top-rep lineh60">
+                                            <div class="flex1">姓名</div>
+                                            <div class="flex1 borL">{{ item.username }}</div>
+                                            <div class="flex1 borL">班级</div>
+                                            <div class="flex1 borL">{{ item.group_name }}</div>
+                                        </div>
+                                        <div class="top-rep borB lineh60">
+                                            <div class="flex1">学号</div>
+                                            <div class="flex1 borL">{{ item.status }}</div>
+                                            <div class="flex1 borL">总成绩</div>
+                                            <div class="flex1 borL">{{ item.score }}</div>
+                                        </div>
 
-                                        <div class="ques-img" v-if="item1.type === 'img'">
-                                            <div class="flex1 options">
-                                                <img
-                                                    :src="
-                                                        'data:image/jpeg;base64,' +
-                                                        item1.options.split('+/+')[0]
-                                                    "
-                                                />
+                                        <template v-if="item.questionpanel.questions.length > 0">
+                                            <div class="bgrey lineh40">
+                                                {{ item.questionpanel.head }}
                                             </div>
-                                            <div class="flex1 options">
-                                                <img
-                                                    :src="
-                                                        'data:image/jpeg;base64,' +
-                                                        item1.options.split('+/+')[1]
-                                                    "
-                                                />
+                                            <div class="questionpanel">
+                                                <div
+                                                    class="quesCon"
+                                                    v-for="(item1, index1) in item.questionpanel
+                                                        .questions"
+                                                    :key="index1"
+                                                >
+                                                    {{ item1.topic }}
+                                                    <template v-if="item1.type === 'img'">
+                                                        <img
+                                                            :src="
+                                                                'data:image/jpeg;base64,' +
+                                                                item1.selectOptions
+                                                            "
+                                                            class="questImg"
+                                                        />
+                                                    </template>
+                                                    <template v-else>
+                                                        <span class="fontR">
+                                                            （{{ item1.selectOptions }}）
+                                                        </span>
+                                                    </template>
+
+                                                    <div
+                                                        class="ques-img"
+                                                        v-if="item1.type === 'img'"
+                                                    >
+                                                        <div class="flex1 options">
+                                                            <img
+                                                                :src="
+                                                                    'data:image/jpeg;base64,' +
+                                                                    item1.options.split('+/+')[0]
+                                                                "
+                                                            />
+                                                        </div>
+                                                        <div class="flex1 options">
+                                                            <img
+                                                                :src="
+                                                                    'data:image/jpeg;base64,' +
+                                                                    item1.options.split('+/+')[1]
+                                                                "
+                                                            />
+                                                        </div>
+                                                        <div class="flex1 options">
+                                                            <img
+                                                                :src="
+                                                                    'data:image/jpeg;base64,' +
+                                                                    item1.options.split('+/+')[2]
+                                                                "
+                                                            />
+                                                        </div>
+                                                        <div class="flex1 options">
+                                                            <img
+                                                                :src="
+                                                                    'data:image/jpeg;base64,' +
+                                                                    item1.options.split('+/+')[3]
+                                                                "
+                                                            />
+                                                        </div>
+                                                        <div
+                                                            class="flex1 options"
+                                                            v-if="item1.options.split('+/+')[4]"
+                                                        >
+                                                            <img
+                                                                :src="
+                                                                    'data:image/jpeg;base64,' +
+                                                                    item1.options.split('+/+')[4]
+                                                                "
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div v-else class="ques-text">
+                                                        <div>{{ item1.options.split('/')[0] }}</div>
+                                                        <div>{{ item1.options.split('/')[1] }}</div>
+                                                        <div>{{ item1.options.split('/')[2] }}</div>
+                                                        <div v-if="item1.options.split('/')[3]">
+                                                            {{ item1.options.split('/')[3] }}
+                                                        </div>
+                                                        <div v-if="item1.options.split('/')[4]">
+                                                            {{ item1.options.split('/')[4] }}
+                                                        </div>
+                                                    </div>
+                                                    <div v-if="item1.type === 'img'">
+                                                        注：正确答案是：
+                                                        <img
+                                                            :src="
+                                                                'data:image/jpeg;base64,' +
+                                                                item1.correctOptions
+                                                            "
+                                                            class="questImg"
+                                                        />
+                                                        {{ item1.remark }}
+                                                    </div>
+                                                    <div v-else>
+                                                        注：正确答案是：{{ item1.correctOptions }}
+                                                        {{ item1.remark }}
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="flex1 options">
-                                                <img
-                                                    :src="
-                                                        'data:image/jpeg;base64,' +
-                                                        item1.options.split('+/+')[2]
-                                                    "
-                                                />
+                                        </template>
+                                        <template
+                                            v-if="item.experimentprocesspanel.message.length > 0"
+                                        >
+                                            <div class="bgrey lineh40">
+                                                {{ item.experimentprocesspanel.head }}
                                             </div>
-                                            <div class="flex1 options">
-                                                <img
-                                                    :src="
-                                                        'data:image/jpeg;base64,' +
-                                                        item1.options.split('+/+')[3]
-                                                    "
-                                                />
+                                            <div class="experimentprocesspanel textby">
+                                                <div class="experTitle">
+                                                    {{
+                                                        item.experimentprocesspanel.message[0].topic
+                                                    }}
+                                                </div>
+                                                <div
+                                                    class="experCont"
+                                                    v-for="(item2, index2) in item
+                                                        .experimentprocesspanel.message"
+                                                    :key="index2"
+                                                >
+                                                    <div>{{ item2.wrapornot }}</div>
+                                                    <!-- <div>BBB</div>
+                                    <div>CCC</div> -->
+                                                </div>
+                                            </div>
+                                        </template>
+                                        <template v-if="item.experimentsteppanel.steps.length > 0">
+                                            <div class="bgrey lineh40">
+                                                {{ item.experimentsteppanel.head }}
+                                            </div>
+                                            <div>
+                                                <el-table
+                                                    :data="item.experimentsteppanel.steps"
+                                                    border
+                                                    style="width: 100%;"
+                                                >
+                                                    <el-table-column
+                                                        prop="title"
+                                                        label="名称"
+                                                    ></el-table-column>
+                                                    <el-table-column
+                                                        prop="startTime"
+                                                        label="开始"
+                                                    ></el-table-column>
+                                                    <el-table-column
+                                                        prop="endTime"
+                                                        label="结束"
+                                                    ></el-table-column>
+                                                    <el-table-column
+                                                        prop="timeUsed"
+                                                        label="用时(秒)"
+                                                    ></el-table-column>
+                                                    <el-table-column
+                                                        prop="expectTime"
+                                                        label="合理用时(秒)"
+                                                    ></el-table-column>
+                                                    <el-table-column
+                                                        prop="maxScore"
+                                                        label="满分"
+                                                    ></el-table-column>
+                                                    <el-table-column
+                                                        prop="score"
+                                                        label="得分"
+                                                    ></el-table-column>
+                                                    <el-table-column
+                                                        prop="repeatCount"
+                                                        label="次数"
+                                                    ></el-table-column>
+                                                    <el-table-column
+                                                        prop="evaluation"
+                                                        label="评价"
+                                                    ></el-table-column>
+                                                    <el-table-column
+                                                        prop="scoringModel"
+                                                        label="赋分模型"
+                                                    ></el-table-column>
+                                                    <el-table-column
+                                                        prop="remarks"
+                                                        label="备注"
+                                                    ></el-table-column>
+                                                </el-table>
+                                            </div>
+                                        </template>
+                                        <template v-if="item.resultpanel.result.length > 0">
+                                            <div class="bgrey lineh40">
+                                                {{ item.resultpanel.head }}
                                             </div>
                                             <div
-                                                class="flex1 options"
-                                                v-if="item1.options.split('+/+')[4]"
+                                                v-for="(item3, index3) in item.resultpanel.result"
+                                                :key="index3"
+                                                class="textby"
                                             >
-                                                <img
-                                                    :src="
-                                                        'data:image/jpeg;base64,' +
-                                                        item1.options.split('+/+')[4]
-                                                    "
-                                                />
+                                                <template v-if="item3.type === 'text'">
+                                                    <div>{{ item3.content }}</div>
+                                                </template>
+                                                <template v-else>
+                                                    <img
+                                                        :src="
+                                                            'data:image/jpeg;base64,' +
+                                                            item3.content
+                                                        "
+                                                    />
+                                                </template>
                                             </div>
-                                        </div>
-                                        <div v-else class="ques-text">
-                                            <div>{{ item1.options.split('/')[0] }}</div>
-                                            <div>{{ item1.options.split('/')[1] }}</div>
-                                            <div>{{ item1.options.split('/')[2] }}</div>
-                                            <div v-if="item1.options.split('/')[3]">
-                                                {{ item1.options.split('/')[3] }}
-                                            </div>
-                                            <div v-if="item1.options.split('/')[4]">
-                                                {{ item1.options.split('/')[4] }}
-                                            </div>
-                                        </div>
-                                        <div v-if="item1.type === 'img'">
-                                            注：正确答案是：
-                                            <img
-                                                :src="
-                                                    'data:image/jpeg;base64,' + item1.correctOptions
-                                                "
-                                                class="questImg"
-                                            />
-                                            {{ item1.remark }}
-                                        </div>
-                                        <div v-else>
-                                            注：正确答案是：{{ item1.correctOptions }}
-                                            {{ item1.remark }}
-                                        </div>
+                                        </template>
+                                        <el-input
+                                            type="textarea"
+                                            :rows="5"
+                                            placeholder="请输入内容"
+                                            v-model="item.report_summary"
+                                        ></el-input>
+                                        <el-button
+                                            type="primary"
+                                            @click="commitReportSummary(item.report_id)"
+                                            style="width: 100%;"
+                                        >
+                                            提交
+                                        </el-button>
                                     </div>
                                 </div>
-                            </template>
-                            <template v-if="item.experimentprocesspanel.message.length > 0">
-                                <div class="bgrey lineh40">
-                                    {{ item.experimentprocesspanel.head }}
-                                </div>
-                                <div class="experimentprocesspanel textby">
-                                    <div class="experTitle">
-                                        {{ item.experimentprocesspanel.message[0].topic }}
-                                    </div>
-                                    <div
-                                        class="experCont"
-                                        v-for="(item2, index2) in item.experimentprocesspanel
-                                            .message"
-                                        :key="index2"
-                                    >
-                                        <div>{{ item2.wrapornot }}</div>
-                                        <!-- <div>BBB</div>
-                                    <div>CCC</div> -->
-                                    </div>
-                                </div>
-                            </template>
-                            <template v-if="item.experimentsteppanel.steps.length > 0">
-                                <div class="bgrey lineh40">
-                                    {{ item.experimentsteppanel.head }}
-                                </div>
-                                <div>
-                                    <el-table
-                                        :data="item.experimentsteppanel.steps"
-                                        border
-                                        style="width: 100%;"
-                                    >
-                                        <el-table-column
-                                            prop="title"
-                                            label="名称"
-                                        ></el-table-column>
-                                        <el-table-column
-                                            prop="startTime"
-                                            label="开始"
-                                        ></el-table-column>
-                                        <el-table-column
-                                            prop="endTime"
-                                            label="结束"
-                                        ></el-table-column>
-                                        <el-table-column
-                                            prop="timeUsed"
-                                            label="用时(秒)"
-                                        ></el-table-column>
-                                        <el-table-column
-                                            prop="expectTime"
-                                            label="合理用时(秒)"
-                                        ></el-table-column>
-                                        <el-table-column
-                                            prop="maxScore"
-                                            label="满分"
-                                        ></el-table-column>
-                                        <el-table-column
-                                            prop="score"
-                                            label="得分"
-                                        ></el-table-column>
-                                        <el-table-column
-                                            prop="repeatCount"
-                                            label="次数"
-                                        ></el-table-column>
-                                        <el-table-column
-                                            prop="evaluation"
-                                            label="评价"
-                                        ></el-table-column>
-                                        <el-table-column
-                                            prop="scoringModel"
-                                            label="赋分模型"
-                                        ></el-table-column>
-                                        <el-table-column
-                                            prop="remarks"
-                                            label="备注"
-                                        ></el-table-column>
-                                    </el-table>
-                                </div>
-                            </template>
-                            <template v-if="item.resultpanel.result.length > 0">
-                                <div class="bgrey lineh40">
-                                    {{ item.resultpanel.head }}
-                                </div>
-                                <div
-                                    v-for="(item3, index3) in item.resultpanel.result"
-                                    :key="index3"
-                                    class="textby"
-                                >
-                                    <template v-if="item3.type === 'text'">
-                                        <div>{{ item3.content }}</div>
-                                    </template>
-                                    <template v-else>
-                                        <img :src="'data:image/jpeg;base64,' + item3.content" />
-                                    </template>
-                                </div>
-                            </template>
-                            <el-input
-                                type="textarea"
-                                :rows="5"
-                                placeholder="请输入内容"
-                                v-model="item.report_summary"
-                            ></el-input>
-                            <el-button
-                                type="primary"
-                                @click="commitReportSummary(item.report_id)"
-                                style="width: 100%;"
-                            >
-                                提交
-                            </el-button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -359,8 +404,5 @@ export default {
 .questImg {
     width: 40px;
     height: 40px;
-}
-.el-button {
-    border-radius: 0;
 }
 </style>

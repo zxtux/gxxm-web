@@ -12,15 +12,18 @@
                     <el-menu-item :index="item.id">{{ item.name }}</el-menu-item>
                 </div>
 
-                <div class="ix_user" @click="show = true">
-                    {{ userName }}
-                    <el-avatar icon="el-icon-user-solid"></el-avatar>
-                </div>
-
-                <div class="ix_show" v-if="show" @click="close">
-                    <img src="@/assets/images/pop.png" />
-
-                    <p>退出登录</p>
+                <div class="flex items-center ml-100px">
+                    <el-dropdown @command="close">
+                        <span class="flex items-center">
+                            <el-avatar icon="el-icon-user-solid" size="small"></el-avatar>
+                            <i class="el-icon-arrow-down el-icon--right"></i>
+                        </span>
+                        <el-dropdown-menu slot="dropdown">
+                            <el-dropdown-item>
+                                退出登录
+                            </el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>
                 </div>
             </el-menu>
         </div>
@@ -73,7 +76,7 @@ export default {
                 }
             ],
             activeId: '',
-            currentComp: laboratory,
+            currentComp: index,
             userName: '专家',
             show: false,
             reportList: []
