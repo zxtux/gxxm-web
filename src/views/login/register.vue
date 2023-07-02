@@ -149,4 +149,7 @@ export default {
     width: 380px;
     height: 36px;
 }
+.shadow {
+    box-shadow: 0px 0px 5px 0px rgb(238, 238, 238);
+}
 </style>

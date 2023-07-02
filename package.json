@@ -4,7 +4,7 @@
     "scripts": {
         "bootstrap": "yarn || npm i",
         "serve": "vue-cli-service serve",
-        "build": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build"
+        "build": "vue-cli-service build"
     },
     "dependencies": {
         "@unocss/webpack": "^0.53.3",

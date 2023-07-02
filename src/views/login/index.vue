@@ -148,4 +148,7 @@ export default {
     border-left: none;
     border-right: none;
 }
+.shadow {
+    box-shadow: 0px 0px 5px 0px rgb(238, 238, 238);
+}
 </style>
