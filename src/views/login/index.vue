@@ -1,27 +1,37 @@
 <template>
-    <div id="syApp">
-        <div class="ln_page" :style="{ backgroundImage: `url(${backgroundImgUrl})` }">
-            <div class="ln_topLogo">
-                <img src="@/assets/images/logofff.png" style="height: 12vh;" />
-            </div>
-            <div class="ln_content">
-                <div class="login_form">
-                    <div class="title"></div>
-                    <div class="title2">用户登录</div>
-                    <div class="login_input">
-                        <img src="@/assets/images/email.png" />
-                        <input type="email" v-model="username" placeholder="请输入账号" />
+    <div class="bg-[#FAFCFF]">
+        <div
+            class="h-screen w-full t-login"
+            :style="{ backgroundImage: `url(${backgroundImgUrl})` }"
+        >
+            <div class="flex justify-center items-center flex-col h-screen">
+                <img src="@/assets/img/login_name.png" class="w-180px h-50px mb--90px mt-80px" />
+                <img src="@/assets/img/login_w.png" class="w-460px h-100px" />
+                <div class="bg-[#fff] h-300px w-500px rounded-20px shadow">
+                    <div class="float-right flex items-center bg-[#FFFAE8] p-10px rounded-20px">
+                        <img src="@/assets/img/expert.png" class="w-20px h-20px" />
+                        <div class="text-size-16px color-[#F18E00] font-bold">专家入口</div>
                     </div>
-                    <div class="login_input">
-                        <img src="@/assets/images/pass.png" />
-                        <input type="password" v-model="password" placeholder="请输入密码" />
+                    <div class="text-center pt-40px font-bold text-size-18px">- 用户登录 -</div>
+                    <div class="login_form pt-20px">
+                        <div class="login_input custom-input">
+                            <img src="@/assets/images/email.png" />
+                            <input type="email" v-model="username" placeholder="请输入账号" />
+                        </div>
+                        <div class="login_input custom-input">
+                            <img src="@/assets/images/pass.png" />
+                            <input type="password" v-model="password" placeholder="请输入密码" />
+                        </div>
+                        <button @click="login()">登 录</button>
+                        <div class="flex justify-center">
+                            <el-divider class="w-360px">
+                                还没有账号？去
+                                <router-link to="register" class="color-[#3f9df4]">
+                                    注册
+                                </router-link>
+                            </el-divider>
+                        </div>
                     </div>
-                    <button @click="login()">登 录</button>
-                    <p>
-                        还没有账号？去
-                        <router-link to="register">注册</router-link>
-                    </p>
-                    <div class="login_enter" @click="jump">专家入口 ></div>
                 </div>
             </div>
         </div>
@@ -62,7 +72,7 @@ export default {
             ticket: '',
             showTip: false,
             ilabLoginHref: 'http://www.ilab-x.com/login', // ?ref=%2Fdetails%2Fv5%3Fid%3D7033%26isView%3Dtrue
-            backgroundImgUrl: require('@/assets/images/loginback.png')
+            backgroundImgUrl: require('@/assets/img/login_bg.png')
         };
     },
     mounted() {
@@ -127,5 +137,15 @@ export default {
         width: 240px;
         margin-right: 10px;
     }
+}
+.t-login {
+    background-size: 100% 60%;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+.custom-input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 </style>

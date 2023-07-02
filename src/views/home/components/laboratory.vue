@@ -1,7 +1,7 @@
 <template>
     <div ref="outerDom" class="h-auto">
         <div class="backgroundPic">
-            <div class="py-40px flex flex-col py-40px items-center">
+            <div class="px-40px flex flex-col py-40px items-center">
                 <img src="@/assets/img/name.png" />
                 <div class="bg-[#fff] h-3600px w-[80%] mt-30px rounded-10px">
                     <div class="flex">

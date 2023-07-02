@@ -76,7 +76,7 @@ export default {
                 }
             ],
             activeId: '',
-            currentComp: index,
+            currentComp: '',
             userName: '专家',
             show: false,
             reportList: []
@@ -85,6 +85,7 @@ export default {
     mounted() {
         this.getUserInfo();
         this.getReportInfo();
+        this.currentComp = index;
     },
     methods: {
         handleSelect(keyPath) {

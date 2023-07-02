@@ -5,20 +5,20 @@
                 <el-image :src="item" fit="fit" />
             </el-carousel-item>
         </el-carousel>
-        <div class="bg-[#fff] h-500px flex justify-center">
-            <div class="bg-[#fff] h-600px w-80% mt--50px z-9 shadow">
+        <div class="bg-[#fff] h-500px flex justify-center flex-col items-center">
+            <div class="bg-[#fff] h-600px w-80% mt--50px z-9999 shadow rounded-10px">
                 <div class="flex justify-center items-center mt-30px">
                     <img src="@/assets/img/point.png" />
                     <div class="text-size-30px ml-20px font-bold">实验介绍</div>
                 </div>
                 <div class="flex mt-70px">
-                    <div class="bgimg w-700px h-400px ml-20px px-20px py-50px pr-110px">
+                    <div class="bgimg w-700px h-400px ml-20px px-20px py-50px pr-110px mb-20px">
                         <div class="text-size-26px color-[#1D6DCF]">针灸虚拟仿真实验</div>
                         <div class="leading-30px py-30px">
                             针灸虚拟仿真实验，围绕传统实验教学的局限性和实际洪水调控的知识及能力需求，以“洪水形成—洪水传播—洪水调控”为主线，通过洪水形成感知实验、洪水预报仿真实验和洪水演进调控实验，将“降-产-汇-演-调”多环节融合贯通，实现水循环和洪水调控全过程虚拟仿真，使学生能够建立以应用为主线的知识体系，从而具备解决实际洪水调控问题的能力。实验上线以来，已服务多家高校及企事业单位，取得了显著效果。
                         </div>
                         <div>
-                            <el-button type="primary">
+                            <el-button type="primary" @click="enterTheExperiment">
                                 进入实验
                                 <i class="el-icon-arrow-right el-icon--right"></i>
                             </el-button>
@@ -61,13 +61,15 @@
                 </div>
             </div>
         </div>
-        <div class="color-[#fff] bgimg1 h-200px pt-100px text-size-30px text-center">数据统计</div>
+        <div class="color-[#fff] bgimg1 h-200px pt-100px text-size-30px text-center mt--60px">
+            数据统计
+        </div>
         <div class="justify-center py-80px flex h-500px">
             <div id="myPie" style="width: 43%; height: 100%;"></div>
             <div id="myLine" style="width: 43%; height: 100%;"></div>
         </div>
-        <div class="teachingResults h-400px">
-            <div class="flex justify-center items-center pt-30px">
+        <div class="teachingResults h-500px">
+            <div class="flex justify-center items-center pt-40px mb-50px">
                 <img src="@/assets/img/point.png" />
                 <div class="text-size-30px ml-20px font-bold">教学成果</div>
             </div>
@@ -78,6 +80,7 @@
                     </li>
                 </ul>
             </vue-seamless-scroll>
+            <a id="link" :href="'/WebMessageSystem/index.html?token=' + token" target="_blank" />
         </div>
         <Footer />
     </div>
@@ -88,6 +91,7 @@ import * as echarts from 'echarts';
 import Footer from './footer';
 import vueSeamlessScroll from 'vue-seamless-scroll';
 import img from '@/assets/img/rotation1.png';
+import { getToken } from '@/utils/auth';
 export default {
     name: 'index',
     components: {
@@ -96,6 +100,7 @@ export default {
     },
     data() {
         return {
+            token: getToken(),
             bannerList: [img],
             optionPie: {
                 tooltip: {
@@ -207,6 +212,10 @@ export default {
         },
         changeScrollTop(scrollTop) {
             this.$refs.outerDom.scrollTop = scrollTop;
+        },
+        enterTheExperiment() {
+            const linkElement = document.getElementById('link');
+            linkElement.click();
         }
     }
 };
