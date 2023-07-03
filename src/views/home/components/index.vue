@@ -6,7 +6,7 @@
             </el-carousel-item>
         </el-carousel>
         <div class="bg-[#fff] h-500px flex justify-center flex-col items-center">
-            <div class="bg-[#fff] h-600px w-80% mt--50px z-9 shadow rounded-10px">
+            <div class="bg-[#fff] h-600px w-80% mt--50px shadow rounded-10px">
                 <div class="flex justify-center items-center mt-30px">
                     <img src="@/assets/img/point.png" />
                     <div class="text-size-30px ml-20px font-bold">实验介绍</div>
@@ -226,6 +226,7 @@ export default {
     height: 100%;
     .shadow {
         box-shadow: 0px 0px 5px 0px rgb(238, 238, 238);
+        z-index: 99;
     }
     .ringShadow {
         box-shadow: 0px 0px 5px 0px rgb(238, 238, 238);
