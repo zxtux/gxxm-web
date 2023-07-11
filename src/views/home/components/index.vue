@@ -47,15 +47,25 @@
                             class="flex items-center flex-col ml-100px"
                             @click="vp_changeVideo('guide')"
                         >
-                            <img src="@/assets/img/introductionVideo.png" class="w-50px h-100px" />
-                            <div class="text-size-20px mt-20px">简介视频</div>
+                            <img src="@/assets/img/introductionVideo.png" class="w-50px h-80px" />
+                            <div
+                                class="text-size-20px mt-20px"
+                                :class="[videoType === 'guide' ? 'color-[#1D6DCF]' : '']"
+                            >
+                                简介视频
+                            </div>
                         </div>
                         <div
                             class="flex items-center flex-col ml-100px mt-50px"
                             @click="vp_changeVideo('introduction')"
                         >
-                            <img src="@/assets/img/introductionVideo.png" class="w-50px h-100px" />
-                            <div class="text-size-20px mt-20px">教学引导视频</div>
+                            <img src="@/assets/img/introductionVideo.png" class="w-50px h-80px" />
+                            <div
+                                class="text-size-20px mt-20px"
+                                :class="[videoType === 'introduction' ? 'color-[#1D6DCF]' : '']"
+                            >
+                                教学引导视频
+                            </div>
                         </div>
                     </div>
                 </div>
