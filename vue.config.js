@@ -2,7 +2,6 @@ const Path = require('path');
 const Fs = require('fs');
 const Cp = require('child_process');
 const Webpack = require('webpack');
-const UnoCSS = require('@unocss/webpack').default;
 
 function getGitInfo(tags) {
     let revision = {
@@ -57,9 +56,6 @@ module.exports = {
             }
         },
         extract: true
-    },
-    configureWebpack: {
-        plugins: [UnoCSS()]
     },
     chainWebpack(config) {
         config.resolve.alias.set('@', resolve('src'));

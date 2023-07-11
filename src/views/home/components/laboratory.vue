@@ -1,16 +1,16 @@
 <template>
-    <div ref="outerDom" class="h-auto">
+    <div ref="outerDom">
         <div class="backgroundPic">
             <div class="px-40px flex flex-col py-40px items-center">
                 <img src="@/assets/img/name.png" />
-                <div class="bg-[#fff] h-3600px w-[80%] mt-30px rounded-10px">
+                <div class="bg-[#fff] w-80 mt-30px rounded-10px">
                     <div class="flex">
                         <img src="@/assets/img/left.png" />
                         <div class="flex-1"></div>
                         <img src="@/assets/img/right.png" />
                     </div>
-                    <div class="flex items-center mt--30px justify-end pr-100px">
-                        <div class="flex items-center pr-[8%]">
+                    <div class="flex items-center mt--30px justify-end pr-100">
+                        <div class="flex items-center pr-8">
                             <img src="@/assets/img/a.png" class="h-10px" />
                             <div class="text-size-30px mx-60px font-bold color-[#1D6DCF]">
                                 实验报告

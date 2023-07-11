@@ -10,7 +10,6 @@ import store from '@/stores';
 import tool from '@/utils/tool';
 import 'element-ui/lib/theme-chalk/index.css';
 import '@/assets/style/app.scss';
-import 'uno.css';
 
 Vue.http = Vue.prototype.$http = new Http();
 Vue.moment = Vue.prototype.$moment = Moment;

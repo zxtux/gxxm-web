@@ -3,7 +3,7 @@
         <div class="backgroundPic h-1250px">
             <div class="px-40px flex flex-col py-40px items-center">
                 <img src="@/assets/img/name.png" />
-                <div class="bg-[#fff] h-1000px w-[80%] mt-30px rounded-10px">
+                <div class="bg-[#fff] w-80 mt-30px rounded-10px">
                     <div class="flex">
                         <img src="@/assets/img/left.png" />
                         <div class="flex-1"></div>

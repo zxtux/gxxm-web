@@ -27,7 +27,9 @@
                 </div>
             </el-menu>
         </div>
-        <component :is="currentComp" :key="activeId" :list="reportList" class="container" />
+        <div class="container">
+            <component :is="currentComp" :key="activeId" :list="reportList" />
+        </div>
     </div>
 </template>
 
