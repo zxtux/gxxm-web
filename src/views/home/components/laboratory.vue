@@ -9,20 +9,24 @@
                         <div class="flex-1"></div>
                         <img src="@/assets/img/right.png" />
                     </div>
-                    <div class="flex items-center mt--30px justify-end pr-100">
-                        <div class="flex items-center pr-8">
+                    <div class="flex items-center mt--30px justify-center">
+                        <div class="flex items-center">
                             <img src="@/assets/img/a.png" class="h-10px" />
                             <div class="text-size-30px mx-60px font-bold color-[#1D6DCF]">
                                 实验报告
                             </div>
                             <img src="@/assets/img/aa.png" class="h-10px" />
                         </div>
-                        <div>
-                            <el-button type="primary" @click="pdfBtn" class="w-100px ml-auto">
-                                导出PDF
-                            </el-button>
-                            <el-button type="warning" class="w-100px ml-auto">提交</el-button>
-                        </div>
+                    </div>
+                    <div class="btnPdf">
+                        <el-button
+                            type="primary"
+                            @click="pdfBtn"
+                            class="w-100px ml-auto"
+                            style="float: right;"
+                        >
+                            导出PDF
+                        </el-button>
                     </div>
 
                     <div class="px-60px">
@@ -31,7 +35,11 @@
                     <div id="pdfDom" class="sl_newContent flex justify-center">
                         <div class="sl_NCLeft">
                             <div class="sl_NCLBox">
-                                <div v-for="(item, index) in list" :key="index" class="conby">
+                                <div
+                                    v-for="(item, index) in displayedList"
+                                    :key="index"
+                                    class="conby"
+                                >
                                     <div class="content-rep">
                                         <div class="lineh60">
                                             {{ item.title }}
@@ -274,6 +282,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="flex justify-center h-50px">
+                        <el-pagination
+                            layout="prev, pager, next"
+                            :total="list.length"
+                            :page-size="pageSize"
+                            @current-change="handlePageChange"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -293,6 +309,19 @@ export default {
         backTop
     },
     props: ['list'],
+    data() {
+        return {
+            pageSize: 1,
+            currentPage: 1
+        };
+    },
+    computed: {
+        displayedList() {
+            const startIndex = (this.currentPage - 1) * this.pageSize;
+            const endIndex = startIndex + this.pageSize;
+            return this.list.slice(startIndex, endIndex);
+        }
+    },
     methods: {
         pdfBtn() {
             htmlToPdf.getPdf('实验报告');
@@ -318,6 +347,9 @@ export default {
         },
         changeScrollTop(scrollTop) {
             this.$refs.outerDom.scrollTop = scrollTop;
+        },
+        handlePageChange(page) {
+            this.currentPage = page;
         }
     }
 };
@@ -404,5 +436,9 @@ export default {
 .questImg {
     width: 40px;
     height: 40px;
+}
+.btnPdf {
+    padding-bottom: 2%;
+    padding-right: 4%;
 }
 </style>

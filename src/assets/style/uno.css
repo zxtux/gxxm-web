@@ -124,6 +124,10 @@
 .pr-100 {
     padding-right: 10%;
 }
+.pr-20 {
+    padding-right: 20%;
+}
+
 .mt-50px {
     margin-top: 50px;
 }
@@ -141,12 +145,27 @@
 .mb-20px {
     margin-bottom: 20px;
 }
-.w-80 {
-    width: 80%;
+
+.w-50 {
+    width: 50%;
+}
+
+.w-60 {
+    width: 60%;
+}
+.w-65 {
+    width: 65%;
 }
 
 .w-70 {
+    width: 70%;
+}
+
+.w-75 {
     width: 75%;
+}
+.w-80 {
+    width: 80%;
 }
 
 .w-20px {
@@ -200,6 +219,9 @@
 }
 .h-300px {
     height: 300px;
+}
+.h-320px {
+    height: 320px;
 }
 .h-500px {
     height: 500px;

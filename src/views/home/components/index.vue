@@ -1,18 +1,18 @@
 <template>
     <div class="content">
-        <el-carousel indicator-position="none" height="400px">
+        <el-carousel indicator-position="none" height="450px">
             <el-carousel-item v-for="item in bannerList" :key="item">
                 <el-image :src="item" fit="fit" />
             </el-carousel-item>
         </el-carousel>
         <div class="bg-[#fff] h-500px flex justify-center flex-col items-center">
-            <div class="bg-[#fff] h-600px w-70 mt--50px shadow rounded-10px">
+            <div class="bg-[#fff] h-600px w-75 mt--50px shadow rounded-10px">
                 <div class="flex justify-center items-center mt-30px">
                     <img src="@/assets/img/point.png" />
                     <div class="text-size-30px ml-20px font-bold">实验介绍</div>
                 </div>
                 <div class="flex mt-70px">
-                    <div class="bgimg w-700px h-400px ml-20px px-20px py-50px pr-110px mb-20px">
+                    <div class="bgimg w-50 h-400px ml-20px px-20px py-50px pr-110px mb-20px">
                         <div class="text-size-26px color-[#1D6DCF]">针灸虚拟仿真实验</div>
                         <div class="leading-30px py-30px">
                             针灸虚拟仿真实验，围绕传统实验教学的局限性和实际洪水调控的知识及能力需求，以“洪水形成—洪水传播—洪水调控”为主线，通过洪水形成感知实验、洪水预报仿真实验和洪水演进调控实验，将“降-产-汇-演-调”多环节融合贯通，实现水循环和洪水调控全过程虚拟仿真，使学生能够建立以应用为主线的知识体系，从而具备解决实际洪水调控问题的能力。实验上线以来，已服务多家高校及企事业单位，取得了显著效果。
@@ -24,7 +24,7 @@
                             </el-button>
                         </div>
                     </div>
-                    <div class="h-260px w-260px ml--60px shadow flex mt-60px ringShadow">
+                    <div class="h-320px w-460px ml--60px shadow flex mt-30px ringShadow">
                         <video
                             :src="
                                 'http://xunifangzhen.oss-cn-beijing.aliyuncs.com/rainstorm_' +
@@ -34,6 +34,7 @@
                             width="100%"
                             height="100%"
                             controls="controls"
+                            style="object-fit: fill;"
                             :poster="
                                 './img/video/' +
                                 (videoType == 'guide' ? 'video1Img' : 'video2Img') +
@@ -197,6 +198,10 @@ export default {
                 'https://www.gscat.edu.cn/home/upload/2021-05-24/16217865629802c989b73798fc6d169101799a0311a412bf.jpg',
                 'https://www.gscat.edu.cn/home/upload/2022-09-07/1662523912224ff80808182c5efce82201831625b0200842.jpg',
                 'https://www.gscat.edu.cn/home/upload/2021-05-24/16217871797322c989b73798fc6d121901799a0c7ad412de.jpg',
+                'https://www.gscat.edu.cn/home/upload/2021-06-13/16235893028292c989b73799e77f0136017a0576b22d40d5.jpg',
+                'https://www.gscat.edu.cn/home/upload/2021-05-24/16217865629802c989b73798fc6d169101799a0311a412bf.jpg',
+                'https://www.gscat.edu.cn/home/upload/2022-09-07/1662523912224ff80808182c5efce82201831625b0200842.jpg',
+                'https://www.gscat.edu.cn/home/upload/2021-05-24/16217871797322c989b73798fc6d121901799a0c7ad412de.jpg',
                 'https://www.gscat.edu.cn/home/upload/2021-06-13/16235893028292c989b73799e77f0136017a0576b22d40d5.jpg'
             ],
             classOption: {
@@ -234,6 +239,7 @@ export default {
 <style lang="scss" scoped>
 .content {
     height: 100%;
+    width: 100%;
     .shadow {
         box-shadow: 0px 0px 5px 0px rgb(238, 238, 238);
         z-index: 99;
@@ -285,6 +291,9 @@ export default {
                 }
             }
         }
+    }
+    .el-image {
+        width: 100%;
     }
 }
 </style>

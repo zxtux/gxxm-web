@@ -87,7 +87,7 @@ export default {
     mounted() {
         this.getUserInfo();
         this.getReportInfo();
-        this.currentComp = index;
+        this.currentComp = laboratory;
     },
     methods: {
         handleSelect(keyPath) {
