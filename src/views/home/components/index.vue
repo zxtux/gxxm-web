@@ -6,7 +6,7 @@
             </el-carousel-item>
         </el-carousel>
         <div class="bg-[#fff] h-500px flex justify-center flex-col items-center">
-            <div class="bg-[#fff] h-600px w-80 mt--50px shadow rounded-10px">
+            <div class="bg-[#fff] h-600px w-70 mt--50px shadow rounded-10px">
                 <div class="flex justify-center items-center mt-30px">
                     <img src="@/assets/img/point.png" />
                     <div class="text-size-30px ml-20px font-bold">实验介绍</div>
@@ -262,7 +262,7 @@ export default {
         }
     }
     .warp {
-        width: 100%;
+        width: 70%;
         height: 240px;
         margin: 0 auto 40px;
         overflow: hidden;
