@@ -16,6 +16,7 @@
                     <el-dropdown @command="close">
                         <span class="flex items-center">
                             <el-avatar icon="el-icon-user-solid" size="small"></el-avatar>
+                            <div class="user">{{ userName }}</div>
                             <i class="el-icon-arrow-down el-icon--right"></i>
                         </span>
                         <el-dropdown-menu slot="dropdown">
@@ -79,17 +80,21 @@ export default {
             ],
             activeId: '',
             currentComp: '',
-            userName: '专家',
+            userName: '游客',
             show: false,
             reportList: []
         };
     },
     mounted() {
-        this.getUserInfo();
-        this.getReportInfo();
-        this.currentComp = laboratory;
+        this.init();
     },
     methods: {
+        async init() {
+            await this.gechecktUserInfo();
+            await this.getUserInfo();
+            await this.getReportInfo();
+            this.currentComp = index;
+        },
         handleSelect(keyPath) {
             this.activeId = keyPath;
             switch (keyPath) {
@@ -118,6 +123,16 @@ export default {
                 default:
                     break;
             }
+        },
+        async gechecktUserInfo() {
+            const res = await this.$http.fetchData({
+                url: '/vr/authController/getUserInfo',
+                type: 2,
+                config: {
+                    checkToken: false
+                }
+            });
+            console.log(res);
         },
         async getUserInfo() {
             const res = await this.$http.fetchData({
@@ -195,6 +210,10 @@ export default {
         &::-webkit-scrollbar {
             display: none;
         }
+    }
+    .user {
+        margin-left: 10px;
+        margin-right: 6px;
     }
 }
 </style>

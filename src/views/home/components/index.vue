@@ -102,7 +102,7 @@ import * as echarts from 'echarts';
 import Footer from './footer';
 import vueSeamlessScroll from 'vue-seamless-scroll';
 import img from '@/assets/img/rotation1.png';
-import { getToken } from '@/utils/auth';
+import { getToken, checkToken } from '@/utils/auth';
 export default {
     name: 'index',
     components: {
@@ -229,8 +229,10 @@ export default {
             this.$refs.outerDom.scrollTop = scrollTop;
         },
         enterTheExperiment() {
-            const linkElement = document.getElementById('link');
-            linkElement.click();
+            checkToken().then(() => {
+                const linkElement = document.getElementById('link');
+                linkElement.click();
+            });
         }
     }
 };

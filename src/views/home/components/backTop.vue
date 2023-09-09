@@ -1,23 +1,20 @@
 <template>
     <div class="sl_NCRightSeat">
         <div class="sl_CRIList">
-            <a
-                :href="'/WebMessageSystem/index.html?token=' + token"
-                target="_blank"
-                class="sl_CRIItem"
-            >
+            <div class="sl_CRIItem" @click="enterTheExperiment">
                 <div class="sl_RITIcon sl_RITIcon1"></div>
                 <div class="sl_RITText">仿真实验</div>
-            </a>
+            </div>
             <div class="sl_CRIItem" @click="goBack">
                 <div class="sl_RITIcon sl_RITIcon5"></div>
                 <div class="sl_RITText">返回顶部</div>
             </div>
         </div>
+        <a id="link" :href="'/WebMessageSystem/index.html?token=' + token" target="_blank" />
     </div>
 </template>
 <script>
-import { getToken } from '@/utils/auth';
+import { getToken, checkToken } from '@/utils/auth';
 export default {
     name: 'backTop',
     data() {
@@ -45,6 +42,12 @@ export default {
                 }
                 this.$emit('changeScrollTop', scrollTop);
             }, 30);
+        },
+        enterTheExperiment() {
+            checkToken().then(() => {
+                const linkElement = document.getElementById('link');
+                linkElement.click();
+            });
         }
     }
 };
