@@ -47,8 +47,10 @@
                                         <div class="top-rep lineh60">
                                             <div class="flex1">姓名</div>
                                             <div class="flex1 borL">{{ item.username }}</div>
-                                            <div class="flex1 borL">班级</div>
-                                            <div class="flex1 borL">{{ item.group_name }}</div>
+                                            <div class="flex1 borL">实验报告时间</div>
+                                            <div class="flex1 borL">
+                                                {{ formateDate(item.endTime) }}
+                                            </div>
                                         </div>
                                         <div class="top-rep borB lineh60">
                                             <div class="flex1">学号</div>
@@ -169,9 +171,7 @@
                                             </div>
                                             <div class="experimentprocesspanel textby">
                                                 <div class="experTitle">
-                                                    {{
-                                                        item.experimentprocesspanel.message[0].topic
-                                                    }}
+                                                    {{ item.experimentprocesspanel.head }}
                                                 </div>
                                                 <div
                                                     class="experCont"
@@ -179,9 +179,7 @@
                                                         .experimentprocesspanel.message"
                                                     :key="index2"
                                                 >
-                                                    <div>{{ item2.wrapornot }}</div>
-                                                    <!-- <div>BBB</div>
-                                    <div>CCC</div> -->
+                                                    <div>{{ index2 + 1 }}. {{ item2.topic }}</div>
                                                 </div>
                                             </div>
                                         </template>
@@ -199,14 +197,16 @@
                                                         prop="title"
                                                         label="名称"
                                                     ></el-table-column>
-                                                    <el-table-column
-                                                        prop="startTime"
-                                                        label="开始"
-                                                    ></el-table-column>
-                                                    <el-table-column
-                                                        prop="endTime"
-                                                        label="结束"
-                                                    ></el-table-column>
+                                                    <el-table-column prop="startTime" label="开始">
+                                                        <template slot-scope="scope">
+                                                            {{ formateDate(scope.row.startTime) }}
+                                                        </template>
+                                                    </el-table-column>
+                                                    <el-table-column prop="endTime" label="结束">
+                                                        <template slot-scope="scope">
+                                                            {{ formateDate(scope.row.endTime) }}
+                                                        </template>
+                                                    </el-table-column>
                                                     <el-table-column
                                                         prop="timeUsed"
                                                         label="用时(秒)"
@@ -264,18 +264,22 @@
                                                 </template>
                                             </div>
                                         </template>
+
                                         <el-input
                                             type="textarea"
                                             :rows="5"
                                             placeholder="请输入内容"
                                             v-model="item.report_summary"
+                                            :disabled="reportStr || isSubmitted"
+                                            @input="handleChange"
                                         ></el-input>
                                         <el-button
                                             type="primary"
                                             @click="commitReportSummary(item.report_id)"
                                             style="width: 100%;"
+                                            :disabled="reportStr || isSubmitted"
                                         >
-                                            提交
+                                            提交（只能提交一次）
                                         </el-button>
                                     </div>
                                 </div>
@@ -312,7 +316,9 @@ export default {
     data() {
         return {
             pageSize: 1,
-            currentPage: 1
+            currentPage: 1,
+            isSubmitted: false,
+            inputValue: ''
         };
     },
     computed: {
@@ -320,9 +326,18 @@ export default {
             const startIndex = (this.currentPage - 1) * this.pageSize;
             const endIndex = startIndex + this.pageSize;
             return this.list.slice(startIndex, endIndex);
+        },
+        reportStr() {
+            return this.inputValue ? false : this.displayedList[0].report_summary ? true : false;
         }
     },
     methods: {
+        handleChange(value) {
+            this.inputValue = value;
+        },
+        formateDate(time) {
+            return this.$moment(time).format('YYYY-MM-DD');
+        },
         pdfBtn() {
             htmlToPdf.getPdf('实验报告');
         },
@@ -340,6 +355,7 @@ export default {
                 url: '/vr/experimentController/commitReportSummary',
                 params: params
             });
+            this.isSubmitted = true;
             this.$notify.success({
                 title: '提示',
                 message: res.msg
@@ -349,6 +365,8 @@ export default {
             this.$refs.outerDom.scrollTop = scrollTop;
         },
         handlePageChange(page) {
+            this.inputValue = '';
+            this.isSubmitted = false;
             this.currentPage = page;
         }
     }
@@ -440,5 +458,12 @@ export default {
 .btnPdf {
     padding-bottom: 2%;
     padding-right: 4%;
+}
+.text-wrapper {
+    white-space: nowrap;
+}
+
+.text-wrapper--wrap {
+    white-space: normal;
 }
 </style>

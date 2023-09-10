@@ -42,7 +42,7 @@ import materials from './components/materials.vue';
 import experimental from './components/experimental.vue';
 import laboratory from './components/laboratory.vue';
 import about from './components/about.vue';
-import { checkout } from '@/utils/auth';
+import { checkout, getToken, checkToken } from '@/utils/auth';
 
 export default {
     name: 'home',
@@ -90,9 +90,10 @@ export default {
     },
     methods: {
         async init() {
-            await this.gechecktUserInfo();
-            await this.getUserInfo();
-            await this.getReportInfo();
+            if (getToken()) {
+                await this.getUserInfo();
+                await this.getReportInfo();
+            }
             this.currentComp = index;
         },
         handleSelect(keyPath) {
@@ -114,7 +115,10 @@ export default {
                     this.currentComp = experimental;
                     break;
                 case 'laboratory':
-                    this.currentComp = laboratory;
+                    checkToken().then(() => {
+                        this.currentComp = laboratory;
+                    });
+
                     break;
                 case 'about':
                     this.currentComp = about;
@@ -123,16 +127,6 @@ export default {
                 default:
                     break;
             }
-        },
-        async gechecktUserInfo() {
-            const res = await this.$http.fetchData({
-                url: '/vr/authController/getUserInfo',
-                type: 2,
-                config: {
-                    checkToken: false
-                }
-            });
-            console.log(res);
         },
         async getUserInfo() {
             const res = await this.$http.fetchData({
