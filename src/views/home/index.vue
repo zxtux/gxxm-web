@@ -86,7 +86,11 @@ export default {
         };
     },
     mounted() {
-        this.init();
+        if (this.$route.query.ticket) {
+            this.getAccessToken();
+        } else {
+            this.init();
+        }
     },
     methods: {
         async init() {
@@ -153,6 +157,13 @@ export default {
                 type: 2
             });
             this.reportList = res.data;
+        },
+        async getAccessToken() {
+            const res = await this.$http.fetchData({
+                url: '/vr/libController/getAccessToken?ticket=' + this.$route.query.ticket,
+                type: 1
+            });
+            console.log(res);
         }
     }
 };
