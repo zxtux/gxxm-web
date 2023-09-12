@@ -2,34 +2,48 @@
     <div class="content">
         <div class="topLogo">
             <img src="@/assets/images/logo.png" />
-            <el-menu
-                :default-active="'index'"
-                mode="horizontal"
-                @select="handleSelect"
-                class="el-menu"
-            >
-                <div v-for="(item, index) in navs" :key="index">
-                    <el-menu-item :index="item.id">{{ item.name }}</el-menu-item>
-                </div>
+            <template v-if="isShow">
+                <el-menu
+                    :default-active="'index'"
+                    mode="horizontal"
+                    @select="handleSelect"
+                    class="el-menu"
+                >
+                    <div v-for="(item, index) in navs" :key="index">
+                        <el-menu-item :index="item.id">{{ item.name }}</el-menu-item>
+                    </div>
 
-                <div class="flex items-center ml-100px">
-                    <el-dropdown @command="close">
-                        <span class="flex items-center">
-                            <el-avatar icon="el-icon-user-solid" size="small"></el-avatar>
-                            <div class="user">{{ userName }}</div>
-                            <i class="el-icon-arrow-down el-icon--right"></i>
-                        </span>
-                        <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item>
-                                退出登录
-                            </el-dropdown-item>
-                        </el-dropdown-menu>
-                    </el-dropdown>
+                    <div class="flex items-center ml-100px">
+                        <el-dropdown @command="close">
+                            <span class="flex items-center">
+                                <el-avatar icon="el-icon-user-solid" size="small"></el-avatar>
+                                <div class="user">{{ userName }}</div>
+                                <i class="el-icon-arrow-down el-icon--right"></i>
+                            </span>
+                            <el-dropdown-menu slot="dropdown">
+                                <el-dropdown-item>
+                                    退出登录
+                                </el-dropdown-item>
+                            </el-dropdown-menu>
+                        </el-dropdown>
+                    </div>
+                </el-menu>
+            </template>
+            <template v-else>
+                <div class="flex w-full px-60px items-center">
+                    <div class="flex-1"></div>
+                    <div class="mr-20px">--欢迎[{{ userName }}]登录--</div>
+                    <i class="el-icon-s-home" style="font-size: 30px; color: blue;"></i>
                 </div>
-            </el-menu>
+            </template>
         </div>
         <div class="container">
-            <component :is="currentComp" :key="activeId" :list="reportList" />
+            <component
+                :is="currentComp"
+                :key="activeId"
+                :list="reportList"
+                @updateStatus="updateStatus"
+            />
         </div>
     </div>
 </template>
@@ -42,7 +56,8 @@ import materials from './components/materials.vue';
 import experimental from './components/experimental.vue';
 import laboratory from './components/laboratory.vue';
 import about from './components/about.vue';
-import { checkout, getToken, checkToken } from '@/utils/auth';
+import projectDisplay from './components/projectDisplay.vue';
+import { checkout, getToken, checkToken, setToken } from '@/utils/auth';
 
 export default {
     name: 'home',
@@ -82,7 +97,8 @@ export default {
             currentComp: '',
             userName: '游客',
             show: false,
-            reportList: []
+            reportList: [],
+            isShow: false
         };
     },
     mounted() {
@@ -161,9 +177,28 @@ export default {
         async getAccessToken() {
             const res = await this.$http.fetchData({
                 url: '/vr/libController/getAccessToken?ticket=' + this.$route.query.ticket,
-                type: 1
+                type: 1,
+                config: {
+                    checkToken: false
+                }
             });
             console.log(res);
+            const data = await this.$http.fetchData({
+                url: '/vr/authController/libToLogin',
+                type: 2,
+                params: {
+                    username: res.username
+                },
+                config: {
+                    checkToken: false
+                }
+            });
+            setToken(data.token);
+            this.init();
+        },
+        updateStatus(type, isShow) {
+            this.isShow = isShow;
+            this.currentComp = projectDisplay;
         }
     }
 };
