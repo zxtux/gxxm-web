@@ -33,7 +33,7 @@
                 <div class="flex w-full px-60px items-center">
                     <div class="flex-1"></div>
                     <div class="mr-20px">--欢迎[{{ userName }}]登录--</div>
-                    <i class="el-icon-s-home" style="font-size: 30px; color: blue;"></i>
+                    <i class="el-icon-s-home" style="font-size: 30px; color: #409eff;"></i>
                 </div>
             </template>
         </div>
@@ -114,7 +114,7 @@ export default {
                 await this.getUserInfo();
                 await this.getReportInfo();
             }
-            this.currentComp = index;
+            this.currentComp = projectDisplay;
         },
         handleSelect(keyPath) {
             this.activeId = keyPath;

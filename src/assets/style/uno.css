@@ -58,6 +58,14 @@
     padding-left: 60px;
     padding-right: 60px;
 }
+.px-200px {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+.py-10px {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 .py-30px {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -204,6 +212,12 @@
 }
 .h-20px {
     height: 20px;
+}
+.h-30px {
+    height: 30px;
+}
+.h-40px {
+    height: 30px;
 }
 .h-50px {
     height: 50px;
