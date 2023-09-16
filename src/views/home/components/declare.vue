@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <backTop @changeScrollTop="changeScrollTop" />
+        <backTop @changeScrollTop="changeScrollTop" type="declare" />
         <Footer />
     </div>
 </template>

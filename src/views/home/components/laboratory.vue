@@ -297,7 +297,7 @@
                 </div>
             </div>
         </div>
-        <backTop @changeScrollTop="changeScrollTop" />
+        <backTop @changeScrollTop="changeScrollTop" type="laboratory"/>
         <Footer />
     </div>
 </template>

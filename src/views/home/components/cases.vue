@@ -39,7 +39,7 @@
                 </div>
             </div>
         </div>
-        <backTop @changeScrollTop="changeScrollTop" />
+        <backTop @changeScrollTop="changeScrollTop" type="cases"/>
         <Footer />
     </div>
 </template>

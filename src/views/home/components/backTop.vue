@@ -17,6 +17,8 @@
 import { getToken, checkToken } from '@/utils/auth';
 export default {
     name: 'backTop',
+    inject: ['updateStatus'],
+    props: { type: String },
     data() {
         return {
             scrollTop: 0,
@@ -45,8 +47,7 @@ export default {
         },
         enterTheExperiment() {
             checkToken().then(() => {
-                const linkElement = document.getElementById('link');
-                linkElement.click();
+                this.updateStatus(this.type, false);
             });
         }
     }

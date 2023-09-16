@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <backTop @changeScrollTop="changeScrollTop" />
+        <backTop @changeScrollTop="changeScrollTop" type="experimental"/>
         <Footer />
     </div>
 </template>

@@ -4,7 +4,7 @@
             <img src="@/assets/images/logo.png" />
             <template v-if="isShow">
                 <el-menu
-                    :default-active="'index'"
+                    :default-active="pageComponentType"
                     mode="horizontal"
                     @select="handleSelect"
                     class="el-menu"
@@ -33,7 +33,11 @@
                 <div class="flex w-full px-60px items-center">
                     <div class="flex-1"></div>
                     <div class="mr-20px">--欢迎[{{ userName }}]登录--</div>
-                    <i class="el-icon-s-home" style="font-size: 30px; color: #409eff;"></i>
+                    <i
+                        class="el-icon-s-home"
+                        style="font-size: 30px; color: #409eff;"
+                        @click="returnToTheMainMenu"
+                    ></i>
                 </div>
             </template>
         </div>
@@ -61,6 +65,11 @@ import { checkout, getToken, checkToken, setToken } from '@/utils/auth';
 
 export default {
     name: 'home',
+    provide() {
+        return {
+            updateStatus: this.updateStatus
+        };
+    },
     data() {
         return {
             navs: [
@@ -98,7 +107,8 @@ export default {
             userName: '游客',
             show: false,
             reportList: [],
-            isShow: false
+            isShow: true,
+            pageComponentType: 'index'
         };
     },
     mounted() {
@@ -114,7 +124,7 @@ export default {
                 await this.getUserInfo();
                 await this.getReportInfo();
             }
-            this.currentComp = projectDisplay;
+            this.currentComp = index;
         },
         handleSelect(keyPath) {
             this.activeId = keyPath;
@@ -182,7 +192,6 @@ export default {
                     checkToken: false
                 }
             });
-            console.log(res);
             const data = await this.$http.fetchData({
                 url: '/vr/authController/libToLogin',
                 type: 2,
@@ -198,7 +207,13 @@ export default {
         },
         updateStatus(type, isShow) {
             this.isShow = isShow;
+            this.activeId = type;
             this.currentComp = projectDisplay;
+            this.pageComponentType = type;
+        },
+        returnToTheMainMenu() {
+            this.isShow = true;
+            this.handleSelect(this.pageComponentType);
         }
     }
 };

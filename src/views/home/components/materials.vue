@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <backTop @changeScrollTop="changeScrollTop" />
+        <backTop @changeScrollTop="changeScrollTop" type="materials" />
         <Footer />
     </div>
 </template>

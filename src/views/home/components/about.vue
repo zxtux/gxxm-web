@@ -270,7 +270,7 @@
                 </div>
             </div>
         </div>
-        <backTop @changeScrollTop="changeScrollTop" />
+        <backTop @changeScrollTop="changeScrollTop" type="about" />
         <Footer />
     </div>
 </template>
