@@ -112,6 +112,7 @@ export default {
         };
     },
     mounted() {
+        this.verifyAccessToken();
         if (this.$route.query.ticket) {
             this.getAccessToken();
         } else {
@@ -187,14 +188,15 @@ export default {
         async getAccessToken() {
             const res = await this.$http.fetchData({
                 url: '/vr/libController/getAccessToken?ticket=' + this.$route.query.ticket,
-                type: 1,
+                params: {},
+                type: 2,
                 config: {
                     checkToken: false
                 }
             });
             const data = await this.$http.fetchData({
                 url: '/vr/authController/libToLogin',
-                type: 2,
+                type: 1,
                 params: {
                     username: res.username
                 },
@@ -204,6 +206,17 @@ export default {
             });
             setToken(data.token);
             this.init();
+        },
+        async verifyAccessToken() {
+            const res = await this.$http.fetchData({
+                url: '/vr/libController/getAccessToken?ticket=111',
+                params: {},
+                type: 2,
+                config: {
+                    checkToken: false
+                }
+            });
+            console.log(res);
         },
         updateStatus(type, isShow) {
             this.isShow = isShow;
