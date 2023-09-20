@@ -1,15 +1,22 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './modules/home';
 
 Vue.use(Router);
 
 export const routes = [
-    ...Home,
+    {
+        path: '/',
+        redirect: '/home'
+    },
+    {
+        path: '/home',
+        name: 'home',
+        component: () => import('@/views/home')
+    },
     {
         path: '/login',
         name: 'login',
-        component: () => import('@/views/login')
+        component: () => import('@/views/login/index')
     },
     {
         path: '/register',
