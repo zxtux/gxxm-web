@@ -184,7 +184,6 @@ export default {
         async getAccessToken() {
             const res = await this.$http.fetchData({
                 url: '/vr/libController/getAccessToken?ticket=' + this.$route.query.ticket,
-                params: {},
                 type: 2,
                 config: {
                     checkToken: false
