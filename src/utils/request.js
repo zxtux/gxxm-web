@@ -66,19 +66,19 @@ export default class http {
         this.instance.interceptors.response.use(
             response => {
                 const { data } = response;
-
+                console.log(response);
                 if (data.code !== 200) {
-                    http.notify({ text: (data.Msg || data.msg) ?? '未知错误' });
-                    checkout();
+                    if (response.config.url !== '/vr/authController/getUserInfo') {
+                        http.notify({ text: (data.Msg || data.msg) ?? '未知错误' });
+                        checkout();
+                    }
                     return Promise.reject(response);
                 }
-
                 return Promise.resolve(data);
             },
             error => {
                 const code = parseInt(error.response && error.response.status);
                 let tips = '';
-
                 switch (code) {
                     case 400: {
                         const { message } = error.response.data.errors[0];
@@ -137,7 +137,6 @@ export default class http {
                     default:
                         http.notify({ text: `错误代码${code}` });
                 }
-
                 return Promise.reject(error);
             }
         );

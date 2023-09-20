@@ -61,7 +61,7 @@ import experimental from './components/experimental.vue';
 import laboratory from './components/laboratory.vue';
 import about from './components/about.vue';
 import projectDisplay from './components/projectDisplay.vue';
-import { checkout, getToken, checkToken, setToken } from '@/utils/auth';
+import { checkout, checkToken, setToken } from '@/utils/auth';
 
 export default {
     name: 'home',
@@ -112,20 +112,16 @@ export default {
         };
     },
     mounted() {
-        this.verifyAccessToken();
         if (this.$route.query.ticket) {
             this.getAccessToken();
         } else {
-            this.init();
+            this.verifyAccessToken();
         }
     },
     methods: {
         async init() {
-            if (getToken()) {
-                await this.getUserInfo();
-                await this.getReportInfo();
-            }
-            this.currentComp = index;
+            await this.getUserInfo();
+            await this.getReportInfo();
         },
         handleSelect(keyPath) {
             this.activeId = keyPath;
@@ -208,15 +204,18 @@ export default {
             this.init();
         },
         async verifyAccessToken() {
-            const res = await this.$http.fetchData({
-                url: '/vr/libController/getAccessToken?ticket=111',
-                params: {},
-                type: 2,
-                config: {
-                    checkToken: false
-                }
-            });
-            console.log(res);
+            try {
+                await this.$http.fetchData({
+                    url: '/vr/authController/getUserInfo',
+                    type: 2,
+                    config: {
+                        checkToken: false
+                    }
+                });
+                this.init();
+            } catch (error) {
+                this.currentComp = index;
+            }
         },
         updateStatus(type, isShow) {
             this.isShow = isShow;
