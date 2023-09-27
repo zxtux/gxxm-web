@@ -61,7 +61,7 @@ import experimental from './components/experimental.vue';
 import laboratory from './components/laboratory.vue';
 import about from './components/about.vue';
 import projectDisplay from './components/projectDisplay.vue';
-import { checkout, checkToken, setToken } from '@/utils/auth';
+import { checkout, setToken, verifyAccessToken } from '@/utils/auth';
 
 export default {
     name: 'home',
@@ -115,15 +115,16 @@ export default {
         if (this.$route.query.ticket) {
             this.getAccessToken();
         } else {
-            this.verifyAccessToken();
+            this.verifyToken();
         }
     },
     methods: {
         async init() {
-            await this.getUserInfo();
             await this.getReportInfo();
+            await this.getUserInfo();
         },
-        handleSelect(keyPath) {
+        async handleSelect(keyPath) {
+            const result = await verifyAccessToken();
             this.activeId = keyPath;
             switch (keyPath) {
                 case 'index':
@@ -142,9 +143,12 @@ export default {
                     this.currentComp = experimental;
                     break;
                 case 'laboratory':
-                    checkToken().then(() => {
+                    if (result) {
                         this.currentComp = laboratory;
-                    });
+                    } else {
+                        console.log('66666');
+                        checkout();
+                    }
 
                     break;
                 case 'about':
@@ -202,19 +206,12 @@ export default {
             setToken(data.token);
             this.init();
         },
-        async verifyAccessToken() {
-            try {
-                await this.$http.fetchData({
-                    url: '/vr/authController/getUserInfo',
-                    type: 2,
-                    config: {
-                        checkToken: false
-                    }
-                });
+        async verifyToken() {
+            const result = await verifyAccessToken();
+            if (result) {
                 this.init();
-            } catch (error) {
-                this.currentComp = index;
             }
+            this.currentComp = index;
         },
         updateStatus(type, isShow) {
             this.isShow = isShow;

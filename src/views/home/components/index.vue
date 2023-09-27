@@ -102,7 +102,7 @@ import * as echarts from 'echarts';
 import Footer from './footer';
 import vueSeamlessScroll from 'vue-seamless-scroll';
 import img from '@/assets/img/rotation1.png';
-import { getToken, checkToken } from '@/utils/auth';
+import { getToken, verifyAccessToken, checkout } from '@/utils/auth';
 export default {
     name: 'index',
     components: {
@@ -228,12 +228,14 @@ export default {
         changeScrollTop(scrollTop) {
             this.$refs.outerDom.scrollTop = scrollTop;
         },
-        enterTheExperiment() {
-            checkToken().then(() => {
+        async enterTheExperiment() {
+            const result = await verifyAccessToken();
+            if (result) {
                 this.$emit('updateStatus', 'index', false);
-                // const linkElement = document.getElementById('link');
-                // linkElement.click();
-            });
+            } else {
+                console.log('999');
+                checkout();
+            }
         }
     }
 };

@@ -14,7 +14,7 @@
     </div>
 </template>
 <script>
-import { getToken, checkToken } from '@/utils/auth';
+import { getToken, checkout, verifyAccessToken } from '@/utils/auth';
 export default {
     name: 'backTop',
     inject: ['updateStatus'],
@@ -45,10 +45,15 @@ export default {
                 this.$emit('changeScrollTop', scrollTop);
             }, 30);
         },
-        enterTheExperiment() {
-            checkToken().then(() => {
+
+        async enterTheExperiment() {
+            const result = await verifyAccessToken();
+            if (result) {
                 this.updateStatus(this.type, false);
-            });
+            } else {
+                console.log('888');
+                checkout();
+            }
         }
     }
 };

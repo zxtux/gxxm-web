@@ -1,5 +1,6 @@
 import router from '@/router/index';
 import store from '@/stores';
+import Http from './request';
 
 export const checkout = async () => {
     store.commit('common/clear');
@@ -27,4 +28,12 @@ export const setToken = token => {
     } else {
         router.replace('/login');
     }
+};
+
+export const verifyAccessToken = async () => {
+    const res = await new Http().fetchData({
+        url: '/vr/authController/checkToken',
+        type: 2
+    });
+    return res === 200;
 };

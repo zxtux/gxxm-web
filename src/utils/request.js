@@ -46,15 +46,17 @@ export default class http {
         });
         this.instance.interceptors.request.use(
             config => {
-                if (config.checkToken) {
-                    checkToken()
-                        .then(() => {
-                            config.headers['Authorization'] = getToken();
-                        })
-                        .catch(() => {
+                checkToken()
+                    .then(() => {
+                        config.headers['Authorization'] = getToken();
+                    })
+                    .catch(() => {
+                        if (config.url !== '/vr/authController/checkToken') {
+                            console.log('22222222222');
                             checkout();
-                        });
-                }
+                        }
+                    });
+
                 config.baseURL =
                     process.env.NODE_ENV === 'production' ? window.location.origin : '';
 
@@ -66,12 +68,15 @@ export default class http {
         this.instance.interceptors.response.use(
             response => {
                 const { data } = response;
-                console.log(response);
+                if (response.config.url === '/vr/authController/checkToken') {
+                    return data.code;
+                }
+
                 if (data.code !== 200) {
-                    if (response.config.url !== '/vr/authController/getUserInfo') {
-                        http.notify({ text: (data.Msg || data.msg) ?? '未知错误' });
-                        checkout();
-                    }
+                    http.notify({ text: (data.Msg || data.msg) ?? '未知错误' });
+                    console.log('111111111');
+                    checkout();
+
                     return Promise.reject(response);
                 }
                 return Promise.resolve(data);

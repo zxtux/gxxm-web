@@ -1,5 +1,5 @@
 <template>
-    <div ref="outerDom">
+    <div ref="casesRef">
         <div class="backgroundPic">
             <div class="py-40px flex flex-col items-center">
                 <img src="@/assets/img/name.png" />
@@ -39,7 +39,7 @@
                 </div>
             </div>
         </div>
-        <backTop @changeScrollTop="changeScrollTop" type="cases"/>
+        <backTop @changeScrollTop="changeScrollTop" type="cases" />
         <Footer />
     </div>
 </template>
@@ -59,7 +59,7 @@ export default {
 
     methods: {
         changeScrollTop(scrollTop) {
-            this.$refs.outerDom.scrollTop = scrollTop;
+            window.scrollTo(0, scrollTop);
         }
     }
 };
