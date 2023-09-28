@@ -101,6 +101,9 @@ export default {
             ]
         };
     },
+    mounted() {
+        this.$refs.outerDom.scrollIntoView({ behavior: 'smooth' });
+    },
     methods: {
         enterTheExperiment() {
             const linkElement = document.getElementById('link');

@@ -47,6 +47,7 @@
                 :key="activeId"
                 :list="reportList"
                 @updateStatus="updateStatus"
+                ref="childComponent"
             />
         </div>
     </div>
@@ -126,6 +127,7 @@ export default {
         async handleSelect(keyPath) {
             const result = await verifyAccessToken();
             this.activeId = keyPath;
+
             switch (keyPath) {
                 case 'index':
                     this.currentComp = index;
@@ -156,6 +158,8 @@ export default {
                 default:
                     break;
             }
+
+            this.$refs.childComponent.changeScrollTop();
         },
         async getUserInfo() {
             const res = await this.$http.fetchData({

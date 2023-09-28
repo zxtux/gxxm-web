@@ -297,7 +297,7 @@
                 </div>
             </div>
         </div>
-        <backTop @changeScrollTop="changeScrollTop" type="laboratory"/>
+        <backTop @changeScrollTop="changeScrollTop" type="laboratory" />
         <Footer />
     </div>
 </template>
@@ -361,8 +361,8 @@ export default {
                 message: res.msg
             });
         },
-        changeScrollTop(scrollTop) {
-            this.$refs.outerDom.scrollTop = scrollTop;
+        changeScrollTop() {
+            this.$refs.outerDom.scrollIntoView({ behavior: 'smooth' });
         },
         handlePageChange(page) {
             this.inputValue = '';

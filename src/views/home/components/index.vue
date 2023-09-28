@@ -225,8 +225,8 @@ export default {
         vp_changeVideo(type) {
             this.videoType = type;
         },
-        changeScrollTop(scrollTop) {
-            this.$refs.outerDom.scrollTop = scrollTop;
+        changeScrollTop() {
+            this.$refs.outerDom.scrollIntoView({ behavior: 'smooth' });
         },
         async enterTheExperiment() {
             const result = await verifyAccessToken();

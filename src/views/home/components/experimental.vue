@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <backTop @changeScrollTop="changeScrollTop" type="experimental"/>
+        <backTop @changeScrollTop="changeScrollTop" type="experimental" />
         <Footer />
     </div>
 </template>
@@ -61,8 +61,8 @@ export default {
     },
 
     methods: {
-        changeScrollTop(scrollTop) {
-            this.$refs.outerDom.scrollTop = scrollTop;
+        changeScrollTop() {
+            this.$refs.outerDom.scrollIntoView({ behavior: 'smooth' });
         }
     }
 };

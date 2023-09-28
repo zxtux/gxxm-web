@@ -28,22 +28,7 @@ export default {
     },
     methods: {
         goBack() {
-            let that = this;
-            if (that.scrollTrigger) {
-                return;
-            }
-            let scrollTop = this.scrollTop;
-            let steep = scrollTop / 2000;
-            let timer = setInterval(() => {
-                that.scrollTrigger = true;
-                scrollTop -= steep;
-                steep += 20;
-                if (scrollTop <= 0) {
-                    clearInterval(timer);
-                    that.scrollTrigger = false;
-                }
-                this.$emit('changeScrollTop', scrollTop);
-            }, 30);
+            this.$emit('changeScrollTop');
         },
 
         async enterTheExperiment() {

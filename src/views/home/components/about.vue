@@ -288,8 +288,8 @@ export default {
         return {};
     },
     methods: {
-        changeScrollTop(scrollTop) {
-            this.$refs.outerDom.scrollTop = scrollTop;
+        changeScrollTop() {
+            this.$refs.outerDom.scrollIntoView({ behavior: 'smooth' });
         }
     }
 };

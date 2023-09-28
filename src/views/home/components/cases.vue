@@ -1,5 +1,5 @@
 <template>
-    <div ref="casesRef">
+    <div ref="outerDom">
         <div class="backgroundPic">
             <div class="py-40px flex flex-col items-center">
                 <img src="@/assets/img/name.png" />
@@ -58,8 +58,8 @@ export default {
     },
 
     methods: {
-        changeScrollTop(scrollTop) {
-            window.scrollTo(0, scrollTop);
+        changeScrollTop() {
+            this.$refs.outerDom.scrollIntoView({ behavior: 'smooth' });
         }
     }
 };
