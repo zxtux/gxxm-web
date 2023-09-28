@@ -51,7 +51,6 @@ export default {
             if (result) {
                 this.updateStatus(this.type, false);
             } else {
-                console.log('888');
                 checkout();
             }
         }

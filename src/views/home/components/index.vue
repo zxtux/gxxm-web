@@ -233,7 +233,6 @@ export default {
             if (result) {
                 this.$emit('updateStatus', 'index', false);
             } else {
-                console.log('999');
                 checkout();
             }
         }

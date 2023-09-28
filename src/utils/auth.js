@@ -33,7 +33,10 @@ export const setToken = token => {
 export const verifyAccessToken = async () => {
     const res = await new Http().fetchData({
         url: '/vr/authController/checkToken',
-        type: 2
+        type: 2,
+        config: {
+            checkToken: false
+        }
     });
     return res === 200;
 };

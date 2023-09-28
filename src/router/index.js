@@ -11,7 +11,7 @@ export const routes = [
     {
         path: '/home',
         name: 'home',
-        component: () => import('@/views/home')
+        component: () => import('@/views/home/index')
     },
     {
         path: '/login',

@@ -3,16 +3,10 @@
 </template>
 
 <script>
-import { getToken } from '@/utils/auth';
-
 export default {
     name: 'app',
     created() {
-        if (getToken()) {
-            this.$router.push('home');
-        } else {
-            this.$router.push('login');
-        }
+        this.$router.push('home');
     },
     mounted() {
         if (process.env.NODE_ENV === 'production') {

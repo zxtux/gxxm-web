@@ -146,10 +146,8 @@ export default {
                     if (result) {
                         this.currentComp = laboratory;
                     } else {
-                        console.log('66666');
                         checkout();
                     }
-
                     break;
                 case 'about':
                     this.currentComp = about;
