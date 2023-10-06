@@ -378,40 +378,6 @@ body.backF4F4F4 {
     height: 32px;
 }
 
-.sl_CLBListLi {
-    cursor: pointer;
-    position: relative;
-    display: block;
-    width: 100%;
-    color: #343434;
-    font-size: 15px;
-    line-height: 52px;
-    border-bottom: 1px solid #f2f2f2;
-    -webkit-transition-duration: 0.32s;
-    -moz-transition-duration: 0.32s;
-    -o-transition-duration: 0.32s;
-    transition-duration: 0.32s;
-}
-.sl_CLBListLi::after {
-    position: absolute;
-    content: '';
-    top: 50%;
-    right: 20px;
-    margin-top: -8px;
-    width: 16px;
-    height: 16px;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-image: url(../images/arrow_right.png);
-}
-.sl_CLBListLi:hover {
-    border-bottom: 1px solid #666;
-    -webkit-transform: translateX(16px);
-    -moz-transform: translateX(16px);
-    -o-transform: translateX(16px);
-    transform: translateX(16px);
-}
-
 #pieChart {
     margin: 0 auto;
     width: 520px;
@@ -479,18 +445,7 @@ body.backF4F4F4 {
     -o-transition-duration: 0.32s;
     transition-duration: 0.32s;
 }
-.sl_CRILi::after {
-    position: absolute;
-    content: '';
-    top: 50%;
-    right: 20px;
-    margin-top: -8px;
-    width: 16px;
-    height: 16px;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-image: url(../images/arrow_right.png);
-}
+
 .sl_CRILi:hover {
     -webkit-transform: translateX(16px);
     -moz-transform: translateX(16px);
