@@ -101,7 +101,13 @@
 import * as echarts from 'echarts';
 import Footer from './footer';
 import vueSeamlessScroll from 'vue-seamless-scroll';
-import img from '@/assets/img/rotation1.png';
+import img from '@/assets/img/home/rotation1.png';
+import img2 from '@/assets/img/home/rotation2.png';
+import diagram1 from '@/assets/img/home/bottomRotationDiagram1.jpg';
+import diagram2 from '@/assets/img/home/bottomRotationDiagram2.jpg';
+import diagram3 from '@/assets/img/home/bottomRotationDiagram3.jpg';
+import diagram4 from '@/assets/img/home/bottomRotationDiagram4.jpg';
+import diagram5 from '@/assets/img/home/bottomRotationDiagram5.jpg';
 import { getToken, verifyAccessToken, checkout } from '@/utils/auth';
 export default {
     name: 'index',
@@ -112,7 +118,7 @@ export default {
     data() {
         return {
             token: getToken(),
-            bannerList: [img],
+            bannerList: [img, img2],
             optionPie: {
                 tooltip: {
                     trigger: 'item',
@@ -195,14 +201,15 @@ export default {
             },
             videoType: 'guide',
             listData: [
-                'https://www.gscat.edu.cn/home/upload/2021-05-24/16217865629802c989b73798fc6d169101799a0311a412bf.jpg',
-                'https://www.gscat.edu.cn/home/upload/2022-09-07/1662523912224ff80808182c5efce82201831625b0200842.jpg',
-                'https://www.gscat.edu.cn/home/upload/2021-05-24/16217871797322c989b73798fc6d121901799a0c7ad412de.jpg',
-                'https://www.gscat.edu.cn/home/upload/2021-06-13/16235893028292c989b73799e77f0136017a0576b22d40d5.jpg',
-                'https://www.gscat.edu.cn/home/upload/2021-05-24/16217865629802c989b73798fc6d169101799a0311a412bf.jpg',
-                'https://www.gscat.edu.cn/home/upload/2022-09-07/1662523912224ff80808182c5efce82201831625b0200842.jpg',
-                'https://www.gscat.edu.cn/home/upload/2021-05-24/16217871797322c989b73798fc6d121901799a0c7ad412de.jpg',
-                'https://www.gscat.edu.cn/home/upload/2021-06-13/16235893028292c989b73799e77f0136017a0576b22d40d5.jpg'
+                diagram1,
+                diagram2,
+                diagram3,
+                diagram4,
+                diagram5,
+                diagram4,
+                diagram3,
+                diagram2,
+                diagram1
             ],
             classOption: {
                 limitMoveNum: 2,

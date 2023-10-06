@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <div class="topLogo">
-            <img src="@/assets/img/logo.png" />
+            <img src="@/assets/img/home/logo.png" />
             <template v-if="isShow">
                 <el-menu
                     :default-active="pageComponentType"
