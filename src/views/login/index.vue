@@ -72,7 +72,7 @@ export default {
             ticket: '',
             showTip: false,
             ilabLoginHref: 'http://www.ilab-x.com/login', // ?ref=%2Fdetails%2Fv5%3Fid%3D7033%26isView%3Dtrue
-            backgroundImgUrl: require('@/assets/img/login_bg.png')
+            backgroundImgUrl: './picture/login_bg.png'
         };
     },
     mounted() {

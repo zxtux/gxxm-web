@@ -63,7 +63,7 @@ export default {
             nickName: '',
             college: '',
             grade: '',
-            backgroundImgUrl: require('@/assets/img/login_bg.png')
+            backgroundImgUrl: './picture/login_bg.png'
         };
     },
     mounted() {

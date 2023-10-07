@@ -10,7 +10,7 @@
                         class="flex flex-row items-center itembg"
                     >
                         <div class="image-container">
-                            <img src="@/assets/img/sy_bg.png" />
+                            <img src="picture/sy_bg.png" />
                         </div>
                         <div class="w-60 justify-center px-60px">
                             <div class="text-size-20px h-40px">{{ item.title }}</div>
@@ -88,13 +88,13 @@ export default {
             items: [
                 {
                     id: 1,
-                    image: require('@/assets/img/sy_bg.png'),
+                    image: './picture/sy_bg.png',
                     title: '宠物针灸虚拟仿真实训',
                     content: '首次打开本实验，建议使用火狐或谷歌浏览器打开'
                 },
                 {
                     id: 2,
-                    image: require('@/assets/img/sy_bg.png'),
+                    image: './picture/sy_bg.png',
                     title: '宠物针灸虚拟仿真实训',
                     content: '首次打开本实验，建议使用火狐或谷歌浏览器打开'
                 }

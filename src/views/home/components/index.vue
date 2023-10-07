@@ -252,15 +252,15 @@ export default {
         box-shadow: 0px 0px 5px 0px rgb(238, 238, 238);
     }
     .bgimg {
-        background-image: url('../../../../public/picture/introduceTheBottomDiagram.png');
+        background-image: url('/picture/introduceTheBottomDiagram.png');
         background-size: cover;
     }
     .bgimg1 {
-        background-image: url('../../../assets/img/statistics.png');
+        background-image: url('/picture/statistics.png');
         background-size: cover;
     }
     .teachingResults {
-        background-image: url('../../../assets/img/teachingResults.png');
+        background-image: url('/picture/teachingResults.png');
         background-size: cover;
     }
 
