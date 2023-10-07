@@ -15,7 +15,7 @@
                     <div class="bgimg w-50 h-400px ml-20px px-20px py-50px pr-110px mb-20px">
                         <div class="text-size-26px color-[#1D6DCF]">{{ configData.title }}</div>
                         <div class="leading-30px py-30px">
-                            针灸虚拟仿真实验，围绕传统实验教学的局限性和实际洪水调控的知识及能力需求，以“洪水形成—洪水传播—洪水调控”为主线，通过洪水形成感知实验、洪水预报仿真实验和洪水演进调控实验，将“降-产-汇-演-调”多环节融合贯通，实现水循环和洪水调控全过程虚拟仿真，使学生能够建立以应用为主线的知识体系，从而具备解决实际洪水调控问题的能力。实验上线以来，已服务多家高校及企事业单位，取得了显著效果。
+                            {{ configData.projectDescription }}
                         </div>
                         <div>
                             <el-button type="primary" @click="enterTheExperiment">
