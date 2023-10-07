@@ -15,6 +15,7 @@ Vue.http = Vue.prototype.$http = new Http();
 Vue.moment = Vue.prototype.$moment = Moment;
 Vue._ = Vue.prototype._ = _;
 Vue.tool = Vue.prototype.$tool = tool;
+Vue.configData = Vue.prototype.configData = window.globalData;
 
 Vue.use(ElementUI);
 

@@ -13,7 +13,7 @@
                 </div>
                 <div class="flex mt-70px">
                     <div class="bgimg w-50 h-400px ml-20px px-20px py-50px pr-110px mb-20px">
-                        <div class="text-size-26px color-[#1D6DCF]">针灸虚拟仿真实验</div>
+                        <div class="text-size-26px color-[#1D6DCF]">{{ configData.title }}</div>
                         <div class="leading-30px py-30px">
                             针灸虚拟仿真实验，围绕传统实验教学的局限性和实际洪水调控的知识及能力需求，以“洪水形成—洪水传播—洪水调控”为主线，通过洪水形成感知实验、洪水预报仿真实验和洪水演进调控实验，将“降-产-汇-演-调”多环节融合贯通，实现水循环和洪水调控全过程虚拟仿真，使学生能够建立以应用为主线的知识体系，从而具备解决实际洪水调控问题的能力。实验上线以来，已服务多家高校及企事业单位，取得了显著效果。
                         </div>
@@ -101,8 +101,6 @@
 import * as echarts from 'echarts';
 import Footer from './footer';
 import vueSeamlessScroll from 'vue-seamless-scroll';
-import img from '@/assets/img/home/rotation1.png';
-import img2 from '@/assets/img/home/rotation2.png';
 import diagram1 from '@/assets/img/home/bottomRotationDiagram1.jpg';
 import diagram2 from '@/assets/img/home/bottomRotationDiagram2.jpg';
 import diagram3 from '@/assets/img/home/bottomRotationDiagram3.jpg';
@@ -118,7 +116,7 @@ export default {
     data() {
         return {
             token: getToken(),
-            bannerList: [img, img2],
+            bannerList: ['./img/rotation1.png', './img/rotation2.png'],
             optionPie: {
                 tooltip: {
                     trigger: 'item',
