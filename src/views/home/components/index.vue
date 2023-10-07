@@ -101,11 +101,6 @@
 import * as echarts from 'echarts';
 import Footer from './footer';
 import vueSeamlessScroll from 'vue-seamless-scroll';
-import diagram1 from '@/assets/img/home/bottomRotationDiagram1.jpg';
-import diagram2 from '@/assets/img/home/bottomRotationDiagram2.jpg';
-import diagram3 from '@/assets/img/home/bottomRotationDiagram3.jpg';
-import diagram4 from '@/assets/img/home/bottomRotationDiagram4.jpg';
-import diagram5 from '@/assets/img/home/bottomRotationDiagram5.jpg';
 import { getToken, verifyAccessToken, checkout } from '@/utils/auth';
 export default {
     name: 'index',
@@ -116,7 +111,6 @@ export default {
     data() {
         return {
             token: getToken(),
-            bannerList: ['./img/rotation1.png', './img/rotation2.png'],
             optionPie: {
                 tooltip: {
                     trigger: 'item',
@@ -198,16 +192,17 @@ export default {
                 ]
             },
             videoType: 'guide',
+            bannerList: ['./picture/rotation1.png', './picture/rotation2.png'],
             listData: [
-                diagram1,
-                diagram2,
-                diagram3,
-                diagram4,
-                diagram5,
-                diagram4,
-                diagram3,
-                diagram2,
-                diagram1
+                './picture/bottomRotationDiagram1.jpg',
+                './picture/bottomRotationDiagram2.jpg',
+                './picture/bottomRotationDiagram3.jpg',
+                './picture/bottomRotationDiagram4.jpg',
+                './picture/bottomRotationDiagram5.jpg',
+                './picture/bottomRotationDiagram4.jpg',
+                './picture/bottomRotationDiagram3.jpg',
+                './picture/bottomRotationDiagram2.jpg',
+                './picture/bottomRotationDiagram1.jpg'
             ],
             classOption: {
                 limitMoveNum: 2,

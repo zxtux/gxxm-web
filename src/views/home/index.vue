@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <div class="topLogo">
-            <img src="@/assets/img/home/logo.png" />
+            <img :src="imagePath" />
             <template v-if="isShow">
                 <el-menu
                     :default-active="pageComponentType"
@@ -109,7 +109,8 @@ export default {
             show: false,
             reportList: [],
             isShow: true,
-            pageComponentType: 'index'
+            pageComponentType: 'index',
+            imagePath: './picture/logo.png'
         };
     },
     mounted() {
