@@ -22,7 +22,7 @@
                             </span>
                             <el-dropdown-menu slot="dropdown">
                                 <el-dropdown-item>
-                                    退出登录
+                                    {{ userName === '游客' ? '登录' : '退出登录' }}
                                 </el-dropdown-item>
                             </el-dropdown-menu>
                         </el-dropdown>
@@ -169,6 +169,10 @@ export default {
             this.userName = res.data.nickName;
         },
         close() {
+            if (this.userName === '游客') {
+                checkout();
+                return;
+            }
             this.$confirm('是否确认退出登录？', '提示', {
                 confirmButtonText: '确定',
                 cancelButtonText: '取消'
