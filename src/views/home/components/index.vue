@@ -8,7 +8,7 @@
         <div class="bg-[#fff] h-500px flex justify-center flex-col items-center">
             <div class="bg-[#fff] h-600px w-75 mt--50px shadow rounded-10px">
                 <div class="flex justify-center items-center mt-30px">
-                    <img src="@/assets/img/point.png" />
+                    <img src="picture/point.png" />
                     <div class="text-size-30px ml-20px font-bold">实验介绍</div>
                 </div>
                 <div class="flex mt-70px">
@@ -48,7 +48,7 @@
                             class="flex items-center flex-col ml-100px"
                             @click="vp_changeVideo('guide')"
                         >
-                            <img src="@/assets/img/introductionVideo.png" class="w-50px h-80px" />
+                            <img src="picture/introductionVideo.png" class="w-50px h-80px" />
                             <div
                                 class="text-size-20px mt-20px"
                                 :class="[videoType === 'guide' ? 'color-[#1D6DCF]' : '']"
@@ -60,7 +60,7 @@
                             class="flex items-center flex-col ml-100px mt-50px"
                             @click="vp_changeVideo('introduction')"
                         >
-                            <img src="@/assets/img/introductionVideo.png" class="w-50px h-80px" />
+                            <img src="picture/introductionVideo.png" class="w-50px h-80px" />
                             <div
                                 class="text-size-20px mt-20px"
                                 :class="[videoType === 'introduction' ? 'color-[#1D6DCF]' : '']"
@@ -81,7 +81,7 @@
         </div>
         <div class="teachingResults h-500px">
             <div class="flex justify-center items-center pt-40px mb-50px">
-                <img src="@/assets/img/point.png" />
+                <img src="picture/point.png" />
                 <div class="text-size-30px ml-20px font-bold">教学成果</div>
             </div>
             <vue-seamless-scroll :data="listData" :class-option="classOption" class="warp">
@@ -252,7 +252,7 @@ export default {
         box-shadow: 0px 0px 5px 0px rgb(238, 238, 238);
     }
     .bgimg {
-        background-image: url('../../../assets/img/introduceTheBottomDiagram.png');
+        background-image: url('../../../../public/picture/introduceTheBottomDiagram.png');
         background-size: cover;
     }
     .bgimg1 {

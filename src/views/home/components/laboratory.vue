@@ -2,20 +2,20 @@
     <div ref="outerDom">
         <div class="backgroundPic">
             <div class="px-40px flex flex-col py-40px items-center">
-                <img src="@/assets/img/name.png" />
+                <img src="picture/name.png" />
                 <div class="bg-[#fff] w-80 mt-30px rounded-10px">
                     <div class="flex">
-                        <img src="@/assets/img/left.png" />
+                        <img src="picture/left.png" />
                         <div class="flex-1"></div>
-                        <img src="@/assets/img/right.png" />
+                        <img src="picture/right.png" />
                     </div>
                     <div class="flex items-center mt--30px justify-center">
                         <div class="flex items-center">
-                            <img src="@/assets/img/a.png" class="h-10px" />
+                            <img src="picture/a.png" class="h-10px" />
                             <div class="text-size-30px mx-60px font-bold color-[#1D6DCF]">
                                 实验报告
                             </div>
-                            <img src="@/assets/img/aa.png" class="h-10px" />
+                            <img src="picture/aa.png" class="h-10px" />
                         </div>
                     </div>
                     <div class="btnPdf">

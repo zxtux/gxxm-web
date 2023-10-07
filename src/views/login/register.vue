@@ -5,14 +5,14 @@
             :style="{ backgroundImage: `url(${backgroundImgUrl})` }"
         >
             <div class="flex justify-center items-center flex-col h-screen">
-                <!-- <img src="@/assets/img/login_name.png" class="w-180px h-50px mb--90px mt-80px" />
-                <img src="@/assets/img/login_w.png" class="w-460px h-100px" /> -->
+                <!-- <img src="picture/login_name.png" class="w-180px h-50px mb--90px mt-80px" />
+                <img src="picture/login_w.png" class="w-460px h-100px" /> -->
                 <div class="bg-[#fff] h-500px w-500px rounded-20px shadow">
                     <div
                         class="float-right flex items-center bg-[#FFFAE8] p-10px rounded-20px"
                         @click="jump"
                     >
-                        <img src="@/assets/img/expert.png" class="w-20px h-20px" />
+                        <img src="picture/expert.png" class="w-20px h-20px" />
                         <div class="text-size-16px color-[#F18E00] font-bold">专家入口</div>
                     </div>
                     <div class="text-center pt-40px font-bold text-size-18px">- 用户注册 -</div>
