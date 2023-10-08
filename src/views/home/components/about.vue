@@ -22,43 +22,38 @@
                             <div class="ct_au_introTitle">• 实验教学项目负责人</div>
                             <div class="ct_au_tip">
                                 <div class="ct_au_left">
-                                    <img :src="configData.teachingTeam.personal.avatar_url" />
+                                    <el-image :src="teachingTeam.personal.avatar" />
                                 </div>
                                 <div class="ct_au_right">
-                                    <b>{{ configData.teachingTeam.personal.name }}</b>
+                                    <b>{{ teachingTeam.personal.name }}</b>
                                     <div class="ct_au_RInfo">
                                         <div class="ct_au_RIItem">
                                             <span>性别：</span>
-                                            {{ configData.teachingTeam.personal.gender }}
+                                            {{ teachingTeam.personal.gender }}
                                         </div>
                                         <div class="ct_au_RIItem">
                                             <span>出生年月：</span>
-                                            {{ configData.teachingTeam.personal.date_of_birth }}
+                                            {{ teachingTeam.personal.date_of_birth }}
                                         </div>
                                         <div class="ct_au_RIItem">
                                             <span>学历：</span>
-                                            {{ configData.teachingTeam.personal.education }}
+                                            {{ teachingTeam.personal.education }}
                                         </div>
                                         <div class="ct_au_RIItem">
                                             <span>学位：</span>
-                                            {{ configData.teachingTeam.personal.degree }}
+                                            {{ teachingTeam.personal.degree }}
                                         </div>
                                         <div class="ct_au_RIItem">
                                             <span>专业技术职务：</span>
-                                            {{
-                                                configData.teachingTeam.personal.professional_title
-                                            }}
+                                            {{ teachingTeam.personal.professional_title }}
                                         </div>
                                         <div class="ct_au_RIItem">
                                             <span>行政职务：</span>
-                                            {{
-                                                configData.teachingTeam.personal
-                                                    .administrative_position
-                                            }}
+                                            {{ teachingTeam.personal.administrative_position }}
                                         </div>
                                         <div class="ct_au_RIItem" style="width: 100%;">
                                             <span>院系：</span>
-                                            {{ configData.teachingTeam.personal.department }}
+                                            {{ teachingTeam.personal.department }}
                                         </div>
                                     </div>
                                 </div>
@@ -68,8 +63,7 @@
                             <div class="ix_team_title">• 教学研究课题</div>
                             <div class="ix_team_cont">
                                 <p
-                                    v-for="(item, index) in configData.teachingTeam
-                                        .teachingResearchTopics"
+                                    v-for="(item, index) in teachingTeam.teachingResearchTopics"
                                     :key="index"
                                 >
                                     ({{ index + 1 }}) {{ item }}
@@ -80,7 +74,7 @@
                             <div class="ix_team_title">• 教学表彰/奖励</div>
                             <div class="ix_team_cont">
                                 <p
-                                    v-for="(item, index) in configData.teachingTeam.teachingAwards"
+                                    v-for="(item, index) in teachingTeam.teachingAwards"
                                     :key="index"
                                 >
                                     ({{ index + 1 }}) {{ item }}
@@ -91,8 +85,7 @@
                             <div class="ix_team_title">• 教学研究论文</div>
                             <div class="ix_team_cont">
                                 <p
-                                    v-for="(item, index) in configData.teachingTeam
-                                        .teachingResearchPapers"
+                                    v-for="(item, index) in teachingTeam.teachingResearchPapers"
                                     :key="index"
                                 >
                                     ({{ index + 1 }}) {{ item }}
@@ -103,8 +96,7 @@
                             <div class="ix_team_title">• 教学研究论文</div>
                             <div class="ix_team_cont">
                                 <p
-                                    v-for="(item, index) in configData.teachingTeam
-                                        .academicResearchProjects"
+                                    v-for="(item, index) in teachingTeam.academicResearchProjects"
                                     :key="index"
                                 >
                                     ({{ index + 1 }}) {{ item }}
@@ -115,7 +107,7 @@
                             <div class="ix_team_title">• 学术论文</div>
                             <div class="ix_team_cont">
                                 <p
-                                    v-for="(item, index) in configData.teachingTeam.academicPapers"
+                                    v-for="(item, index) in teachingTeam.academicPapers"
                                     :key="index"
                                 >
                                     ({{ index + 1 }}) {{ item }}
@@ -126,7 +118,7 @@
                             <div class="ix_team_title">• 学术研究表彰/奖励</div>
                             <div class="ix_team_cont">
                                 <p
-                                    v-for="(item, index) in configData.teachingTeam.academicAwards"
+                                    v-for="(item, index) in teachingTeam.academicAwards"
                                     :key="index"
                                 >
                                     ({{ index + 1 }}) {{ item }}
@@ -137,11 +129,11 @@
                             <div class="ct_au_introTitle">• 实验教学项目教学服务团队情况</div>
                             <div
                                 class="ct_au_tip"
-                                v-for="(item, index) in configData.teachingTeam.teachingTeam"
+                                v-for="(item, index) in teachingTeam.teachingTeam"
                                 :key="index"
                             >
                                 <div class="ct_au_left">
-                                    <img :src="item.avatar_url" />
+                                    <el-image :src="item.avatar_url" />
                                 </div>
                                 <div class="ct_au_right">
                                     <div>{{ item.name }}</div>
@@ -171,7 +163,12 @@ export default {
         backTop
     },
     data() {
-        return {};
+        return {
+            teachingTeam: {}
+        };
+    },
+    mounted() {
+        this.teachingTeam = window.globalData.teachingTeam;
     },
     methods: {
         changeScrollTop() {

@@ -62,7 +62,7 @@ window.globalData = {
             professional_title: '教授',
             administrative_position: '系副主任',
             department: '水利水电学院水文水资源系',
-            avatar_url: './picture/avatar.png'
+            avatar: './picture/avatar.png'
         },
         teachingResearchTopics: [
             '实验教学项目负责人',
