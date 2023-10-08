@@ -17,11 +17,6 @@ window.globalData = {
             image: './picture/sy_bg.png',
             title: '宠物针灸虚拟仿真实训',
             content: '首次打开本实验，建议使用火狐或谷歌浏览器打开'
-        },
-        {
-            image: './picture/sy_bg.png',
-            title: '宠物针灸虚拟仿真实训',
-            content: '首次打开本实验，建议使用火狐或谷歌浏览器打开'
         }
     ],
     configurationRequirements: {

@@ -22,7 +22,7 @@
                             <div class="ct_au_introTitle">• 实验教学项目负责人</div>
                             <div class="ct_au_tip">
                                 <div class="ct_au_left">
-                                    <img src="@/assets/picture/img1.png" />
+                                    <img :src="configData.teachingTeam.personal.avatar_url" />
                                 </div>
                                 <div class="ct_au_right">
                                     <b>{{ configData.teachingTeam.personal.name }}</b>

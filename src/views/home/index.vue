@@ -220,7 +220,7 @@ export default {
             }
             //const savedRoute = localStorage.getItem('savedRoute');
             //localStorage.removeItem('user');
-            this.currentComp = projectDisplay;
+            this.currentComp = cases;
         },
         updateStatus(type, isShow) {
             this.isShow = isShow;

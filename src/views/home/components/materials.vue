@@ -17,45 +17,8 @@
                     <div class="px-60px">
                         <el-divider />
                     </div>
-                    <div class="px-60px leading-34px">
-                        <p>动画演示三层蒸散发模式的微观过程，如图1所示；</p>
-                        <br />
-                        <div class="ct_em_img">
-                            <img src="img/principle1.jpg" />
-                            <p>图1 三层蒸发模式微观过程</p>
-                        </div>
-                        <br />
-                        <p>（1）掌握流域蒸散发机制及影响因素，如图2所示；</p>
-                        <br />
-                        <div class="ct_em_img">
-                            <img src="img/principle2.jpg" />
-                            <p>图2 三层蒸发模式的蒸发量计算</p>
-                        </div>
-                        <br />
-                        <p>
-                            （2）模拟土壤剖面，展示土壤中水分的存在形式和变化过程，如图3所示，分析不同雨强和下垫面条件下的下渗率随时间的变化规律，深入认识水分下渗的三个阶段，如图4所示；
-                        </p>
-                        <br />
-                        <div class="ct_em_img" style="width: 420px;">
-                            <img src="img/principle3.jpg" />
-                            <p>图3 土壤剖面示意图</p>
-                        </div>
-                        <br />
-                        <br />
-                        <div class="ct_em_img" style="width: 500px;">
-                            <img src="img/principle4.jpg" />
-                            <p>图4 渗润、渗漏和渗透示意图</p>
-                        </div>
-                        <br />
-                        <p style="padding: 0px;">
-                            （3）虚拟河道纵剖面，如图5所示，动画展示泥沙在河水中的运移，如图6所示。
-                        </p>
-                        <br />
-                        <div class="ct_em_img" style="width: 500px;">
-                            <img src="img/principle5.jpg" />
-                            <p>图5 河道剖面示意图</p>
-                        </div>
-                        <br />
+                    <div class="px-60px py-10px leading-34px">
+                        <el-image src="picture/materials.png" fit="fill"></el-image>
                     </div>
                 </div>
             </div>
