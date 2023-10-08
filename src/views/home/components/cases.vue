@@ -18,7 +18,7 @@
                         <el-divider />
                     </div>
                     <div class="px-60px py-10px leading-34px">
-                        <el-image src="picture/cases.png" fit="fill"></el-image>
+                        <el-image src="picture/cases.png" fit="fill" lazy></el-image>
                     </div>
                 </div>
             </div>
