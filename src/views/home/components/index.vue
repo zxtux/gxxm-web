@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <el-carousel indicator-position="none" height="450px">
-            <el-carousel-item v-for="item in bannerList" :key="item">
+            <el-carousel-item v-for="item in configData.topRotationDiagram" :key="item">
                 <el-image :src="item" fit="fit" />
             </el-carousel-item>
         </el-carousel>
@@ -84,9 +84,17 @@
                 <img src="picture/point.png" />
                 <div class="text-size-30px ml-20px font-bold">教学成果</div>
             </div>
-            <vue-seamless-scroll :data="listData" :class-option="classOption" class="warp">
+            <vue-seamless-scroll
+                :data="configData.bottomRotationDiagram"
+                :class-option="classOption"
+                class="warp"
+            >
                 <ul class="ul-item">
-                    <li class="li-item" v-for="(item, index) in listData" :key="index">
+                    <li
+                        class="li-item"
+                        v-for="(item, index) in configData.bottomRotationDiagram"
+                        :key="index"
+                    >
                         <img :src="item" style="width: 240px; height: 240px;" />
                     </li>
                 </ul>
@@ -192,18 +200,6 @@ export default {
                 ]
             },
             videoType: 'guide',
-            bannerList: ['./picture/rotation1.png', './picture/rotation2.png'],
-            listData: [
-                './picture/bottomRotationDiagram1.jpg',
-                './picture/bottomRotationDiagram2.jpg',
-                './picture/bottomRotationDiagram3.jpg',
-                './picture/bottomRotationDiagram4.jpg',
-                './picture/bottomRotationDiagram5.jpg',
-                './picture/bottomRotationDiagram4.jpg',
-                './picture/bottomRotationDiagram3.jpg',
-                './picture/bottomRotationDiagram2.jpg',
-                './picture/bottomRotationDiagram1.jpg'
-            ],
             classOption: {
                 limitMoveNum: 2,
                 direction: 3
