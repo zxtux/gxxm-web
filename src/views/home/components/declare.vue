@@ -3,7 +3,7 @@
         <div class="backgroundPic">
             <div class="px-40px flex flex-col py-40px items-center">
                 <img src="picture/name.png" />
-                <div class="bg-[#fff] h-600px w-80 mt-30px rounded-10px">
+                <div class="bg-[#fff] w-80 mt-30px rounded-10px">
                     <div class="flex">
                         <img src="picture/left.png" />
                         <div class="flex-1"></div>
@@ -17,14 +17,7 @@
                     <div class="px-60px">
                         <el-divider />
                     </div>
-                    <div class="px-60px leading-34px">
-                        （1）以贯通洪水“形成-传播-调控”多环节知识和能力为目标，设计构建了针灸虚拟仿真实验，填补了传统实验不能实现的教学功能。
-                        围绕实际洪水调控的知识及能力需求，突破传统单一功能型实验模式，以打通洪水形成、洪水传播、洪水调度各环节知识壁垒，建立洪水调控知识体系为目标，设计构建针灸虚拟仿真实验，通过对水循环过程全景高度仿真、产汇流及洪水形成机理高度仿真、洪水演进调控多情景高度仿真，填补了传统实验不能实现的教学功能。
-                    </div>
-                    <div class="px-60px leading-34px">
-                        （2）“降-产-汇-演-调”多情景全过程仿真，增强了实验的创新性和高阶性，科研成果转化实验，拓展了实验的广度和深度。
-                        围绕暴雨洪水感知调控构建了涵盖水循环感知、产汇流模拟、洪水演进、水库洪水调度等实验内容，通过科研项目转化，形成全过程综合仿真实验，可以对不同降雨、不同产汇流模式、不同模型方法等进行多情景全过程贯通仿真，提升了实验的创新性和高阶性，拓展了实验的广度和深度。
-                    </div>
+                    <vue-pdf-embed :source="pdfUrl" style="height: 70%; width: 100%;" />
                 </div>
             </div>
         </div>
@@ -36,16 +29,20 @@
 <script>
 import Footer from './footer';
 import backTop from './backTop.vue';
+import VuePdfEmbed from 'vue-pdf-embed/dist/vue2-pdf-embed';
+
 export default {
     name: 'declare',
     components: {
         Footer,
-        backTop
+        backTop,
+        VuePdfEmbed
     },
     data() {
-        return {};
+        return {
+            pdfUrl: './picture/declare.pdf'
+        };
     },
-
     methods: {
         changeScrollTop() {
             this.$refs.outerDom.scrollIntoView({ behavior: 'smooth' });

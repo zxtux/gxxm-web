@@ -217,7 +217,7 @@ export default {
             if (result) {
                 this.init();
             }
-            this.currentComp = index;
+            this.currentComp = declare;
         },
         updateStatus(type, isShow) {
             this.isShow = isShow;
