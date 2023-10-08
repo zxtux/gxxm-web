@@ -100,7 +100,7 @@ export default {
                 },
                 {
                     id: 'about',
-                    name: '教学教学团队'
+                    name: '教学团队'
                 }
             ],
             activeId: '',
@@ -217,7 +217,7 @@ export default {
             if (result) {
                 this.init();
             }
-            this.currentComp = declare;
+            this.currentComp = about;
         },
         updateStatus(type, isShow) {
             this.isShow = isShow;
