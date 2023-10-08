@@ -12,6 +12,46 @@ window.globalData = {
         './picture/bottomRotationDiagram2.jpg',
         './picture/bottomRotationDiagram1.jpg'
     ],
+    experimentalData: [
+        {
+            image: './picture/sy_bg.png',
+            title: '宠物针灸虚拟仿真实训',
+            content: '首次打开本实验，建议使用火狐或谷歌浏览器打开'
+        },
+        {
+            image: './picture/sy_bg.png',
+            title: '宠物针灸虚拟仿真实训',
+            content: '首次打开本实验，建议使用火狐或谷歌浏览器打开'
+        }
+    ],
+    configurationRequirements: {
+        hardware: {
+            one: {
+                item: 'CPU111',
+                requirement: '英特尔酷睿TM 5-4590处理器(2.8GHz) 或更高配置'
+            },
+            two: {
+                item: 'CPU',
+                requirement: 'NMIDIA Geforce GTX970, AMD Radon R9 290.或更高配置'
+            },
+            three: {
+                item: '内存',
+                requirement: '8GB DDR3 或更高配置'
+            },
+            four: {
+                item: '存储硬盘',
+                requirement: '64G或更高配置'
+            },
+            five: {
+                item: '显存',
+                requirement: '1G或更高配置'
+            }
+        },
+        configuration: {
+            issue: '加载缓慢，加戟崩溃等问题',
+            solution: '出现这种问题请刷新，清理缓存或者查看实验帮助'
+        }
+    },
     projectDescription:
         '针灸虚拟仿真实验，围绕传统实验教学的局限性和实际洪水调控的知识及能力需求，以“洪水形成—洪水传播—洪水调控”为主线，通过洪水形成感知实验、洪水预报仿真实验和洪水演进调控实验，将“降-产-汇-演-调”多环节融合贯通，实现水循环和洪水调控全过程虚拟仿真，使学生能够建立以应用为主线的知识体系，从而具备解决实际洪水调控问题的能力。实验上线以来，已服务多家高校及企事业单位，取得了显著效果。',
     copyright: '版权所有©甘肃农业职业技术学院 版权所有 12345678',

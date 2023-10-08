@@ -217,7 +217,7 @@ export default {
             if (result) {
                 this.init();
             }
-            this.currentComp = about;
+            this.currentComp = projectDisplay;
         },
         updateStatus(type, isShow) {
             this.isShow = isShow;

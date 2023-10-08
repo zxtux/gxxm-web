@@ -5,8 +5,8 @@
                 <span class="text-size-20px">项目展示</span>
                 <div class="flex flex-col py-10px">
                     <div
-                        v-for="item in items"
-                        :key="item.id"
+                        v-for="(item, index) in configData.experimentalData"
+                        :key="index"
                         class="flex flex-row items-center itembg"
                     >
                         <div class="image-container">
@@ -33,39 +33,44 @@
                 <div class="leading-30px">
                     <span class="spanp">
                         1、
-                        <span class="fcr">CPU</span>
-                        : 英特尔酷睿TM 5-4590处理器(2.8GHz) 或更高配置
+                        <span class="fcr">
+                            {{ configData.configurationRequirements.hardware.one.item }}
+                        </span>
+                        : {{ configData.configurationRequirements.hardware.one.requirement }}
                     </span>
                     <span class="px-60px">
                         2、
-                        <span class="fcr">CPU</span>
-                        : NMIDIA Geforce GTX970,AMD Radon R9 290.或更高配置
+                        <span class="fcr">
+                            {{ configData.configurationRequirements.hardware.two.item }}
+                        </span>
+                        : {{ configData.configurationRequirements.hardware.two.requirement }}
                     </span>
                 </div>
                 <div class="leading-30px">
                     <span class="spanp">
                         3、
-                        <span class="fcr">内存</span>
-                        :8GB DDR3 或更高配置
+                        <span class="fcr">{{ configData.configurationRequirements.hardware.three.item }}</span>
+                        :{{ configData.configurationRequirements.hardware.three.requirement }}
                     </span>
                     <span class="px-60px">
                         4、
-                        <span class="fcr">存储硬盘</span>
-                        :64G或更高配置
+                        <span class="fcr">{{ configData.configurationRequirements.hardware.four.item }}</span>
+                        :{{ configData.configurationRequirements.hardware.four.requirement }}
                     </span>
                 </div>
                 <div class="leading-30px">
                     <span class="spanp">
                         5、
-                        <span class="fcr">显存</span>
-                        :1G或更高配置
+                        <span class="fcr">{{ configData.configurationRequirements.hardware.five.item }}</span>
+                        :{{ configData.configurationRequirements.hardware.five.requirement }}
                     </span>
                 </div>
                 <div class="fcb">二、配置不达标准可能会导致</div>
                 <div class="leading-30px">
                     加载缓慢，加戟崩溃等问题，
+                    {{ configData.configurationRequirements.configuration.issue }}
                     <span class="fcr">[解决办法]</span>
-                    :出现这种问题请刷新，清理缓存或者查看实验帮助:
+                    : {{ configData.configurationRequirements.configuration.solution }}
                 </div>
             </div>
         </div>
@@ -84,21 +89,7 @@ export default {
     },
     data() {
         return {
-            token: getToken(),
-            items: [
-                {
-                    id: 1,
-                    image: './picture/sy_bg.png',
-                    title: '宠物针灸虚拟仿真实训',
-                    content: '首次打开本实验，建议使用火狐或谷歌浏览器打开'
-                },
-                {
-                    id: 2,
-                    image: './picture/sy_bg.png',
-                    title: '宠物针灸虚拟仿真实训',
-                    content: '首次打开本实验，建议使用火狐或谷歌浏览器打开'
-                }
-            ]
+            token: getToken()
         };
     },
     mounted() {
