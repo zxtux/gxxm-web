@@ -149,6 +149,7 @@ export default {
                         this.currentComp = laboratory;
                     } else {
                         checkout();
+                        localStorage.setItem('savedRoute', 'laboratory');
                     }
                     break;
                 case 'about':
@@ -217,6 +218,8 @@ export default {
             if (result) {
                 this.init();
             }
+            //const savedRoute = localStorage.getItem('savedRoute');
+            //localStorage.removeItem('user');
             this.currentComp = projectDisplay;
         },
         updateStatus(type, isShow) {

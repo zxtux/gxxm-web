@@ -225,6 +225,7 @@ export default {
                 this.$emit('updateStatus', 'index', false);
             } else {
                 checkout();
+                localStorage.setItem('savedRoute', 'projectDisplay');
             }
         }
     }
