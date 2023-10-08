@@ -27,43 +27,38 @@
                     <div class="h-320px w-460px ml--60px shadow flex mt-30px ringShadow">
                         <video
                             :src="
-                                'http://xunifangzhen.oss-cn-beijing.aliyuncs.com/rainstorm_' +
-                                (videoType == 'guide' ? 'brief' : 'guide') +
-                                '.mp4'
+                                videoType == 'guide'
+                                    ? 'picture/guide.mp4'
+                                    : 'picture/introduction.mp4'
                             "
                             width="100%"
                             height="100%"
                             controls="controls"
                             style="object-fit: fill;"
-                            :poster="
-                                './img/video/' +
-                                (videoType == 'guide' ? 'video1Img' : 'video2Img') +
-                                '.jpg'
-                            "
                         ></video>
                     </div>
 
                     <div>
                         <div
                             class="flex items-center flex-col ml-100px"
-                            @click="vp_changeVideo('guide')"
-                        >
-                            <img src="picture/introductionVideo.png" class="w-50px h-80px" />
-                            <div
-                                class="text-size-20px mt-20px"
-                                :class="[videoType === 'guide' ? 'color-[#1D6DCF]' : '']"
-                            >
-                                简介视频
-                            </div>
-                        </div>
-                        <div
-                            class="flex items-center flex-col ml-100px mt-50px"
                             @click="vp_changeVideo('introduction')"
                         >
                             <img src="picture/introductionVideo.png" class="w-50px h-80px" />
                             <div
                                 class="text-size-20px mt-20px"
                                 :class="[videoType === 'introduction' ? 'color-[#1D6DCF]' : '']"
+                            >
+                                简介视频
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center flex-col ml-100px mt-50px"
+                            @click="vp_changeVideo('guide')"
+                        >
+                            <img src="picture/introductionVideo.png" class="w-50px h-80px" />
+                            <div
+                                class="text-size-20px mt-20px"
+                                :class="[videoType === 'guide' ? 'color-[#1D6DCF]' : '']"
                             >
                                 教学引导视频
                             </div>
