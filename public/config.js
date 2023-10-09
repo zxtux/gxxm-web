@@ -1,5 +1,6 @@
 window.globalData = {
     title: '针灸虚拟仿真实验',
+    primaryColor: '#6e91ec',
     topRotationDiagram: ['./picture/rotation1.png', './picture/rotation2.png'],
     bottomRotationDiagram: [
         './picture/bottomRotationDiagram1.jpg',

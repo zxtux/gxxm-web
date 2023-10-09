@@ -16,6 +16,8 @@ Vue.moment = Vue.prototype.$moment = Moment;
 Vue._ = Vue.prototype._ = _;
 Vue.tool = Vue.prototype.$tool = tool;
 Vue.configData = Vue.prototype.configData = window.globalData;
+Vue.prototype.$primaryColor = window.globalData.primaryColor;
+document.documentElement.style.setProperty('--primary-color', window.globalData.primaryColor);
 
 Vue.use(ElementUI);
 

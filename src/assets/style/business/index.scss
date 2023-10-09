@@ -54,20 +54,20 @@ a {
     margin-left: 32px;
     font-family: Adobe Arabic;
     font-size: 36px;
-    color: #6e91ec;
+    color: var(--primary-color);
     line-height: 100px;
     font-weight: bold;
 }
 .ix_topNav {
     width: 100%;
     height: 62px;
-    background-color: #6e91ec;
+    background-color: var(--primary-color);
     position: relative;
 }
 .ix_1200 {
     width: 1235px;
     display: flex;
-    background-color: #6e91ec;
+    background-color: var(--primary-color);
     margin: 0 auto;
 }
 .ix_topNav ul {
@@ -96,7 +96,7 @@ a {
     position: relative;
 }
 .xuanzhong {
-    color: #6e91ec;
+    color: var(--primary-color);
     background-color: #fff;
 }
 .ix_user {
@@ -331,7 +331,7 @@ a {
     position: relative;
     padding: 72px 0;
     width: 100%;
-    color: #6e91ec;
+    color: var(--primary-color);
     font-size: 30px;
     font-weight: bold;
     text-align: center;
@@ -346,7 +346,7 @@ a {
     width: 62px;
     height: 2px;
     border-right: 2px;
-    background-color: #6e91ec;
+    background-color: var(--primary-color);
     background: -webkit-linear-gradient(to left, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
     background: -moz-linear-gradient(to left, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
     background: -o-linear-gradient(to left, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
@@ -362,7 +362,7 @@ a {
     width: 62px;
     height: 2px;
     border-right: 2px;
-    background-color: #6e91ec;
+    background-color: var(--primary-color);
     background: -webkit-linear-gradient(to right, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
     background: -moz-linear-gradient(to right, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
     background: -o-linear-gradient(to right, rgba(117, 62, 143, 0), rgba(117, 62, 143, 1));
@@ -434,7 +434,7 @@ a {
 }
 .ix_CBLItem:hover .ix_BLILine {
     width: 62px;
-    background-color: #6e91ec;
+    background-color: var(--primary-color);
     -webkit-transform: translateY(-32px);
     -moz-transform: translateY(-32px);
     -o-transform: translateY(-32px);

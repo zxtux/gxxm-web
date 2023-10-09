@@ -274,10 +274,11 @@ export default {
             cursor: pointer;
             position: relative;
         }
+
         .el-menu-item.is-active {
-            color: #6e91ec !important;
+            color: var(--primary-color) !important;
             background-color: #fff !important;
-            border-bottom: 2px solid #6e91ec;
+            border-bottom: 2px solid var(--primary-color);
         }
         .ix_user {
             padding-left: 40px;
