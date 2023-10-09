@@ -222,13 +222,13 @@ export default {
                     if (savedRoute === 'projectDisplay') {
                         this.isShow = false;
                         this.currentComp = projectDisplay;
-                        setTimeout(() => {
-                            localStorage.removeItem('savedRoute');
-                        }, 1000);
                     } else {
                         this.pageComponentType = savedRoute;
                         this.currentComp = laboratory;
                     }
+                    setTimeout(() => {
+                        localStorage.removeItem('savedRoute');
+                    }, 1000);
                 } else {
                     this.currentComp = index;
                 }

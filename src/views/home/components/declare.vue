@@ -17,13 +17,20 @@
                     <div class="px-60px">
                         <el-divider />
                     </div>
-                    <el-loading :fullscreen="true" text="加载中..." :visible="loading">
-                        <vue-pdf-embed
+                    <div class="container">
+                        <el-loading
+                            :fullscreen="true"
+                            text="加载中..."
+                            :visible="loading"
+                            class="loading-layer"
+                        >
+                            <!-- <vue-pdf-embed
                             :source="pdfUrl"
                             style="height: 70%; width: 100%;"
                             @load="onPdfLoad"
-                        />
-                    </el-loading>
+                        /> -->
+                        </el-loading>
+                    </div>
                 </div>
             </div>
         </div>
@@ -35,14 +42,14 @@
 <script>
 import Footer from './footer';
 import backTop from './backTop.vue';
-import VuePdfEmbed from 'vue-pdf-embed/dist/vue2-pdf-embed';
+// import VuePdfEmbed from 'vue-pdf-embed/dist/vue2-pdf-embed';
 
 export default {
     name: 'declare',
     components: {
         Footer,
-        backTop,
-        VuePdfEmbed
+        backTop
+        // VuePdfEmbed
     },
     data() {
         return {
@@ -55,10 +62,26 @@ export default {
             this.$refs.outerDom.scrollIntoView({ behavior: 'smooth' });
         },
         onPdfLoad() {
-            this.loading = false;
+            // this.loading = false;
         }
     }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.container {
+    height: 800px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-layer {
+    z-index: 9999;
+}
+
+.el-loading-mask {
+    transform: scale(2);
+}
+</style>
