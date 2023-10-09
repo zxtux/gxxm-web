@@ -17,19 +17,18 @@
                     <div class="px-60px">
                         <el-divider />
                     </div>
-                    <div class="container">
-                        <el-loading
-                            :fullscreen="true"
-                            text="加载中..."
-                            :visible="loading"
-                            class="loading-layer"
-                        >
-                            <!-- <vue-pdf-embed
+                    <div
+                        v-loading="loading"
+                        element-loading-text="拼命加载中"
+                        element-loading-spinner="el-icon-loading"
+                        element-loading-background="hsla(0,0%,100%,0)"
+                        class="container"
+                    >
+                        <vue-pdf-embed
                             :source="pdfUrl"
                             style="height: 70%; width: 100%;"
-                            @load="onPdfLoad"
-                        /> -->
-                        </el-loading>
+                            @loaded="onPdfLoad"
+                        />
                     </div>
                 </div>
             </div>
@@ -42,14 +41,14 @@
 <script>
 import Footer from './footer';
 import backTop from './backTop.vue';
-// import VuePdfEmbed from 'vue-pdf-embed/dist/vue2-pdf-embed';
+import VuePdfEmbed from 'vue-pdf-embed/dist/vue2-pdf-embed';
 
 export default {
     name: 'declare',
     components: {
         Footer,
-        backTop
-        // VuePdfEmbed
+        backTop,
+        VuePdfEmbed
     },
     data() {
         return {
@@ -62,7 +61,7 @@ export default {
             this.$refs.outerDom.scrollIntoView({ behavior: 'smooth' });
         },
         onPdfLoad() {
-            // this.loading = false;
+            this.loading = false;
         }
     }
 };
