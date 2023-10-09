@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div class="content" ref="outerDom">
         <el-carousel indicator-position="none" height="450px">
             <el-carousel-item v-for="item in configData.topRotationDiagram" :key="item">
                 <el-image :src="item" fit="fit" />
