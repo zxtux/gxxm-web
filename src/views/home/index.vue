@@ -217,22 +217,24 @@ export default {
             const result = await verifyAccessToken();
             if (result) {
                 await this.init();
-                // const savedRoute = localStorage.getItem('savedRoute');
-                // if (savedRoute) {
-                //     if (savedRoute === 'projectDisplay') {
-                //         this.isShow = false;
-                //         this.currentComp = projectDisplay;
-                //     } else {
-                //         this.pageComponentType = savedRoute;
-                //         this.currentComp = laboratory;
-                //     }
-                // } else {
-                //     this.currentComp = index;
-                // }
+                const savedRoute = localStorage.getItem('savedRoute');
+                if (savedRoute) {
+                    if (savedRoute === 'projectDisplay') {
+                        this.isShow = false;
+                        this.currentComp = projectDisplay;
+                        setTimeout(() => {
+                            localStorage.removeItem('savedRoute');
+                        }, 1000);
+                    } else {
+                        this.pageComponentType = savedRoute;
+                        this.currentComp = laboratory;
+                    }
+                } else {
+                    this.currentComp = index;
+                }
             } else {
-                // this.currentComp = index;
+                this.currentComp = index;
             }
-            this.currentComp = index;
         },
         updateStatus(type, isShow) {
             this.isShow = isShow;

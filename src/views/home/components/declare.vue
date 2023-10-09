@@ -17,7 +17,13 @@
                     <div class="px-60px">
                         <el-divider />
                     </div>
-                    <vue-pdf-embed :source="pdfUrl" style="height: 70%; width: 100%;" />
+                    <el-loading :fullscreen="true" text="加载中..." :visible="loading">
+                        <vue-pdf-embed
+                            :source="pdfUrl"
+                            style="height: 70%; width: 100%;"
+                            @load="onPdfLoad"
+                        />
+                    </el-loading>
                 </div>
             </div>
         </div>
@@ -40,12 +46,16 @@ export default {
     },
     data() {
         return {
-            pdfUrl: './picture/declare.pdf'
+            pdfUrl: './picture/declare.pdf',
+            loading: true
         };
     },
     methods: {
         changeScrollTop() {
             this.$refs.outerDom.scrollIntoView({ behavior: 'smooth' });
+        },
+        onPdfLoad() {
+            this.loading = false;
         }
     }
 };

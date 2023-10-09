@@ -18,7 +18,7 @@
                         </div>
                         <el-divider direction="vertical"></el-divider>
                         <div>
-                            <el-button type="primary" @click="enterTheExperiment">
+                            <el-button type="primary" @click="enterTheExperiment(item.link)">
                                 开始实验
                                 <i class="el-icon-arrow-right el-icon--right"></i>
                             </el-button>
@@ -49,19 +49,25 @@
                 <div class="leading-30px">
                     <span class="spanp">
                         3、
-                        <span class="fcr">{{ configData.configurationRequirements.hardware.three.item }}</span>
+                        <span class="fcr">
+                            {{ configData.configurationRequirements.hardware.three.item }}
+                        </span>
                         :{{ configData.configurationRequirements.hardware.three.requirement }}
                     </span>
                     <span class="px-60px">
                         4、
-                        <span class="fcr">{{ configData.configurationRequirements.hardware.four.item }}</span>
+                        <span class="fcr">
+                            {{ configData.configurationRequirements.hardware.four.item }}
+                        </span>
                         :{{ configData.configurationRequirements.hardware.four.requirement }}
                     </span>
                 </div>
                 <div class="leading-30px">
                     <span class="spanp">
                         5、
-                        <span class="fcr">{{ configData.configurationRequirements.hardware.five.item }}</span>
+                        <span class="fcr">
+                            {{ configData.configurationRequirements.hardware.five.item }}
+                        </span>
                         :{{ configData.configurationRequirements.hardware.five.requirement }}
                     </span>
                 </div>
@@ -75,7 +81,7 @@
             </div>
         </div>
         <Footer />
-        <a id="link" :href="'/WebMessageSystem/index.html?token=' + token" target="_blank" />
+        <a id="link" :href="hrefLinkUrl" target="_blank" />
     </div>
 </template>
 
@@ -89,14 +95,16 @@ export default {
     },
     data() {
         return {
-            token: getToken()
+            token: getToken(),
+            hrefLinkUrl: '/WebMessageSystem/index.html?token=' + getToken()
         };
     },
     mounted() {
         this.$refs.outerDom.scrollIntoView({ behavior: 'smooth' });
     },
     methods: {
-        enterTheExperiment() {
+        enterTheExperiment(link) {
+            this.hrefLinkUrl = `${link + '/WebMessageSystem/index.html?token=' + this.token}`;
             const linkElement = document.getElementById('link');
             linkElement.click();
         }

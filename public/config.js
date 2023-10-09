@@ -16,7 +16,8 @@ window.globalData = {
         {
             image: './picture/sy_bg.png',
             title: '宠物针灸虚拟仿真实训',
-            content: '首次打开本实验，建议使用火狐或谷歌浏览器打开'
+            content: '首次打开本实验，建议使用火狐或谷歌浏览器打开',
+            link: 'WebMessageSystem'
         }
     ],
     configurationRequirements: {
@@ -62,7 +63,7 @@ window.globalData = {
             professional_title: '教授',
             administrative_position: '系副主任',
             department: '水利水电学院水文水资源系',
-            avatar: './picture/avatar.png'
+            avatar_url: './picture/avatar.png'
         },
         teachingResearchTopics: [
             '实验教学项目负责人',

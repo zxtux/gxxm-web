@@ -22,38 +22,38 @@
                             <div class="ct_au_introTitle">• 实验教学项目负责人</div>
                             <div class="ct_au_tip">
                                 <div class="ct_au_left">
-                                    <el-image :src="teachingTeam.personal.avatar" />
+                                    <el-image :src="principal.avatar_url" />
                                 </div>
                                 <div class="ct_au_right">
-                                    <b>{{ teachingTeam.personal.name }}</b>
+                                    <b>{{ principal.name }}</b>
                                     <div class="ct_au_RInfo">
                                         <div class="ct_au_RIItem">
                                             <span>性别：</span>
-                                            {{ teachingTeam.personal.gender }}
+                                            {{ principal.gender }}
                                         </div>
                                         <div class="ct_au_RIItem">
                                             <span>出生年月：</span>
-                                            {{ teachingTeam.personal.date_of_birth }}
+                                            {{ principal.date_of_birth }}
                                         </div>
                                         <div class="ct_au_RIItem">
                                             <span>学历：</span>
-                                            {{ teachingTeam.personal.education }}
+                                            {{ principal.education }}
                                         </div>
                                         <div class="ct_au_RIItem">
                                             <span>学位：</span>
-                                            {{ teachingTeam.personal.degree }}
+                                            {{ principal.degree }}
                                         </div>
                                         <div class="ct_au_RIItem">
                                             <span>专业技术职务：</span>
-                                            {{ teachingTeam.personal.professional_title }}
+                                            {{ principal.professional_title }}
                                         </div>
                                         <div class="ct_au_RIItem">
                                             <span>行政职务：</span>
-                                            {{ teachingTeam.personal.administrative_position }}
+                                            {{ principal.administrative_position }}
                                         </div>
                                         <div class="ct_au_RIItem" style="width: 100%;">
                                             <span>院系：</span>
-                                            {{ teachingTeam.personal.department }}
+                                            {{ principal.department }}
                                         </div>
                                     </div>
                                 </div>
@@ -164,11 +164,13 @@ export default {
     },
     data() {
         return {
-            teachingTeam: {}
+            teachingTeam: {},
+            principal: {}
         };
     },
     mounted() {
         this.teachingTeam = window.globalData.teachingTeam;
+        this.principal = this.teachingTeam.personal;
     },
     methods: {
         changeScrollTop() {
