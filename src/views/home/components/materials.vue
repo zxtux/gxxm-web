@@ -1,6 +1,6 @@
 <template>
     <div ref="outerDom">
-        <div class="backgroundPic h-1250px">
+        <div class="backgroundPic">
             <div class="px-40px flex flex-col py-40px items-center">
                 <img src="picture/name.png" />
                 <div class="bg-[#fff] w-80 mt-30px rounded-10px">
@@ -21,7 +21,7 @@
                         <vue-pdf-embed
                             source="picture/materials.pdf"
                             style="height: 70%; width: 100%;"
-                            @loaded="onPdfLoad"
+                            v-if="showPdf"
                         />
                     </div>
                 </div>
@@ -45,7 +45,12 @@ export default {
         VuePdfEmbed
     },
     data() {
-        return {};
+        return {
+            showPdf: false
+        };
+    },
+    mounted() {
+        this.showPdf = true;
     },
     methods: {
         changeScrollTop() {

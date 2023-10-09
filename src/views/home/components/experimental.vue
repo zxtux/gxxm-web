@@ -3,7 +3,7 @@
         <div class="backgroundPic">
             <div class="px-40px flex flex-col py-40px items-center">
                 <img src="picture/name.png" />
-                <div class="bg-[#fff] h-600px w-80 mt-30px rounded-10px">
+                <div class="bg-[#fff] w-80 mt-30px rounded-10px">
                     <div class="flex">
                         <img src="picture/left.png" />
                         <div class="flex-1"></div>
@@ -21,7 +21,7 @@
                         <vue-pdf-embed
                             source="picture/experimental.pdf"
                             style="height: 70%; width: 100%;"
-                            @loaded="onPdfLoad"
+                            v-if="showPdf"
                         />
                     </div>
                 </div>
@@ -44,7 +44,12 @@ export default {
         VuePdfEmbed
     },
     data() {
-        return {};
+        return {
+            showPdf: false
+        };
+    },
+    mounted() {
+        this.showPdf = true;
     },
 
     methods: {

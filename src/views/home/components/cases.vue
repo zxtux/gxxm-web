@@ -21,7 +21,7 @@
                         <vue-pdf-embed
                             source="picture/cases.pdf"
                             style="height: 70%; width: 100%;"
-                            @loaded="onPdfLoad"
+                            v-if="showPdf"
                         />
                     </div>
                 </div>
@@ -45,7 +45,12 @@ export default {
         VuePdfEmbed
     },
     data() {
-        return {};
+        return {
+            showPdf: false
+        };
+    },
+    mounted() {
+        this.showPdf = true;
     },
 
     methods: {

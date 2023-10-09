@@ -28,6 +28,7 @@
                             source="picture/declare.pdf"
                             style="height: 70%; width: 100%;"
                             @loaded="onPdfLoad"
+                            v-if="showPdf"
                         />
                     </div>
                 </div>
@@ -52,8 +53,12 @@ export default {
     },
     data() {
         return {
-            loading: true
+            loading: true,
+            showPdf: false
         };
+    },
+    mounted() {
+        this.showPdf = true;
     },
     methods: {
         changeScrollTop() {
@@ -68,7 +73,6 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-    height: 800px;
     width: 100%;
     display: flex;
     justify-content: center;
