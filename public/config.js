@@ -126,70 +126,80 @@ window.globalData = {
                 position: '教授',
                 schoolName: '西安理工大学',
                 task: '总体设计、开发建设、在线教学',
-                avatar_url: './picture/avatar.png'
+                avatar_url: './picture/avatar.png',
+                remark: '总体设计、开发建设、在线教学'
             },
             {
                 name: '魏娜',
                 position: '讲师',
                 schoolName: '西安理工大学',
                 task: '实验系统设计、维护、在线教学',
-                avatar_url: './picture/avatar.png'
+                avatar_url: './picture/avatar.png',
+                remark: '总体设计、开发建设、在线教学'
             },
             {
                 name: '宋孝玉',
                 position: '教授',
                 schoolName: '西安理工大学',
                 task: '产汇流实验建设、在线教学',
-                avatar_url: './picture/avatar.png'
+                avatar_url: './picture/avatar.png',
+                remark: '总体设计、开发建设、在线教学'
             },
             {
                 name: '张晓',
                 position: '讲师',
                 schoolName: '西安理工大学',
                 task: '洪水演进实验建设、在线教学',
-                avatar_url: './picture/avatar.png'
+                avatar_url: './picture/avatar.png',
+                remark: '总体设计、开发建设、在线教学'
             },
             {
                 name: '解建仓',
                 position: '教授',
                 schoolName: '西安理工大学',
                 task: '洪水调控实验建设、在线教学',
-                avatar_url: './picture/avatar.png'
+                avatar_url: './picture/avatar.png',
+                remark: '总体设计、开发建设、在线教学'
             },
             {
                 name: '汪妮',
                 position: '教授',
                 schoolName: '西安理工大学',
                 task: '在线教学、辅导答疑',
-                avatar_url: './picture/avatar.png'
+                avatar_url: './picture/avatar.png',
+                remark: '总体设计、开发建设、在线教学'
             },
             {
                 name: '鲁克新',
                 position: '副教授',
                 schoolName: '西安理工大学',
                 task: '实验组织管理、在线教学',
-                avatar_url: './picture/avatar.png'
+                avatar_url: './picture/avatar.png',
+                remark: '总体设计、开发建设、在线教学'
             },
             {
                 name: '黄领梅',
                 position: '副教授',
                 schoolName: '西安理工大学',
                 task: '在线教学、辅导答疑',
-                avatar_url: './picture/avatar.png'
+                avatar_url: './picture/avatar.png',
+                remark: '总体设计、开发建设、在线教学'
             },
             {
                 name: '莫淑红',
                 position: '教授',
                 schoolName: '西安理工大学',
                 task: '实验推广、在线教学、辅导答疑',
-                avatar_url: './picture/avatar.png'
+                avatar_url: './picture/avatar.png',
+                remark: '总体设计、开发建设、在线教学'
             },
             {
                 name: '孟静静',
                 position: '实验师',
                 schoolName: '西安理工大学',
                 task: '实验运维管理',
-                avatar_url: './picture/avatar.png'
+                avatar_url: './picture/avatar.png',
+                remark: '总体设计、开发建设、在线教学'
             }
         ]
     }

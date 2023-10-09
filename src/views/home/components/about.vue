@@ -141,6 +141,7 @@
                                         {{ item.schoolName }} / {{ item.position }} /
                                         {{ item.task }}
                                     </p>
+                                    <p>{{ item.remark }}</p>
                                 </div>
                             </div>
                         </div>
