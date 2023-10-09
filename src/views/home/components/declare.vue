@@ -25,7 +25,7 @@
                         class="container"
                     >
                         <vue-pdf-embed
-                            :source="pdfUrl"
+                            source="picture/declare.pdf"
                             style="height: 70%; width: 100%;"
                             @loaded="onPdfLoad"
                         />
@@ -52,7 +52,6 @@ export default {
     },
     data() {
         return {
-            pdfUrl: './picture/declare.pdf',
             loading: true
         };
     },

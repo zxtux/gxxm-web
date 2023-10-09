@@ -18,7 +18,11 @@
                         <el-divider />
                     </div>
                     <div class="px-60px py-10px leading-34px">
-                        <el-image src="picture/cases.png" fit="fill" lazy></el-image>
+                        <vue-pdf-embed
+                            source="picture/cases.pdf"
+                            style="height: 70%; width: 100%;"
+                            @loaded="onPdfLoad"
+                        />
                     </div>
                 </div>
             </div>
@@ -31,11 +35,14 @@
 <script>
 import Footer from './footer';
 import backTop from './backTop.vue';
+import VuePdfEmbed from 'vue-pdf-embed/dist/vue2-pdf-embed';
+
 export default {
     name: 'cases',
     components: {
         Footer,
-        backTop
+        backTop,
+        VuePdfEmbed
     },
     data() {
         return {};
