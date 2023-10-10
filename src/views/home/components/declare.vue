@@ -91,7 +91,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    min-height: 600px;
 }
 
 .loading-layer {
