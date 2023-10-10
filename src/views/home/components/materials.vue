@@ -20,8 +20,8 @@
                     <div class="px-60px py-10px leading-34px">
                         <vue-pdf-embed
                             source="picture/materials.pdf"
-                            style="height: 70%; width: 100%;"
-                            v-if="showPdf"
+                            style="height: 400px; width: 100%;"
+                            ref="pdfEmbed"
                         />
                     </div>
                 </div>
@@ -45,16 +45,30 @@ export default {
         VuePdfEmbed
     },
     data() {
-        return {
-            showPdf: false
-        };
+        return {};
     },
     mounted() {
-        this.showPdf = true;
+        this.initializePdfEmbed();
+    },
+    beforeDestroy() {
+        this.destroyPdfEmbed();
     },
     methods: {
         changeScrollTop() {
             this.$refs.outerDom.scrollIntoView({ behavior: 'smooth' });
+        },
+        initializePdfEmbed() {
+            this.$nextTick(() => {
+                this.pdfEmbed = this.$refs.pdfEmbed;
+                this.pdfEmbed.$on('loaded', () => {
+                    // this.loading = false;
+                });
+            });
+        },
+        destroyPdfEmbed() {
+            if (this.pdfEmbed) {
+                this.pdfEmbed.$destroy();
+            }
         }
     }
 };
