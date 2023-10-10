@@ -20,7 +20,7 @@
                     <div class="px-60px py-10px leading-34px">
                         <vue-pdf-embed
                             source="picture/experimental.pdf"
-                            style="height: 400px; width: 100%;"
+                            :height="height"
                             ref="pdfEmbed"
                         />
                     </div>
@@ -44,7 +44,9 @@ export default {
         VuePdfEmbed
     },
     data() {
-        return {};
+        return {
+            height: 600
+        };
     },
     mounted() {
         this.initializePdfEmbed();
@@ -59,6 +61,7 @@ export default {
         initializePdfEmbed() {
             this.$nextTick(() => {
                 this.pdfEmbed = this.$refs.pdfEmbed;
+                this.height = this.pdfEmbed.$el.offsetHeight;
                 this.pdfEmbed.$on('loaded', () => {
                     // this.loading = false;
                 });

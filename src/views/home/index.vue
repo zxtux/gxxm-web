@@ -42,13 +42,16 @@
             </template>
         </div>
         <div class="container">
-            <component
-                :is="currentComp"
-                :key="activeId"
-                :list="reportList"
-                @updateStatus="updateStatus"
-                ref="childComponent"
-            />
+            <keep-alive>
+                <component
+                    :is="currentComp"
+                    :key="activeId"
+                    :list="reportList"
+                    @updateStatus="updateStatus"
+                    v-if="activeId === pageComponentType"
+                    ref="childComponent"
+                />
+            </keep-alive>
         </div>
     </div>
 </template>
@@ -103,7 +106,7 @@ export default {
                     name: '教学团队'
                 }
             ],
-            activeId: '',
+            activeId: 'index',
             currentComp: '',
             userName: '游客',
             show: false,
@@ -127,6 +130,7 @@ export default {
         async handleSelect(keyPath) {
             const result = await verifyAccessToken();
             this.activeId = keyPath;
+            this.pageComponentType = keyPath;
 
             switch (keyPath) {
                 case 'index':
