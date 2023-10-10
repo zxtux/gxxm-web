@@ -48,7 +48,6 @@
                     :key="activeId"
                     :list="reportList"
                     @updateStatus="updateStatus"
-                    v-if="activeId === pageComponentType"
                     ref="childComponent"
                 />
             </keep-alive>
@@ -130,7 +129,6 @@ export default {
         async handleSelect(keyPath) {
             const result = await verifyAccessToken();
             this.activeId = keyPath;
-            this.pageComponentType = keyPath;
 
             switch (keyPath) {
                 case 'index':
