@@ -22,7 +22,10 @@
                             <div class="ct_au_introTitle">• 实验教学项目负责人</div>
                             <div class="ct_au_tip">
                                 <div class="ct_au_left">
-                                    <el-image :src="principal.avatar_url" />
+                                    <el-image
+                                        :src="principal.avatar_url"
+                                        style="height: 120px; width: 100px;"
+                                    />
                                 </div>
                                 <div class="ct_au_right">
                                     <b>{{ principal.name }}</b>
@@ -59,69 +62,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="ct_team_textIntro">
-                            <div class="ix_team_title">• 教学研究课题</div>
+                        <div
+                            class="ct_team_textIntro"
+                            v-for="(item, index) in teachingTeam.teachingContent"
+                            :key="index"
+                        >
+                            <div class="ix_team_title">• {{ item.name }}</div>
                             <div class="ix_team_cont">
-                                <p
-                                    v-for="(item, index) in teachingTeam.teachingResearchTopics"
-                                    :key="index"
-                                >
-                                    ({{ index + 1 }}) {{ item }}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="ct_team_textIntro">
-                            <div class="ix_team_title">• 教学表彰/奖励</div>
-                            <div class="ix_team_cont">
-                                <p
-                                    v-for="(item, index) in teachingTeam.teachingAwards"
-                                    :key="index"
-                                >
-                                    ({{ index + 1 }}) {{ item }}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="ct_team_textIntro">
-                            <div class="ix_team_title">• 教学研究论文</div>
-                            <div class="ix_team_cont">
-                                <p
-                                    v-for="(item, index) in teachingTeam.teachingResearchPapers"
-                                    :key="index"
-                                >
-                                    ({{ index + 1 }}) {{ item }}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="ct_team_textIntro">
-                            <div class="ix_team_title">• 教学研究论文</div>
-                            <div class="ix_team_cont">
-                                <p
-                                    v-for="(item, index) in teachingTeam.academicResearchProjects"
-                                    :key="index"
-                                >
-                                    ({{ index + 1 }}) {{ item }}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="ct_team_textIntro">
-                            <div class="ix_team_title">• 学术论文</div>
-                            <div class="ix_team_cont">
-                                <p
-                                    v-for="(item, index) in teachingTeam.academicPapers"
-                                    :key="index"
-                                >
-                                    ({{ index + 1 }}) {{ item }}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="ct_team_textIntro">
-                            <div class="ix_team_title">• 学术研究表彰/奖励</div>
-                            <div class="ix_team_cont">
-                                <p
-                                    v-for="(item, index) in teachingTeam.academicAwards"
-                                    :key="index"
-                                >
-                                    ({{ index + 1 }}) {{ item }}
+                                <p v-for="(v, i) in item.content" :key="i">
+                                    {{ v }}
                                 </p>
                             </div>
                         </div>
@@ -133,7 +82,10 @@
                                 :key="index"
                             >
                                 <div class="ct_au_left">
-                                    <el-image :src="item.avatar_url" />
+                                    <el-image
+                                        :src="item.avatar_url"
+                                        style="height: 120px; width: 100px;"
+                                    />
                                 </div>
                                 <div class="ct_au_right">
                                     <div>{{ item.name }}</div>

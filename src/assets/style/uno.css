@@ -89,6 +89,9 @@ body {
 .pr-8 {
     padding-right: 8%;
 }
+.h-min {
+    min-height: 600px;
+}
 
 .pr-110px {
     padding-right: 110px;

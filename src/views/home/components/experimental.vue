@@ -17,7 +17,7 @@
                     <div class="px-60px">
                         <el-divider />
                     </div>
-                    <div class="px-60px py-10px leading-34px">
+                    <div class="px-60px py-10px leading-34px h-min">
                         <vue-pdf-embed
                             source="picture/experimental.pdf"
                             :height="height"
