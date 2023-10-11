@@ -43,7 +43,14 @@
                             class="flex items-center flex-col ml-100px"
                             @click="vp_changeVideo('introduction')"
                         >
-                            <img src="picture/introductionVideo.png" class="w-50px h-80px" />
+                            <img
+                                :src="
+                                    videoType === 'introduction'
+                                        ? 'picture/introductionVideo_w.png'
+                                        : 'picture/introductionVideo.png'
+                                "
+                                class="w-50px h-80px"
+                            />
                             <div
                                 class="text-size-20px mt-20px"
                                 :class="[videoType === 'introduction' ? 'color-[#1D6DCF]' : '']"
@@ -55,7 +62,14 @@
                             class="flex items-center flex-col ml-100px mt-50px"
                             @click="vp_changeVideo('guide')"
                         >
-                            <img src="picture/introductionVideo.png" class="w-50px h-80px" />
+                            <img
+                                :src="
+                                    videoType === 'guide'
+                                        ? 'picture/guideVideo_w.png'
+                                        : 'picture/guideVideo.png'
+                                "
+                                class="w-50px h-80px"
+                            />
                             <div
                                 class="text-size-20px mt-20px"
                                 :class="[videoType === 'guide' ? 'color-[#1D6DCF]' : '']"
@@ -194,7 +208,7 @@ export default {
                     }
                 ]
             },
-            videoType: 'guide',
+            videoType: 'introduction',
             classOption: {
                 limitMoveNum: 2,
                 direction: 3
