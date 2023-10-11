@@ -106,7 +106,7 @@ export default {
                 }
             ],
             activeId: 'index',
-            currentComp: '',
+            currentComp: index,
             userName: '游客',
             show: false,
             reportList: [],
@@ -218,13 +218,14 @@ export default {
         async verifyToken() {
             const result = await verifyAccessToken();
             if (result) {
-                await this.init();
                 const savedRoute = localStorage.getItem('savedRoute');
                 if (savedRoute) {
                     if (savedRoute === 'projectDisplay') {
                         this.isShow = false;
+                        this.activeId = 'projectDisplay';
                         this.currentComp = projectDisplay;
                     } else {
+                        this.activeId = 'laboratory';
                         this.pageComponentType = savedRoute;
                         this.currentComp = laboratory;
                     }
@@ -234,13 +235,14 @@ export default {
                 } else {
                     this.currentComp = index;
                 }
+                this.init();
             } else {
                 this.currentComp = index;
             }
         },
         updateStatus(type, isShow) {
             this.isShow = isShow;
-            this.activeId = type;
+            this.activeId = 'projectDisplay';
             this.currentComp = projectDisplay;
             this.pageComponentType = type;
         },

@@ -37,6 +37,7 @@ export default {
                 this.updateStatus(this.type, false);
             } else {
                 checkout();
+                localStorage.setItem('savedRoute', 'projectDisplay');
             }
         }
     }
