@@ -104,9 +104,11 @@ export default {
     },
     methods: {
         enterTheExperiment(link) {
-            this.hrefLinkUrl = `${link + '/WebMessageSystem/index.html?token=' + this.token}`;
+            this.hrefLinkUrl = `${'/' + link + '/index.html?token=' + this.token}`;
             const linkElement = document.getElementById('link');
-            linkElement.click();
+            this.$nextTick(() => {
+                linkElement.click();
+            });
         }
     }
 };
