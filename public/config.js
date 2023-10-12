@@ -17,6 +17,89 @@ window.globalData = {
         './picture/bottomRotationDiagram2.jpg',
         './picture/bottomRotationDiagram1.jpg'
     ],
+    // 数据统计
+    // 饼图数据
+    cakeDiagramData: {
+        tooltip: {
+            trigger: 'item',
+            formatter: '{a} <br/>{b} : {c} ({d}%)'
+        },
+        legend: {
+            left: 'right',
+            data: ['教师', '游客', '学生']
+        },
+        series: [
+            {
+                name: '访问来源',
+                type: 'pie',
+                radius: '50%',
+                center: ['50%', '60%'],
+                data: [
+                    { value: 580, name: '教师', itemStyle: { color: '#f38d2c' } },
+                    { value: 484, name: '游客', itemStyle: { color: '#3a45e3' } },
+                    { value: 300, name: '学生', itemStyle: { color: '#4e3293' } }
+                ],
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    },
+    // 折线数据
+    foldingData: {
+        legend: {
+            left: 'right',
+            data: ['学生', '教师', '游客']
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['202208', '202209', '202210', '202211', '202212', '202301', '202302']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                data: [820, 932, 901, 934, 1290, 1330, 1320],
+                name: '学生',
+                type: 'line',
+                stack: '总量',
+                areaStyle: {},
+                itemStyle: { color: '#4e3293' }
+            },
+            {
+                data: [1820, 1932, 1901, 1934, 11290, 1130, 1320],
+                name: '教师',
+                type: 'line',
+                stack: '总量',
+                areaStyle: {},
+                itemStyle: { color: '#f38d2c' }
+            },
+            {
+                name: '游客',
+                type: 'line',
+                stack: '总量',
+                areaStyle: {},
+                data: [11820, 1932, 1901, 1934, 11290, 1130, 1320],
+                itemStyle: { color: '#3a45e3' },
+                label: {
+                    show: true,
+                    position: 'top'
+                }
+            }
+        ]
+    },
     // 实验数据
     experimentalData: [
         {
@@ -122,161 +205,6 @@ window.globalData = {
                 task: '总体设计、开发建设、在线教学',
                 avatar_url: './picture/avatar.png',
                 remark: '总体设计、开发建设、在线教学'
-            },
-            {
-                name: '魏娜',
-                position: '讲师',
-                schoolName: '西安理工大学',
-                task: '实验系统设计、维护、在线教学',
-                avatar_url: './picture/avatar.png',
-                remark: '总体设计、开发建设、在线教学'
-            },
-            {
-                name: '宋孝玉',
-                position: '教授',
-                schoolName: '西安理工大学',
-                task: '产汇流实验建设、在线教学',
-                avatar_url: './picture/avatar.png',
-                remark: '总体设计、开发建设、在线教学'
-            },
-            {
-                name: '张晓',
-                position: '讲师',
-                schoolName: '西安理工大学',
-                task: '洪水演进实验建设、在线教学',
-                avatar_url: './picture/avatar.png',
-                remark: '总体设计、开发建设、在线教学'
-            },
-            {
-                name: '解建仓',
-                position: '教授',
-                schoolName: '西安理工大学',
-                task: '洪水调控实验建设、在线教学',
-                avatar_url: './picture/avatar.png',
-                remark: '总体设计、开发建设、在线教学'
-            },
-            {
-                name: '汪妮',
-                position: '教授',
-                schoolName: '西安理工大学',
-                task: '在线教学、辅导答疑',
-                avatar_url: './picture/avatar.png',
-                remark: '总体设计、开发建设、在线教学'
-            },
-            {
-                name: '鲁克新',
-                position: '副教授',
-                schoolName: '西安理工大学',
-                task: '实验组织管理、在线教学',
-                avatar_url: './picture/avatar.png',
-                remark: '总体设计、开发建设、在线教学'
-            },
-            {
-                name: '黄领梅',
-                position: '副教授',
-                schoolName: '西安理工大学',
-                task: '在线教学、辅导答疑',
-                avatar_url: './picture/avatar.png',
-                remark: '总体设计、开发建设、在线教学'
-            },
-            {
-                name: '莫淑红',
-                position: '教授',
-                schoolName: '西安理工大学',
-                task: '实验推广、在线教学、辅导答疑',
-                avatar_url: './picture/avatar.png',
-                remark: '总体设计、开发建设、在线教学'
-            },
-            {
-                name: '孟静静',
-                position: '实验师',
-                schoolName: '西安理工大学',
-                task: '实验运维管理',
-                avatar_url: './picture/avatar.png',
-                remark: '总体设计、开发建设、在线教学'
-            }
-        ]
-    },
-    // 数据统计
-    // 饼图数据
-    cakeDiagramData: {
-        tooltip: {
-            trigger: 'item',
-            formatter: '{a} <br/>{b} : {c} ({d}%)'
-        },
-        legend: {
-            left: 'right',
-            data: ['教师', '游客', '学生']
-        },
-        series: [
-            {
-                name: '访问来源',
-                type: 'pie',
-                radius: '50%',
-                center: ['50%', '60%'],
-                data: [
-                    { value: 580, name: '教师', itemStyle: { color: '#f38d2c' } },
-                    { value: 484, name: '游客', itemStyle: { color: '#3a45e3' } },
-                    { value: 300, name: '学生', itemStyle: { color: '#4e3293' } }
-                ],
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                }
-            }
-        ]
-    },
-    // 折线数据
-    foldingData: {
-        legend: {
-            left: 'right',
-            data: ['学生', '教师', '游客']
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: ['202208', '202209', '202210', '202211', '202212', '202301', '202302']
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [
-            {
-                data: [820, 932, 901, 934, 1290, 1330, 1320],
-                name: '学生',
-                type: 'line',
-                stack: '总量',
-                areaStyle: {},
-                itemStyle: { color: '#4e3293' }
-            },
-            {
-                data: [1820, 1932, 1901, 1934, 11290, 1130, 1320],
-                name: '教师',
-                type: 'line',
-                stack: '总量',
-                areaStyle: {},
-                itemStyle: { color: '#f38d2c' }
-            },
-            {
-                name: '游客',
-                type: 'line',
-                stack: '总量',
-                areaStyle: {},
-                data: [11820, 1932, 1901, 1934, 11290, 1130, 1320],
-                itemStyle: { color: '#3a45e3' },
-                label: {
-                    show: true,
-                    position: 'top'
-                }
             }
         ]
     }
