@@ -344,9 +344,10 @@
     display: flex;
     width: 92%;
     margin: 32px auto;
+    align-items: center;
 }
 .ct_au_left {
-    width: 100px;
+    flex: 0 0 100px;
     height: 100px;
     border-radius: 50%;
     overflow: hidden;
