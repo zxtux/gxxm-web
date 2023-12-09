@@ -10,7 +10,9 @@
                 <div class="bg-[#fff] h-300px w-500px rounded-20px shadow">
                     <div class="float-right flex items-center bg-[#FFFAE8] p-10px rounded-20px">
                         <img src="picture/expert.png" class="w-20px h-20px" />
-                        <div class="text-size-16px color-[#F18E00] font-bold">专家入口</div>
+                        <div class="text-size-16px color-[#F18E00] font-bold" @click="zjlogin()">
+                            专家入口
+                        </div>
                     </div>
                     <div class="text-center pt-40px font-bold text-size-18px">- 用户登录 -</div>
                     <div class="login_form pt-20px">
@@ -102,6 +104,20 @@ export default {
                 params: {
                     password: this.password,
                     username: this.username
+                },
+                config: {
+                    checkToken: false
+                }
+            });
+            setToken(res.token);
+            this.$router.replace('home');
+        },
+        async zjlogin() {
+            const res = await this.$http.fetchData({
+                url: '/vr/authController/login',
+                params: {
+                    password: '000000',
+                    username: 'zhuanjia'
                 },
                 config: {
                     checkToken: false

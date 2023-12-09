@@ -24,6 +24,11 @@ export const routes = [
         component: () => import('@/views/login/register')
     },
     {
+        path: '/lineUp',
+        name: 'lineUp',
+        component: () => import('@/views/home/components/lineUp')
+    },
+    {
         path: '*',
         name: '404',
         component: () => import('@/views/error/404')

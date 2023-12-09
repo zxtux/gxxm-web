@@ -104,11 +104,11 @@ export default {
     },
     methods: {
         enterTheExperiment(link) {
-            this.hrefLinkUrl = `${'/' + link + '/index.html?token=' + this.token}`;
-            const linkElement = document.getElementById('link');
-            this.$nextTick(() => {
-                linkElement.click();
+            let routeUrl = this.$router.resolve({
+                path: '/lineUp',
+                query: { link: link }
             });
+            window.open(routeUrl.href, '_blank');
         }
     }
 };
