@@ -223,6 +223,7 @@ export default {
             if (result) {
                 const savedRoute = localStorage.getItem('savedRoute');
                 if (savedRoute) {
+                    await this.getUserInfo();
                     if (savedRoute === 'projectDisplay') {
                         this.isShow = false;
                         this.activeId = 'projectDisplay';
@@ -230,7 +231,7 @@ export default {
                     } else {
                         this.activeId = 'laboratory';
                         this.pageComponentType = savedRoute;
-                        this.currentComp = laboratory;
+                        this.currentComp = this.userType === '10' ? laboratoryStu : laboratory;
                     }
                     setTimeout(() => {
                         localStorage.removeItem('savedRoute');
@@ -240,6 +241,7 @@ export default {
                 }
                 this.init();
             } else {
+                this.accessWebsite();
                 this.currentComp = index;
             }
         },
@@ -252,6 +254,15 @@ export default {
         returnToTheMainMenu() {
             this.isShow = true;
             this.handleSelect(this.pageComponentType);
+        },
+        accessWebsite() {
+            this.$http.fetchData({
+                url: '/vr/system/visitController/accessWebsite',
+                type: 1,
+                config: {
+                    checkToken: false
+                }
+            });
         }
     }
 };

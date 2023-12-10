@@ -128,8 +128,86 @@ export default {
     data() {
         return {
             token: getToken(),
-            optionPie: window.globalData.cakeDiagramData,
-            optionLine: window.globalData.foldingData,
+            optionPie: {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                },
+                legend: {
+                    left: 'right',
+                    data: ['教师', '游客', '学生']
+                },
+                series: [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius: '50%',
+                        center: ['50%', '60%'],
+                        data: [
+                            { value: 580, name: '教师', itemStyle: { color: '#f38d2c' } },
+                            { value: 484, name: '游客', itemStyle: { color: '#3a45e3' } },
+                            { value: 300, name: '学生', itemStyle: { color: '#4e3293' } }
+                        ],
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            },
+            optionLine: {
+                legend: {
+                    left: 'right',
+                    data: ['学生', '教师', '游客']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['202208', '202209', '202210', '202211', '202212', '202301', '202302']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        data: [820, 932, 901, 934, 1290, 1330, 1320],
+                        name: '学生',
+                        type: 'line',
+                        stack: '总量',
+                        areaStyle: {},
+                        itemStyle: { color: '#4e3293' }
+                    },
+                    {
+                        data: [1820, 1932, 1901, 1934, 11290, 1130, 1320],
+                        name: '教师',
+                        type: 'line',
+                        stack: '总量',
+                        areaStyle: {},
+                        itemStyle: { color: '#f38d2c' }
+                    },
+                    {
+                        name: '游客',
+                        type: 'line',
+                        stack: '总量',
+                        areaStyle: {},
+                        data: [11820, 1932, 1901, 1934, 11290, 1130, 1320],
+                        itemStyle: { color: '#3a45e3' },
+                        label: {
+                            show: true,
+                            position: 'top'
+                        }
+                    }
+                ]
+            },
             videoType: 'introduction',
             classOption: {
                 limitMoveNum: 2,
@@ -138,10 +216,30 @@ export default {
         };
     },
 
-    mounted() {
+    async mounted() {
+        await this.queryAccessData();
         this.drawEchart();
     },
     methods: {
+        async queryAccessData() {
+            const res = await this.$http.fetchData({
+                url: '/vr/system/visitController/queryAccessData',
+                type: 2,
+                config: {
+                    checkToken: false
+                }
+            });
+            const { teacherY, yearAndMonthX, accessReferrer, touristY, studentY } = res.data;
+            this.optionLine.xAxis.data = yearAndMonthX;
+            this.optionLine.series[0].data = studentY;
+            this.optionLine.series[1].data = teacherY;
+            this.optionLine.series[2].data = touristY;
+            this.optionPie.series[0].data = [
+                { value: accessReferrer[0], name: '教师', itemStyle: { color: '#f38d2c' } },
+                { value: accessReferrer[2], name: '游客', itemStyle: { color: '#3a45e3' } },
+                { value: accessReferrer[1], name: '学生', itemStyle: { color: '#4e3293' } }
+            ];
+        },
         drawEchart() {
             let myPie = echarts.init(document.getElementById('myPie'));
             myPie.setOption(this.optionPie);
