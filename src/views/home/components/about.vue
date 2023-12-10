@@ -138,4 +138,13 @@ export default {
     height: auto;
     border-radius: 0;
 }
+.ct_au_RIItem {
+    font-size: 18px;
+}
+.ix_team_cont {
+    font-size: 18px;
+}
+.ct_au_right {
+    font-size: 18px;
+}
 </style>

@@ -62,6 +62,7 @@ import cases from './components/cases.vue';
 import materials from './components/materials.vue';
 import experimental from './components/experimental.vue';
 import laboratory from './components/laboratory.vue';
+import laboratoryStu from './components/laboratoryStu.vue';
 import about from './components/about.vue';
 import projectDisplay from './components/projectDisplay.vue';
 import { checkout, setToken, verifyAccessToken } from '@/utils/auth';
@@ -111,7 +112,8 @@ export default {
             show: false,
             reportList: [],
             isShow: true,
-            pageComponentType: 'index'
+            pageComponentType: 'index',
+            userType: ''
         };
     },
     mounted() {
@@ -148,7 +150,7 @@ export default {
                     break;
                 case 'laboratory':
                     if (result) {
-                        this.currentComp = laboratory;
+                        this.currentComp = this.userType === '10' ? laboratoryStu : laboratory;
                     } else {
                         checkout();
                         localStorage.setItem('savedRoute', 'laboratory');
@@ -170,6 +172,7 @@ export default {
                 type: 2
             });
             this.userName = res.data.nickName;
+            this.userType = res.data.userType;
         },
         close() {
             if (this.userName === '游客') {
