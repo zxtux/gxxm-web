@@ -205,17 +205,18 @@ export default {
                     checkToken: false
                 }
             });
-            const data = await this.$http.fetchData({
+            const res1 = await this.$http.fetchData({
                 url: '/vr/authController/libToLogin',
                 type: 1,
                 params: {
-                    username: res.username
+                    username: res.data.un,
+                    tokenRestVo: res.data
                 },
                 config: {
                     checkToken: false
                 }
             });
-            setToken(data.token);
+            setToken(res1.data.token);
             this.init();
         },
         async verifyToken() {
