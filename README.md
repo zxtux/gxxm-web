@@ -12,4 +12,6 @@ git config --global https.proxy http://127.0.0.1:7890
 SET NODE_OPTIONS=--openssl-legacy-provider &&
 
 
-https://xnfz.tongji.edu.cn/tongji/shenbao/nttr?ticket=HQaRLFe%2B4tVnVK7J0eq7H9GLuDc7V%2BLVk4kTM5ivBk738UHZ1p%2FMJfpKEqyYTKRhhXoVfrLeTy2BzvcNZvb78fkOAQcxPQqrHh0pBeajzQE%3D&token=AAABjJdGFJoBAAAAAAABjzM%3D.q1wKyCixucU8iCSjc%2Fob8FTXUj8LZgAZGgZCDeJ57EcogH0oNnW%2BIsfHDj21h87qazNE8sVMmrpqjt62yWRDPEim9XcLm%2F2AqRFG9jID5a4%3D.SHMRC4l5NM5ShvsmKe0z9Yg3OCWA%2Bwm3y%2FUDviY1iLs%3D
+
+
+http://47.94.165.170/#/home?token=AAABjJv4CW8BAAAAAAAAJxA%3D.VPL9S2Q2KFuhZSu9u1MWcA1ZaqxXuGN1SDJo%2FghqiER9eBtx7ms9EUzlDqm%2F%2F5RS9XlAPAqkd2fTsV7f8fuFgA%3D%3D.JLA8a4N%2BgshUBAGWhk9s%2FStAfoi3gprw%2FQGaoLT8iDs%3D&ticket=udhK4eTKk67bmlCRBqgaUr19jnzI4pSx8ZWwF1GvwIBB461g3622iPfmckVE875JA%2F8Rk0ukF3rlooZ4MxRNoukgpYFMlXfoqfzp0X6Wtho%3D
