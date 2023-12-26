@@ -14,4 +14,11 @@ SET NODE_OPTIONS=--openssl-legacy-provider &&
 
 
 
-http://47.94.165.170/#/home?token=AAABjJv4CW8BAAAAAAAAJxA%3D.VPL9S2Q2KFuhZSu9u1MWcA1ZaqxXuGN1SDJo%2FghqiER9eBtx7ms9EUzlDqm%2F%2F5RS9XlAPAqkd2fTsV7f8fuFgA%3D%3D.JLA8a4N%2BgshUBAGWhk9s%2FStAfoi3gprw%2FQGaoLT8iDs%3D&ticket=udhK4eTKk67bmlCRBqgaUr19jnzI4pSx8ZWwF1GvwIBB461g3622iPfmckVE875JA%2F8Rk0ukF3rlooZ4MxRNoukgpYFMlXfoqfzp0X6Wtho%3D
+http://172.16.100.126:5080?token=AAABjKWEUlsBAAAAAAAAJxA%3D.yKMnxF%2FulOBs93%2B0hxx1A%2FzKG70Y3rQfZB3v8IHQi0iyBQkuPY%2BEaisgeXURmtc2n6d0RhR0TMKygLjiHNgEaQ%3D%3D.kFYUCLRisPDeTpjGFRq0BP8iquy67JvnwCIu6O1fSXM%3D&ticket=o1%2BzECGBOvme4QEf9kPmIAlnMXJ7RjZqOIp7r5O7GZfGvj0cen7CouQp4zMh3taFaoJrcNoA3iLGzP%2BJfN31Zj20b%2FI1xvSOZtBppOmwzrI%3D
+
+https://www.ilab-x.com/
+http://172.16.100.126:5080
+
+http://39.105.173.29
+
+测试账号：test/test1/test2/test3/test4，密码：Test8888

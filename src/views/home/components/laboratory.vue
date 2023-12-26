@@ -63,7 +63,7 @@
                                     </template>
                                 </el-table-column>
                                 <el-table-column prop="score" label="实验成绩"></el-table-column>
-                                <el-table-column prop="startTime" label="实验开始时间" >
+                                <el-table-column prop="startTime" label="实验开始时间">
                                     <template slot-scope="scope">
                                         {{ formateT(scope.row.startTime) }}
                                     </template>
@@ -296,9 +296,7 @@
                                                             label="开始"
                                                         >
                                                             <template slot-scope="scope">
-                                                                {{
-                                                                    formateDate(scope.row.startTime)
-                                                                }}
+                                                                {{ formateT(scope.row.startTime) }}
                                                             </template>
                                                         </el-table-column>
                                                         <el-table-column
@@ -306,7 +304,7 @@
                                                             label="结束"
                                                         >
                                                             <template slot-scope="scope">
-                                                                {{ formateDate(scope.row.endTime) }}
+                                                                {{ formateT(scope.row.endTime) }}
                                                             </template>
                                                         </el-table-column>
                                                         <el-table-column
