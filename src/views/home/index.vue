@@ -117,7 +117,7 @@ export default {
         };
     },
     created() {
-        if (this.$route.query.ticket) {
+        if (window.location.search.includes('ticket')) {
             this.getAccessToken();
         } else {
             this.verifyToken();
@@ -198,7 +198,7 @@ export default {
             this.reportList = res.data;
         },
         async getAccessToken() {
-            const ticket = this.$route.fullPath.split('ticket=')[1]; // ticket
+            const ticket = window.location.search.split('ticket=')[1]; // ticket
             console.log('ticket', ticket);
             const res = await this.$http.fetchData({
                 url: '/vr/libController/getAccessToken?ticket=' + encodeURIComponent(ticket),
