@@ -14,7 +14,7 @@ export const getPlatformToken = async () => {
         url: '/vr/authController/libToLogin',
         type: 1,
         params: {
-            username: res.token.un,
+            username: platform === 'YZDX' ? res.token : res.token.un,
             tokenRestVo: res.token
         },
         config: {
