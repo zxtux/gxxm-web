@@ -66,6 +66,7 @@ import laboratoryStu from './components/laboratoryStu.vue';
 import about from './components/about.vue';
 import projectDisplay from './components/projectDisplay.vue';
 import { checkout, setToken, verifyAccessToken } from '@/utils/auth';
+import { getPlatformToken } from '@/utils/platform';
 
 export default {
     name: 'home',
@@ -198,27 +199,8 @@ export default {
             this.reportList = res.data;
         },
         async getAccessToken() {
-            const ticket = window.location.search.split('ticket=')[1]; // ticket
-            console.log('ticket', ticket);
-            const res = await this.$http.fetchData({
-                url: '/vr/libController/getAccessToken?ticket=' + encodeURIComponent(ticket),
-                type: 2,
-                config: {
-                    checkToken: false
-                }
-            });
-            const res1 = await this.$http.fetchData({
-                url: '/vr/authController/libToLogin',
-                type: 1,
-                params: {
-                    username: res.token.un,
-                    tokenRestVo: res.token
-                },
-                config: {
-                    checkToken: false
-                }
-            });
-            setToken(res1.token);
+            const res = await getPlatformToken();
+            setToken(res.token);
             this.init();
         },
         async verifyToken() {
