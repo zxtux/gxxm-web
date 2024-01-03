@@ -29,6 +29,10 @@
                             <img src="@/assets/images/user.png" />
                             <input placeholder="请输入姓名" v-model="nickName" type="text" />
                         </div>
+                        <div class="login_input custom-input">
+                            <img src="@/assets/images/school.png" />
+                            <input placeholder="请输入学校" v-model="school" type="text" />
+                        </div>
                         <div class="login_input college_input custom-input">
                             <img src="@/assets/images/college.png" />
                             <el-select v-model="college" placeholder="请选择学院">
@@ -53,6 +57,8 @@
 </template>
 
 <script>
+import { setToken } from '@/utils/auth';
+
 export default {
     name: 'register',
     data() {
@@ -61,6 +67,7 @@ export default {
             username: '',
             password: '',
             nickName: '',
+            school: '',
             college: '',
             grade: '',
             backgroundImgUrl: './picture/login_bg.png'
@@ -81,12 +88,34 @@ export default {
             this.collegeOptions = res.data.map(v => {
                 return { value: v.dictValue, label: v.dictLabel };
             });
+            this.college = this.collegeOptions[0].value;
         },
         async register() {
             if (this.username == '' || this.password == '') {
                 this.$notify.error({
                     title: '错误',
                     message: '账号与密码不能为空'
+                });
+                return;
+            }
+            if (this.nickName == '') {
+                this.$notify.error({
+                    title: '错误',
+                    message: '姓名不能为空'
+                });
+                return;
+            }
+            if (this.school == '') {
+                this.$notify.error({
+                    title: '错误',
+                    message: '学校不能为空'
+                });
+                return;
+            }
+            if (this.college == '') {
+                this.$notify.error({
+                    title: '错误',
+                    message: '学院不能为空'
                 });
                 return;
             }
@@ -112,8 +141,19 @@ export default {
                 this.$router.replace('login');
             }, 2000);
         },
-        jump() {
-            this.$router.replace('index');
+        async jump() {
+            const res = await this.$http.fetchData({
+                url: '/vr/authController/login',
+                params: {
+                    password: '000000',
+                    username: 'zhuanjia'
+                },
+                config: {
+                    checkToken: false
+                }
+            });
+            setToken(res.token);
+            this.$router.replace('home');
         }
     }
 };
