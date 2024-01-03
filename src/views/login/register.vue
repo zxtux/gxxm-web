@@ -31,7 +31,7 @@
                         </div>
                         <div class="login_input custom-input">
                             <img src="@/assets/images/school.png" />
-                            <input placeholder="请输入学校" v-model="school" type="text" />
+                            <input placeholder="请输入学校" v-model="university" type="text" />
                         </div>
                         <div class="login_input college_input custom-input">
                             <img src="@/assets/images/college.png" />
@@ -67,7 +67,7 @@ export default {
             username: '',
             password: '',
             nickName: '',
-            school: '',
+            university: '',
             college: '',
             grade: '',
             backgroundImgUrl: './picture/login_bg.png'
@@ -105,7 +105,7 @@ export default {
                 });
                 return;
             }
-            if (this.school == '') {
+            if (this.university == '') {
                 this.$notify.error({
                     title: '错误',
                     message: '学校不能为空'
@@ -126,7 +126,8 @@ export default {
                     username: this.username,
                     nickName: this.nickName,
                     college: this.college,
-                    grade: this.grade
+                    grade: this.grade,
+                    university: this.university
                 },
                 config: {
                     checkToken: false
