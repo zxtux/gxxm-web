@@ -107,7 +107,7 @@ export default {
                 url: '/vr/authController/login',
                 params: {
                     password: CryptoJS.AES.encrypt(this.password, key, { iv }).toString(),
-                    username: this.username
+                    username: CryptoJS.AES.encrypt(this.username, key, { iv }).toString()
                 },
                 config: {
                     checkToken: false
