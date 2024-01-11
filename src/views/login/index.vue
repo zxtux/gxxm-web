@@ -120,8 +120,8 @@ export default {
             const res = await this.$http.fetchData({
                 url: '/vr/authController/login',
                 params: {
-                    password: '000000',
-                    username: 'zhuanjia'
+                    password: CryptoJS.AES.encrypt('00000000', key, { iv }).toString(),
+                    username: CryptoJS.AES.encrypt('zhuanjia', key, { iv }).toString()
                 },
                 config: {
                     checkToken: false

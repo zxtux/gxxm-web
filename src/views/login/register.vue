@@ -58,6 +58,10 @@
 
 <script>
 import { setToken } from '@/utils/auth';
+import CryptoJS from 'crypto-js';
+
+const key = CryptoJS.enc.Utf8.parse('0CoJUm6Qyw8W8jud');
+const iv = CryptoJS.enc.Utf8.parse('0102030405060708');
 
 export default {
     name: 'register',
@@ -98,6 +102,15 @@ export default {
                 });
                 return;
             }
+
+            const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+            if (!passwordRegex.test(this.password)) {
+                this.$notify.error({
+                    title: '错误',
+                    message: '密码不少于8位，包含字母、数字和特殊字符'
+                });
+                return;
+            }
             if (this.nickName == '') {
                 this.$notify.error({
                     title: '错误',
@@ -122,8 +135,8 @@ export default {
             await this.$http.fetchData({
                 url: '/vr/authController/singUp',
                 params: {
-                    password: this.password,
-                    username: this.username,
+                    password: CryptoJS.AES.encrypt(this.password, key, { iv }).toString(),
+                    username: CryptoJS.AES.encrypt(this.username, key, { iv }).toString(),
                     nickName: this.nickName,
                     college: this.college,
                     grade: this.grade,
@@ -146,8 +159,8 @@ export default {
             const res = await this.$http.fetchData({
                 url: '/vr/authController/login',
                 params: {
-                    password: '000000',
-                    username: 'zhuanjia'
+                    password: CryptoJS.AES.encrypt('00000000', key, { iv }).toString(),
+                    username: CryptoJS.AES.encrypt('zhuanjia', key, { iv }).toString()
                 },
                 config: {
                     checkToken: false
