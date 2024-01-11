@@ -3,13 +3,14 @@
     "private": true,
     "scripts": {
         "bootstrap": "yarn || npm i",
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build"
+        "serve": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
+        "build": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build"
     },
     "dependencies": {
         "@unocss/webpack": "^0.53.3",
         "axios": "0.19.2",
         "core-js": "^3.30.0",
+        "crypto-js": "^4.2.0",
         "echarts": "^5.4.2",
         "element-ui": "2.13.2",
         "html2canvas": "^1.4.1",

@@ -64,6 +64,10 @@
 
 <script>
 import { setToken } from '@/utils/auth';
+import CryptoJS from 'crypto-js';
+
+const key = CryptoJS.enc.Utf8.parse('0CoJUm6Qyw8W8jud');
+const iv = CryptoJS.enc.Utf8.parse('0102030405060708');
 
 export default {
     name: 'Login',
@@ -102,7 +106,7 @@ export default {
             const res = await this.$http.fetchData({
                 url: '/vr/authController/login',
                 params: {
-                    password: this.password,
+                    password: CryptoJS.AES.encrypt(this.password, key, { iv }).toString(),
                     username: this.username
                 },
                 config: {
