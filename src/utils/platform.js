@@ -24,7 +24,9 @@ export const getPlatformToken = async () => {
 };
 
 async function getGJPT() {
-    const ticket = window.location.search.split('ticket=')[1];
+    const queryString = window.location.search;
+    const params = new URLSearchParams(queryString);
+    const ticket = params.get('ticket');
     return await new Http().fetchData({
         url: '/vr/libController/getAccessToken?ticket=' + encodeURIComponent(ticket),
         type: 2,

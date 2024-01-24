@@ -29,3 +29,5 @@ http://172.16.100.126:5080?ticket=HAPQD6hM4FdhPcmaJfRhcWSnJ2adBWpe&code=756e4153
 
 
 固定参数：账号（输入、不可空）、密码（输入、不可空）、姓名（输入、不可空）、学校（输入、不可空）、学院（下拉、默认数据库第一个把）、班级（输入、可空）
+
+http://172.16.100.126:5080?ticket=5jPvWooCMoMjn4JoidgxXvCrPMrP04chnPBHamFUikhBqwolwejYOW%2BepZLxpf5y5fcHX%2FYtFsYkG8SsSr4eYJ%2FVoNm0rcPF%2FlsXySAzc74%3D&token=AAABjTkzosMBAAAAAAABqAg%3D.MRK606pAE%2FIDDCXfhmBf%2BDR1VldO08Pw2A2HMc0RA7izJ0LdnaT04qCj00G3rdgKAKKrWaTBt9%2BEwYe36NAIncsYGX05jQ%2FtI5w5G6o17n8%3D.6pOF8cZxTePrYAvUjxU2aIbjqtjREXp%2BvPnL9q3yo5o%3D

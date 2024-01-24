@@ -65,12 +65,12 @@
                                 <el-table-column prop="score" label="实验成绩"></el-table-column>
                                 <el-table-column prop="startTime" label="实验开始时间">
                                     <template slot-scope="scope">
-                                        {{ formateT(scope.row.startTime) }}
+                                        {{ formateTime(scope.row.startTime) }}
                                     </template>
                                 </el-table-column>
                                 <el-table-column prop="endTime" label="实验结束时间">
                                     <template slot-scope="scope">
-                                        {{ formateT(scope.row.endTime) }}
+                                        {{ formateTime(scope.row.endTime) }}
                                     </template>
                                 </el-table-column>
                                 <el-table-column
@@ -296,7 +296,9 @@
                                                             label="开始"
                                                         >
                                                             <template slot-scope="scope">
-                                                                {{ formateT(scope.row.startTime) }}
+                                                                {{
+                                                                    formateTime(scope.row.startTime)
+                                                                }}
                                                             </template>
                                                         </el-table-column>
                                                         <el-table-column
@@ -304,7 +306,7 @@
                                                             label="结束"
                                                         >
                                                             <template slot-scope="scope">
-                                                                {{ formateT(scope.row.endTime) }}
+                                                                {{ formateTime(scope.row.endTime) }}
                                                             </template>
                                                         </el-table-column>
                                                         <el-table-column

@@ -1,5 +1,5 @@
 window.globalData = {
-    platform: 'YZDX', //国家平台：GJPT  扬州大学：YZDX
+    platform: 'GJPT', //国家平台：GJPT  扬州大学：YZDX
     // 项目名称
     title: '针灸虚拟仿真实验',
     // 主题
