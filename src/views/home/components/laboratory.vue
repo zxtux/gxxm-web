@@ -253,7 +253,7 @@
                                             </template>
                                             <template
                                                 v-if="
-                                                    item.experimentprocesspanel.message.length > 0
+                                                    item.experimentprocesspanel.messages.length > 0
                                                 "
                                             >
                                                 <div class="bgrey lineh40">
@@ -266,7 +266,7 @@
                                                     <div
                                                         class="experCont"
                                                         v-for="(item2, index2) in item
-                                                            .experimentprocesspanel.message"
+                                                            .experimentprocesspanel.messages"
                                                         :key="index2"
                                                     >
                                                         <div>
