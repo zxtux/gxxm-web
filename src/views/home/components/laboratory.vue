@@ -43,7 +43,7 @@
                     <div class="px-60px">
                         <el-divider />
                     </div>
-                    <div v-if="!isDetail">
+                    <div v-if="!isDetail && displayedList.length > 0">
                         <div class="sl_newContent flex justify-center">
                             <el-table
                                 ref="multipleTable"
@@ -423,10 +423,16 @@ export default {
         displayedList() {
             const startIndex = (this.currentPage - 1) * this.pageSize;
             const endIndex = startIndex + this.pageSize;
-            return this.list.slice(startIndex, endIndex);
+            return this.list.length > 0 ? this.list.slice(startIndex, endIndex) : [];
         },
         reportStr() {
-            return this.inputValue ? false : this.displayedList[0].report_summary ? true : false;
+            return this.list.length > 0
+                ? false
+                : this.inputValue
+                ? false
+                : this.displayedList[0].report_summary
+                ? true
+                : false;
         }
     },
     methods: {

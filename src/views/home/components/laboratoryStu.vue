@@ -164,7 +164,7 @@
                                             </div>
                                         </template>
                                         <template
-                                            v-if="item.experimentprocesspanel.message.length > 0"
+                                            v-if="item.experimentprocesspanel.messages.length > 0"
                                         >
                                             <div class="bgrey lineh40">
                                                 {{ item.experimentprocesspanel.head }}
@@ -176,7 +176,7 @@
                                                 <div
                                                     class="experCont"
                                                     v-for="(item2, index2) in item
-                                                        .experimentprocesspanel.message"
+                                                        .experimentprocesspanel.messages"
                                                     :key="index2"
                                                 >
                                                     <div>{{ index2 + 1 }}. {{ item2.topic }}</div>
@@ -199,12 +199,12 @@
                                                     ></el-table-column>
                                                     <el-table-column prop="startTime" label="开始">
                                                         <template slot-scope="scope">
-                                                            {{ formateDate(scope.row.startTime) }}
+                                                            {{ formateTime(scope.row.startTime) }}
                                                         </template>
                                                     </el-table-column>
                                                     <el-table-column prop="endTime" label="结束">
                                                         <template slot-scope="scope">
-                                                            {{ formateDate(scope.row.endTime) }}
+                                                            {{ formateTime(scope.row.endTime) }}
                                                         </template>
                                                     </el-table-column>
                                                     <el-table-column
@@ -334,9 +334,6 @@ export default {
     methods: {
         handleChange(value) {
             this.inputValue = value;
-        },
-        formateDate(time) {
-            return time ? this.$moment(time).format('YYYY-MM-DD') : '';
         },
         formateTime(time) {
             return time ? this.$moment(time).format('YYYY-MM-DD  hh:mm:ss') : '';

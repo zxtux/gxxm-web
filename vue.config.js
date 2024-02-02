@@ -43,7 +43,7 @@ module.exports = {
         },
         proxy: {
             '/vr': {
-                target: 'http://47.94.165.170/',
+                target: 'https://cx-whe.xaut.edu.cn:8085',
                 changeOrigin: true,
                 logLevel: 'debug'
             }
