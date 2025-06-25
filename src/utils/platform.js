@@ -6,15 +6,21 @@ export const getPlatformToken = async () => {
 
     if (platform === 'YZDX') {
         res = await getYZDX();
+    } else if (platform === 'XALG') {
+        res = await getXALG();
     } else {
         res = await getGJPT();
     }
 
     return await new Http().fetchData({
-        url: '/vr/authController/libToLogin',
+        url:
+            platform === 'XALG'
+                ? '/vr/authController/xautlibToLogin'
+                : '/vr/authController/libToLogin',
         type: 1,
         params: {
-            username: platform === 'YZDX' ? res.token : res.token.un,
+            username:
+                platform === 'YZDX' ? res.token : platform === 'XALG' ? res.token.un : res.token.un,
             tokenRestVo: res.token
         },
         config: {
@@ -48,6 +54,19 @@ async function getYZDX() {
             encodeURIComponent(ticket) +
             '&code=' +
             encodeURIComponent(code),
+        type: 2,
+        config: {
+            checkToken: false
+        }
+    });
+}
+
+async function getXALG() {
+    const queryString = window.location.search;
+    const params = new URLSearchParams(queryString);
+    const ticket = params.get('ticket');
+    return await new Http().fetchData({
+        url: '/vr/xautController/getAccessToken?ticket=' + encodeURIComponent(ticket),
         type: 2,
         config: {
             checkToken: false
