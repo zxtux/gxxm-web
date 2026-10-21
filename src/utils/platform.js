@@ -11,8 +11,8 @@ const aesDecrypt = text => CryptoJS.AES.decrypt(text, key, { iv }).toString(Cryp
 export const getPlatformToken = async () => {
     let res;
     let platform = window.globalData.platform;
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get('platform');
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get('platform');
     if (code) {
         platform = code;
     }
