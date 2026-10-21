@@ -1,4 +1,12 @@
+import CryptoJS from 'crypto-js';
 import Http from './request';
+
+const key = CryptoJS.enc.Utf8.parse('0CoJUm6Qyw8W8jud');
+const iv = CryptoJS.enc.Utf8.parse('0102030405060708');
+
+const aesEncrypt = text => CryptoJS.AES.encrypt(String(text), key, { iv }).toString();
+
+const aesDecrypt = text => CryptoJS.AES.decrypt(text, key, { iv }).toString(CryptoJS.enc.Utf8);
 
 export const getPlatformToken = async () => {
     let res;
@@ -12,21 +20,35 @@ export const getPlatformToken = async () => {
         res = await getGJPT();
     }
 
-    return await new Http().fetchData({
-        url:
-            platform === 'XALG'
-                ? '/vr/authController/xautlibToLogin'
-                : '/vr/authController/libToLogin',
+    const username = platform === 'YZDX' ? res.token : res.token.un;
+    const isLibToLogin = platform !== 'XALG';
+    const params = {
+        username: isLibToLogin ? aesEncrypt(username) : username,
+        tokenRestVo: res.token
+    };
+
+    if (isLibToLogin) {
+        const time = Date.now();
+        params.time = time;
+        params.validate = aesEncrypt(`${username},${time},YYSD`);
+    }
+
+    const loginRes = await new Http().fetchData({
+        url: isLibToLogin
+            ? '/vr/authController/libToLogin'
+            : '/vr/authController/xautlibToLogin',
         type: 1,
-        params: {
-            username:
-                platform === 'YZDX' ? res.token : platform === 'XALG' ? res.token.un : res.token.un,
-            tokenRestVo: res.token
-        },
+        params,
         config: {
             checkToken: false
         }
     });
+
+    if (isLibToLogin && loginRes && loginRes.token) {
+        loginRes.token = aesDecrypt(loginRes.token);
+    }
+
+    return loginRes;
 };
 
 async function getGJPT() {
