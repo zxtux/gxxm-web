@@ -10,8 +10,12 @@ const aesDecrypt = text => CryptoJS.AES.decrypt(text, key, { iv }).toString(Cryp
 
 export const getPlatformToken = async () => {
     let res;
-    const platform = window.globalData.platform;
-
+    let platform = window.globalData.platform;
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('platform');
+    if (code) {
+        platform = code;
+    }
     if (platform === 'YZDX') {
         res = await getYZDX();
     } else if (platform === 'XALG') {
